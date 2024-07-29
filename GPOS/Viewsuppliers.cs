@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GPOS.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -31,13 +32,14 @@ namespace GPOS
 
         private void label6_Click(object sender, EventArgs e)
         {
-
+            Viewsuppliers Obj = new Viewsuppliers();
+            Obj.Show();
+            this.Close();
         }
-        SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\GidCode\Desktop\CodeMe\GPOSDB.mdf;Integrated Security=True;Connect Timeout=30");
 
-        /// <summary>
-        /// this function display product dataset/table
-        /// </summary>
+
+
+        SqlConnection Con = new SqlConnection(@"DESKTOP-NQAIIND\SQLEXPRESS; Initial Catalog=mydb; Integrated Security = True; Connect Timeout = 30; ");
         private void DisplaySuppliers()
         {
             Con.Open();
@@ -160,6 +162,13 @@ namespace GPOS
         private void Viewsuppliers_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+            SuppliersAdd Obj = new SuppliersAdd();
+            Obj.Show();
+            this.Close();
         }
     }
 }

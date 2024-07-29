@@ -32,7 +32,13 @@ namespace GPOS
             CusPhone.Text = "";
             CusRem.Text = "";
         }
-        SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\GidCode\Desktop\CodeMe\GPOSDB.mdf;Integrated Security=True;Connect Timeout=30");
+        //SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\GidCode\Desktop\CodeMe\GPOSDB.mdf;Integrated Security=True;Connect Timeout=30");
+        //  SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\GidCode\Desktop\CodeMe\actualManagement\GPOS\GPOS\GidPosDB.mdf;Integrated Security=True;Connect Timeout=30");
+        //SqlConnection Con = GetDBConnection.GetConnect();
+       // SqlConnection Con = new SqlConnection(@"Data Source=DESKTOP-NQAIIND\SQLEXPRESS; Initial Catalog=mydb; Integrated Security = True; Connect Timeout = 30; ");
+        SqlConnection  Con = new SqlConnection(@"Data Source =\SQLExpress;AttachDbFilename=|DataDirectory|mystocks.mdf;Database=mystocks;Trusted_Connection=Yes");
+
+       // SqlConnection Con = DatabaseHelper.GetConnection();
         private void button1_Click(object sender, EventArgs e)
         {
             if (CusName.Text == "" || CusAdd.Text == "" || CusPhone.Text == "" || CusRem.Text == "")
@@ -52,7 +58,7 @@ namespace GPOS
                     cmd.Parameters.AddWithValue("@CR", CusRem.Text);
 
                     cmd.ExecuteNonQuery();
-                    MBox1.Show("Supplier Added");
+                    MBox1.Show("Customer Added");
                     Con.Close();
                     Reset();
                 }

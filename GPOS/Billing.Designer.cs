@@ -30,9 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Billing));
             label12 = new Label();
-            SupRem = new TextBox();
             label10 = new Label();
-            SupplierDGV = new DataGridView();
+            BillDGV = new DataGridView();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
+            Column3 = new DataGridViewTextBoxColumn();
+            Column4 = new DataGridViewTextBoxColumn();
+            Column5 = new DataGridViewTextBoxColumn();
             label14 = new Label();
             panel2 = new Panel();
             label8 = new Label();
@@ -49,25 +53,42 @@
             pictureBox3 = new PictureBox();
             label1 = new Label();
             pictureBox1 = new PictureBox();
-            label11 = new Label();
             panel3 = new Panel();
             label3 = new Label();
             panel1 = new Panel();
             label2 = new Label();
             pictureBox2 = new PictureBox();
-            button2 = new Button();
-            button1 = new Button();
-            SupPhone = new TextBox();
-            SupName = new TextBox();
-            CustomerIDCB = new ComboBox();
-            dateTimePicker1 = new DateTimePicker();
-            Payment = new ComboBox();
+            CusNameCB = new TextBox();
+            CusIDCB = new ComboBox();
+            BDateCB = new DateTimePicker();
             panel4 = new Panel();
+            button2 = new Button();
             AddBtn = new Button();
-            textBox1 = new TextBox();
-            label15 = new Label();
+            Search = new TextBox();
             groupBox1 = new GroupBox();
-            ((System.ComponentModel.ISupportInitialize)SupplierDGV).BeginInit();
+            pictureBox9 = new PictureBox();
+            button3 = new Button();
+            ProductsDVG = new DataGridView();
+            SubTotal = new TextBox();
+            panel5 = new Panel();
+            label18 = new Label();
+            label16 = new Label();
+            TotalDiscount = new TextBox();
+            label17 = new Label();
+            TotTaxTb = new TextBox();
+            PaymentCB = new ComboBox();
+            GrdTotal = new TextBox();
+            discountTb = new TextBox();
+            label15 = new Label();
+            VATtb = new TextBox();
+            label13 = new Label();
+            button4 = new Button();
+            label19 = new Label();
+            Quantity = new TextBox();
+            printDocument1 = new System.Drawing.Printing.PrintDocument();
+            printPreviewDialog1 = new PrintPreviewDialog();
+            BtnEdit = new Button();
+            ((System.ComponentModel.ISupportInitialize)BillDGV).BeginInit();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
@@ -80,50 +101,75 @@
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel4.SuspendLayout();
+            groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ProductsDVG).BeginInit();
+            panel5.SuspendLayout();
             SuspendLayout();
             // 
             // label12
             // 
             label12.AutoSize = true;
-            label12.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label12.Location = new Point(680, 341);
+            label12.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label12.Location = new Point(7, 9);
             label12.Name = "label12";
-            label12.Size = new Size(74, 18);
+            label12.Size = new Size(66, 14);
             label12.TabIndex = 100;
-            label12.Text = "Remarks";
-            // 
-            // SupRem
-            // 
-            SupRem.Location = new Point(681, 363);
-            SupRem.Multiline = true;
-            SupRem.Name = "SupRem";
-            SupRem.Size = new Size(298, 41);
-            SupRem.TabIndex = 93;
+            label12.Text = "Sub Total";
+            label12.Click += label12_Click;
             // 
             // label10
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label10.ForeColor = Color.FromArgb(255, 128, 0);
-            label10.Location = new Point(941, 433);
+            label10.Location = new Point(934, 490);
             label10.Name = "label10";
             label10.Size = new Size(44, 18);
             label10.TabIndex = 99;
             label10.Text = "Back";
+            label10.Click += label10_Click;
             // 
-            // SupplierDGV
+            // BillDGV
             // 
-            SupplierDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            SupplierDGV.Location = new Point(89, 273);
-            SupplierDGV.Name = "SupplierDGV";
-            SupplierDGV.Size = new Size(526, 189);
-            SupplierDGV.TabIndex = 89;
+            BillDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            BillDGV.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5 });
+            BillDGV.Location = new Point(32, 302);
+            BillDGV.Name = "BillDGV";
+            BillDGV.Size = new Size(382, 189);
+            BillDGV.TabIndex = 89;
+            BillDGV.CellContentClick += SupplierDGV_CellContentClick;
+            // 
+            // Column1
+            // 
+            Column1.HeaderText = "Num";
+            Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            Column2.HeaderText = "Product";
+            Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            Column3.HeaderText = "Quantity";
+            Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            Column4.HeaderText = "Price";
+            Column4.Name = "Column4";
+            // 
+            // Column5
+            // 
+            Column5.HeaderText = "SubTotal";
+            Column5.Name = "Column5";
             // 
             // label14
             // 
             label14.AutoSize = true;
             label14.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label14.Location = new Point(89, 126);
+            label14.Location = new Point(33, 159);
             label14.Name = "label14";
             label14.Size = new Size(130, 18);
             label14.TabIndex = 92;
@@ -145,7 +191,7 @@
             panel2.Controls.Add(pictureBox4);
             panel2.Controls.Add(label4);
             panel2.Controls.Add(pictureBox3);
-            panel2.Location = new Point(419, 46);
+            panel2.Location = new Point(407, 46);
             panel2.Name = "panel2";
             panel2.Size = new Size(635, 29);
             panel2.TabIndex = 85;
@@ -159,6 +205,7 @@
             label8.Size = new Size(42, 18);
             label8.TabIndex = 18;
             label8.Text = "View ";
+            label8.Click += label8_Click;
             // 
             // pictureBox7
             // 
@@ -274,37 +321,28 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Stencil", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(125, 46);
+            label1.Location = new Point(74, 27);
             label1.Name = "label1";
             label1.Size = new Size(52, 19);
             label1.TabIndex = 88;
             label1.Text = "GPOS";
+            label1.Click += label1_Click;
             // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(89, 32);
+            pictureBox1.Location = new Point(32, 16);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(36, 39);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 86;
             pictureBox1.TabStop = false;
             // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label11.Location = new Point(679, 286);
-            label11.Name = "label11";
-            label11.Size = new Size(54, 18);
-            label11.TabIndex = 90;
-            label11.Text = "Phone";
-            // 
             // panel3
             // 
             panel3.BackColor = Color.Yellow;
             panel3.Controls.Add(label3);
-            panel3.Location = new Point(305, 14);
+            panel3.Location = new Point(293, 14);
             panel3.Name = "panel3";
             panel3.Size = new Size(154, 18);
             panel3.TabIndex = 87;
@@ -325,7 +363,7 @@
             panel1.BackColor = Color.Black;
             panel1.Controls.Add(label2);
             panel1.Controls.Add(pictureBox2);
-            panel1.Location = new Point(390, 2);
+            panel1.Location = new Point(378, 2);
             panel1.Name = "panel1";
             panel1.Size = new Size(665, 44);
             panel1.TabIndex = 84;
@@ -350,123 +388,323 @@
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 4;
             pictureBox2.TabStop = false;
+            pictureBox2.Click += pictureBox2_Click;
             // 
-            // button2
+            // CusNameCB
             // 
-            button2.BackColor = Color.Red;
-            button2.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.ForeColor = Color.White;
-            button2.Location = new Point(803, 417);
-            button2.Name = "button2";
-            button2.Padding = new Padding(5);
-            button2.Size = new Size(112, 34);
-            button2.TabIndex = 97;
-            button2.Text = "Delete";
-            button2.UseVisualStyleBackColor = false;
+            CusNameCB.Location = new Point(32, 180);
+            CusNameCB.Name = "CusNameCB";
+            CusNameCB.Size = new Size(298, 23);
+            CusNameCB.TabIndex = 96;
+            CusNameCB.TextChanged += SupName_TextChanged;
             // 
-            // button1
+            // CusIDCB
             // 
-            button1.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(685, 417);
-            button1.Name = "button1";
-            button1.Size = new Size(112, 34);
-            button1.TabIndex = 98;
-            button1.Text = "Edit";
-            button1.UseVisualStyleBackColor = true;
+            CusIDCB.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            CusIDCB.FormattingEnabled = true;
+            CusIDCB.Location = new Point(32, 128);
+            CusIDCB.Name = "CusIDCB";
+            CusIDCB.Size = new Size(298, 25);
+            CusIDCB.TabIndex = 101;
+            CusIDCB.Text = "Customer ID";
+            CusIDCB.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            CusIDCB.SelectionChangeCommitted += CusIDCB_SelectionChangeCommitted;
+            CusIDCB.SelectedValueChanged += CusIDCB_SelectedValueChanged;
             // 
-            // SupPhone
+            // BDateCB
             // 
-            SupPhone.Location = new Point(680, 309);
-            SupPhone.Name = "SupPhone";
-            SupPhone.Size = new Size(298, 23);
-            SupPhone.TabIndex = 94;
-            // 
-            // SupName
-            // 
-            SupName.Location = new Point(89, 152);
-            SupName.Name = "SupName";
-            SupName.Size = new Size(298, 23);
-            SupName.TabIndex = 96;
-            SupName.TextChanged += SupName_TextChanged;
-            // 
-            // CustomerIDCB
-            // 
-            CustomerIDCB.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            CustomerIDCB.FormattingEnabled = true;
-            CustomerIDCB.Location = new Point(89, 100);
-            CustomerIDCB.Name = "CustomerIDCB";
-            CustomerIDCB.Size = new Size(298, 25);
-            CustomerIDCB.TabIndex = 101;
-            CustomerIDCB.Text = "Customer ID";
-            CustomerIDCB.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
-            // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dateTimePicker1.Format = DateTimePickerFormat.Short;
-            dateTimePicker1.Location = new Point(89, 191);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(298, 23);
-            dateTimePicker1.TabIndex = 102;
-            // 
-            // Payment
-            // 
-            Payment.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Payment.FormattingEnabled = true;
-            Payment.Items.AddRange(new object[] { "Momo", "Cash", "Card" });
-            Payment.Location = new Point(89, 225);
-            Payment.Name = "Payment";
-            Payment.Size = new Size(298, 25);
-            Payment.TabIndex = 101;
-            Payment.Text = "Payment Method";
-            Payment.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            BDateCB.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BDateCB.Format = DateTimePickerFormat.Short;
+            BDateCB.Location = new Point(32, 225);
+            BDateCB.Name = "BDateCB";
+            BDateCB.Size = new Size(298, 23);
+            BDateCB.TabIndex = 102;
             // 
             // panel4
             // 
+            panel4.Controls.Add(button2);
             panel4.Controls.Add(AddBtn);
-            panel4.Location = new Point(433, 100);
+            panel4.Location = new Point(448, 197);
             panel4.Name = "panel4";
-            panel4.Size = new Size(144, 150);
+            panel4.Size = new Size(96, 189);
             panel4.TabIndex = 103;
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.FromArgb(0, 64, 64);
+            button2.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button2.ForeColor = Color.White;
+            button2.Location = new Point(7, 105);
+            button2.Name = "button2";
+            button2.Padding = new Padding(5);
+            button2.Size = new Size(78, 34);
+            button2.TabIndex = 105;
+            button2.Text = "Refresh";
+            button2.UseVisualStyleBackColor = false;
             // 
             // AddBtn
             // 
             AddBtn.BackColor = Color.FromArgb(0, 64, 64);
             AddBtn.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             AddBtn.ForeColor = Color.White;
-            AddBtn.Location = new Point(18, 10);
+            AddBtn.Location = new Point(7, 65);
             AddBtn.Name = "AddBtn";
             AddBtn.Padding = new Padding(5);
-            AddBtn.Size = new Size(112, 34);
+            AddBtn.Size = new Size(78, 34);
             AddBtn.TabIndex = 104;
             AddBtn.Text = "Add";
             AddBtn.UseVisualStyleBackColor = false;
+            AddBtn.Click += AddBtn_Click;
             // 
-            // textBox1
+            // Search
             // 
-            textBox1.Location = new Point(627, 114);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(298, 23);
-            textBox1.TabIndex = 94;
+            Search.Location = new Point(6, 39);
+            Search.Name = "Search";
+            Search.Size = new Size(307, 25);
+            Search.TabIndex = 94;
+            Search.TextChanged += Search_TextChanged;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(pictureBox9);
+            groupBox1.Controls.Add(button3);
+            groupBox1.Controls.Add(Search);
+            groupBox1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            groupBox1.Location = new Point(550, 96);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(453, 98);
+            groupBox1.TabIndex = 104;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Search By Product Name";
+            groupBox1.Enter += groupBox1_Enter;
+            // 
+            // pictureBox9
+            // 
+            pictureBox9.Image = (Image)resources.GetObject("pictureBox9.Image");
+            pictureBox9.Location = new Point(400, 32);
+            pictureBox9.Name = "pictureBox9";
+            pictureBox9.Size = new Size(29, 33);
+            pictureBox9.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox9.TabIndex = 5;
+            pictureBox9.TabStop = false;
+            pictureBox9.Click += pictureBox9_Click;
+            // 
+            // button3
+            // 
+            button3.BackColor = Color.FromArgb(0, 64, 64);
+            button3.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button3.ForeColor = Color.White;
+            button3.Location = new Point(319, 31);
+            button3.Name = "button3";
+            button3.Padding = new Padding(5);
+            button3.Size = new Size(71, 40);
+            button3.TabIndex = 105;
+            button3.Text = "Search";
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
+            // 
+            // ProductsDVG
+            // 
+            ProductsDVG.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            ProductsDVG.Location = new Point(550, 197);
+            ProductsDVG.Name = "ProductsDVG";
+            ProductsDVG.ReadOnly = true;
+            ProductsDVG.ScrollBars = ScrollBars.Horizontal;
+            ProductsDVG.Size = new Size(457, 189);
+            ProductsDVG.TabIndex = 89;
+            ProductsDVG.CellContentClick += dataGridView1_CellContentClick;
+            // 
+            // SubTotal
+            // 
+            SubTotal.Location = new Point(81, 6);
+            SubTotal.Name = "SubTotal";
+            SubTotal.Size = new Size(122, 23);
+            SubTotal.TabIndex = 106;
+            // 
+            // panel5
+            // 
+            panel5.BorderStyle = BorderStyle.FixedSingle;
+            panel5.Controls.Add(label18);
+            panel5.Controls.Add(label16);
+            panel5.Controls.Add(TotalDiscount);
+            panel5.Controls.Add(label17);
+            panel5.Controls.Add(TotTaxTb);
+            panel5.Controls.Add(PaymentCB);
+            panel5.Controls.Add(GrdTotal);
+            panel5.Controls.Add(discountTb);
+            panel5.Controls.Add(label15);
+            panel5.Controls.Add(VATtb);
+            panel5.Controls.Add(label13);
+            panel5.Controls.Add(SubTotal);
+            panel5.Controls.Add(label12);
+            panel5.Location = new Point(550, 391);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(374, 117);
+            panel5.TabIndex = 107;
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label18.Location = new Point(9, 95);
+            label18.Name = "label18";
+            label18.Size = new Size(63, 14);
+            label18.TabIndex = 110;
+            label18.Text = "Grd Total";
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label16.Location = new Point(9, 67);
+            label16.Name = "label16";
+            label16.Size = new Size(61, 14);
+            label16.TabIndex = 110;
+            label16.Text = "Discount";
+            // 
+            // TotalDiscount
+            // 
+            TotalDiscount.Location = new Point(193, 61);
+            TotalDiscount.Name = "TotalDiscount";
+            TotalDiscount.Size = new Size(75, 23);
+            TotalDiscount.TabIndex = 109;
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label17.Location = new Point(163, 68);
+            label17.Name = "label17";
+            label17.Size = new Size(21, 14);
+            label17.TabIndex = 108;
+            label17.Text = "%";
+            // 
+            // TotTaxTb
+            // 
+            TotTaxTb.Enabled = false;
+            TotTaxTb.Location = new Point(192, 34);
+            TotTaxTb.Name = "TotTaxTb";
+            TotTaxTb.Size = new Size(75, 23);
+            TotTaxTb.TabIndex = 109;
+            // 
+            // PaymentCB
+            // 
+            PaymentCB.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            PaymentCB.FormattingEnabled = true;
+            PaymentCB.Items.AddRange(new object[] { "Momo", "Cash", "Card" });
+            PaymentCB.Location = new Point(169, 87);
+            PaymentCB.Name = "PaymentCB";
+            PaymentCB.Size = new Size(130, 25);
+            PaymentCB.TabIndex = 101;
+            PaymentCB.Text = "Payment Method";
+            PaymentCB.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            // 
+            // GrdTotal
+            // 
+            GrdTotal.Location = new Point(82, 89);
+            GrdTotal.Name = "GrdTotal";
+            GrdTotal.Size = new Size(75, 23);
+            GrdTotal.TabIndex = 106;
+            GrdTotal.TextChanged += GrdTotal_TextChanged;
+            // 
+            // discountTb
+            // 
+            discountTb.Location = new Point(82, 62);
+            discountTb.Name = "discountTb";
+            discountTb.Size = new Size(75, 23);
+            discountTb.TabIndex = 106;
+            discountTb.KeyUp += textBox5_KeyUp;
             // 
             // label15
             // 
             label15.AutoSize = true;
-            label15.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label15.Location = new Point(626, 91);
+            label15.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label15.Location = new Point(165, 40);
             label15.Name = "label15";
-            label15.Size = new Size(54, 18);
-            label15.TabIndex = 90;
-            label15.Text = "Phone";
+            label15.Size = new Size(21, 14);
+            label15.TabIndex = 108;
+            label15.Text = "%";
             // 
-            // groupBox1
+            // VATtb
             // 
-            groupBox1.Location = new Point(640, 152);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(250, 124);
-            groupBox1.TabIndex = 104;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "groupBox1";
+            VATtb.Location = new Point(82, 35);
+            VATtb.Name = "VATtb";
+            VATtb.Size = new Size(75, 23);
+            VATtb.TabIndex = 106;
+            VATtb.TextChanged += VATtb_TextChanged;
+            VATtb.KeyDown += VATtb_KeyDown;
+            VATtb.KeyUp += VATtb_KeyUp;
+            VATtb.MouseLeave += VATtb_MouseLeave;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label13.Location = new Point(9, 40);
+            label13.Name = "label13";
+            label13.Size = new Size(31, 14);
+            label13.TabIndex = 107;
+            label13.Text = "VAT";
+            // 
+            // button4
+            // 
+            button4.BackColor = Color.FromArgb(0, 64, 64);
+            button4.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button4.ForeColor = Color.White;
+            button4.Location = new Point(934, 450);
+            button4.Name = "button4";
+            button4.Size = new Size(85, 34);
+            button4.TabIndex = 98;
+            button4.Text = "Reset";
+            button4.UseVisualStyleBackColor = false;
+            button4.Click += button1_Click;
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label19.Location = new Point(33, 267);
+            label19.Name = "label19";
+            label19.Size = new Size(73, 18);
+            label19.TabIndex = 92;
+            label19.Text = "Quantity";
+            label19.Click += label14_Click;
+            // 
+            // Quantity
+            // 
+            Quantity.Location = new Point(107, 265);
+            Quantity.Name = "Quantity";
+            Quantity.Size = new Size(223, 23);
+            Quantity.TabIndex = 96;
+            Quantity.TextChanged += SupName_TextChanged;
+            // 
+            // printDocument1
+            // 
+            printDocument1.PrintPage += printDocument1_PrintPage;
+            // 
+            // printPreviewDialog1
+            // 
+            printPreviewDialog1.AutoScrollMargin = new Size(0, 0);
+            printPreviewDialog1.AutoScrollMinSize = new Size(0, 0);
+            printPreviewDialog1.ClientSize = new Size(400, 300);
+            printPreviewDialog1.Document = printDocument1;
+            printPreviewDialog1.Enabled = true;
+            printPreviewDialog1.Icon = (Icon)resources.GetObject("printPreviewDialog1.Icon");
+            printPreviewDialog1.Name = "printPreviewDialog1";
+            printPreviewDialog1.Visible = false;
+            // 
+            // BtnEdit
+            // 
+            BtnEdit.BackColor = Color.FromArgb(0, 64, 64);
+            BtnEdit.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BtnEdit.ForeColor = Color.White;
+            BtnEdit.Location = new Point(934, 401);
+            BtnEdit.Name = "BtnEdit";
+            BtnEdit.Size = new Size(85, 34);
+            BtnEdit.TabIndex = 98;
+            BtnEdit.Text = "Print";
+            BtnEdit.UseVisualStyleBackColor = false;
+            BtnEdit.Click += button1_Click;
             // 
             // Billing
             // 
@@ -474,33 +712,30 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1057, 521);
+            Controls.Add(panel5);
             Controls.Add(groupBox1);
             Controls.Add(panel4);
-            Controls.Add(dateTimePicker1);
-            Controls.Add(Payment);
-            Controls.Add(CustomerIDCB);
-            Controls.Add(label12);
-            Controls.Add(SupRem);
+            Controls.Add(BDateCB);
+            Controls.Add(CusIDCB);
             Controls.Add(label10);
-            Controls.Add(SupplierDGV);
+            Controls.Add(ProductsDVG);
+            Controls.Add(BillDGV);
+            Controls.Add(label19);
             Controls.Add(label14);
             Controls.Add(panel2);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
-            Controls.Add(label15);
-            Controls.Add(label11);
             Controls.Add(panel3);
             Controls.Add(panel1);
-            Controls.Add(button2);
-            Controls.Add(textBox1);
-            Controls.Add(button1);
-            Controls.Add(SupPhone);
-            Controls.Add(SupName);
+            Controls.Add(BtnEdit);
+            Controls.Add(button4);
+            Controls.Add(Quantity);
+            Controls.Add(CusNameCB);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Billing";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Billing";
-            ((System.ComponentModel.ISupportInitialize)SupplierDGV).EndInit();
+            ((System.ComponentModel.ISupportInitialize)BillDGV).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
@@ -516,6 +751,12 @@
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panel4.ResumeLayout(false);
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ProductsDVG).EndInit();
+            panel5.ResumeLayout(false);
+            panel5.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -523,9 +764,8 @@
         #endregion
 
         private Label label12;
-        private TextBox SupRem;
         private Label label10;
-        private DataGridView SupplierDGV;
+        private DataGridView BillDGV;
         private Label label14;
         private Panel panel2;
         private Label label8;
@@ -542,23 +782,49 @@
         private PictureBox pictureBox3;
         private Label label1;
         private PictureBox pictureBox1;
-        private Label label11;
         private Panel panel3;
         private Label label3;
         private Panel panel1;
         private Label label2;
         private PictureBox pictureBox2;
-        private Button button2;
-        private Button button1;
-        private TextBox SupPhone;
-        private TextBox SupName;
-        private ComboBox CustomerIDCB;
-        private DateTimePicker dateTimePicker1;
-        private ComboBox Payment;
+        private TextBox CusNameCB;
+        private ComboBox CusIDCB;
+        private DateTimePicker BDateCB;
         private Panel panel4;
         private Button AddBtn;
-        private TextBox textBox1;
-        private Label label15;
+        private TextBox Search;
         private GroupBox groupBox1;
+        private Button button3;
+        private DataGridView ProductsDVG;
+        private TextBox SubTotal;
+        private Panel panel5;
+        private Button button4;
+        private TextBox VATtb;
+        private Label label13;
+        private Label label18;
+        private Label label16;
+        private TextBox TotalDiscount;
+        private Label label17;
+        private TextBox TotTaxTb;
+        private ComboBox PaymentCB;
+        private TextBox GrdTotal;
+        private TextBox discountTb;
+        private Label label15;
+        private Button button2;
+        private PictureBox pictureBox9;
+#pragma warning disable CS0169 // The field 'Billing.QtyTb' is never used
+        private TextBox QtyTb;
+#pragma warning restore CS0169 // The field 'Billing.QtyTb' is never used
+        private Label label19;
+        private TextBox Quantity;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn Column3;
+        private DataGridViewTextBoxColumn Column4;
+        private DataGridViewTextBoxColumn Column5;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private PrintPreviewDialog printPreviewDialog1;
+        private Button BtnEdit;
+        //  private TextBox QtyTb;
     }
 }

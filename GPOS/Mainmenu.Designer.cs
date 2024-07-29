@@ -69,6 +69,9 @@
             label20 = new Label();
             label21 = new Label();
             pictureBox12 = new PictureBox();
+            btnStore = new Button();
+            button1 = new Button();
+            btnMonthlySales = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel2.SuspendLayout();
@@ -120,6 +123,7 @@
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 4;
             pictureBox2.TabStop = false;
+            pictureBox2.Click += pictureBox2_Click;
             // 
             // panel2
             // 
@@ -317,9 +321,9 @@
             panel4.Controls.Add(label10);
             panel4.Controls.Add(pictureBox9);
             panel4.ForeColor = Color.FromArgb(224, 224, 224);
-            panel4.Location = new Point(57, 100);
+            panel4.Location = new Point(57, 133);
             panel4.Name = "panel4";
-            panel4.Size = new Size(342, 188);
+            panel4.Size = new Size(342, 166);
             panel4.TabIndex = 4;
             // 
             // label12
@@ -361,7 +365,7 @@
             // pictureBox9
             // 
             pictureBox9.Image = (Image)resources.GetObject("pictureBox9.Image");
-            pictureBox9.Location = new Point(243, 127);
+            pictureBox9.Location = new Point(292, 124);
             pictureBox9.Name = "pictureBox9";
             pictureBox9.Size = new Size(36, 39);
             pictureBox9.SizeMode = PictureBoxSizeMode.Zoom;
@@ -376,9 +380,9 @@
             panel5.Controls.Add(label15);
             panel5.Controls.Add(pictureBox10);
             panel5.ForeColor = Color.FromArgb(224, 224, 224);
-            panel5.Location = new Point(557, 100);
+            panel5.Location = new Point(557, 133);
             panel5.Name = "panel5";
-            panel5.Size = new Size(342, 188);
+            panel5.Size = new Size(342, 166);
             panel5.TabIndex = 4;
             // 
             // label13
@@ -388,9 +392,9 @@
             label13.ForeColor = Color.Black;
             label13.Location = new Point(39, 71);
             label13.Name = "label13";
-            label13.Size = new Size(219, 17);
+            label13.Size = new Size(217, 17);
             label13.TabIndex = 5;
-            label13.Text = "information about your suppliers";
+            label13.Text = "information about your Products";
             label13.Click += label10_Click;
             // 
             // label14
@@ -412,15 +416,15 @@
             label15.ForeColor = Color.Black;
             label15.Location = new Point(40, 14);
             label15.Name = "label15";
-            label15.Size = new Size(86, 23);
+            label15.Size = new Size(78, 23);
             label15.TabIndex = 5;
-            label15.Text = "Suppliers";
+            label15.Text = "Products";
             label15.Click += label10_Click;
             // 
             // pictureBox10
             // 
             pictureBox10.Image = (Image)resources.GetObject("pictureBox10.Image");
-            pictureBox10.Location = new Point(243, 127);
+            pictureBox10.Location = new Point(293, 124);
             pictureBox10.Name = "pictureBox10";
             pictureBox10.Size = new Size(36, 39);
             pictureBox10.SizeMode = PictureBoxSizeMode.Zoom;
@@ -435,9 +439,9 @@
             panel6.Controls.Add(label18);
             panel6.Controls.Add(pictureBox11);
             panel6.ForeColor = Color.FromArgb(224, 224, 224);
-            panel6.Location = new Point(57, 305);
+            panel6.Location = new Point(57, 319);
             panel6.Name = "panel6";
-            panel6.Size = new Size(342, 188);
+            panel6.Size = new Size(342, 174);
             panel6.TabIndex = 4;
             // 
             // label16
@@ -471,15 +475,15 @@
             label18.ForeColor = Color.Black;
             label18.Location = new Point(40, 14);
             label18.Name = "label18";
-            label18.Size = new Size(86, 23);
+            label18.Size = new Size(88, 23);
             label18.TabIndex = 5;
-            label18.Text = "Suppliers";
+            label18.Text = "Customers";
             label18.Click += label10_Click;
             // 
             // pictureBox11
             // 
             pictureBox11.Image = (Image)resources.GetObject("pictureBox11.Image");
-            pictureBox11.Location = new Point(243, 127);
+            pictureBox11.Location = new Point(292, 132);
             pictureBox11.Name = "pictureBox11";
             pictureBox11.Size = new Size(36, 39);
             pictureBox11.SizeMode = PictureBoxSizeMode.Zoom;
@@ -494,9 +498,9 @@
             panel7.Controls.Add(label21);
             panel7.Controls.Add(pictureBox12);
             panel7.ForeColor = Color.FromArgb(224, 224, 224);
-            panel7.Location = new Point(557, 305);
+            panel7.Location = new Point(557, 319);
             panel7.Name = "panel7";
-            panel7.Size = new Size(342, 188);
+            panel7.Size = new Size(342, 174);
             panel7.TabIndex = 4;
             // 
             // label19
@@ -530,20 +534,60 @@
             label21.ForeColor = Color.Black;
             label21.Location = new Point(40, 14);
             label21.Name = "label21";
-            label21.Size = new Size(86, 23);
+            label21.Size = new Size(64, 23);
             label21.TabIndex = 5;
-            label21.Text = "Suppliers";
+            label21.Text = "Billing";
             label21.Click += label10_Click;
             // 
             // pictureBox12
             // 
             pictureBox12.Image = (Image)resources.GetObject("pictureBox12.Image");
-            pictureBox12.Location = new Point(243, 127);
+            pictureBox12.Location = new Point(286, 132);
             pictureBox12.Name = "pictureBox12";
             pictureBox12.Size = new Size(36, 39);
             pictureBox12.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox12.TabIndex = 2;
             pictureBox12.TabStop = false;
+            // 
+            // btnStore
+            // 
+            btnStore.BackColor = Color.Green;
+            btnStore.Font = new Font("Arial Rounded MT Bold", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnStore.ForeColor = Color.Yellow;
+            btnStore.Location = new Point(244, 89);
+            btnStore.Name = "btnStore";
+            btnStore.Size = new Size(155, 34);
+            btnStore.TabIndex = 5;
+            btnStore.Text = "Store Value";
+            btnStore.UseVisualStyleBackColor = false;
+            btnStore.Click += btnStore_Click;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.FromArgb(192, 0, 192);
+            button1.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(84, 90);
+            button1.Name = "button1";
+            button1.Padding = new Padding(5);
+            button1.Size = new Size(147, 34);
+            button1.TabIndex = 105;
+            button1.Text = "Check Daily Sales";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
+            // btnMonthlySales
+            // 
+            btnMonthlySales.BackColor = Color.Red;
+            btnMonthlySales.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnMonthlySales.ForeColor = Color.White;
+            btnMonthlySales.Location = new Point(557, 90);
+            btnMonthlySales.Name = "btnMonthlySales";
+            btnMonthlySales.Size = new Size(167, 33);
+            btnMonthlySales.TabIndex = 106;
+            btnMonthlySales.Text = "Check Monthly Sales";
+            btnMonthlySales.UseVisualStyleBackColor = false;
+            btnMonthlySales.Click += btnMonthlySales_Click;
             // 
             // Mainmenu
             // 
@@ -551,6 +595,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1057, 521);
+            Controls.Add(btnMonthlySales);
+            Controls.Add(button1);
+            Controls.Add(btnStore);
             Controls.Add(panel7);
             Controls.Add(panel5);
             Controls.Add(panel6);
@@ -636,5 +683,8 @@
         private Label label20;
         private Label label21;
         private PictureBox pictureBox12;
+        private Button btnStore;
+        private Button button1;
+        private Button btnMonthlySales;
     }
 }

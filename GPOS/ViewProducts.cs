@@ -37,11 +37,11 @@ namespace GPOS
             obj.Show();
             this.Hide();
         }
-        SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\GidCode\Desktop\CodeMe\GPOSDB.mdf;Integrated Security=True;Connect Timeout=30");
+        //  SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\GidCode\Desktop\CodeMe\GPOSDB.mdf;Integrated Security=True;Connect Timeout=30");
+        // SqlConnection Con = new SqlConnection(Data Source="DESKTOP-NQAIIND\SQLEXPRESS; Initial Catalog=mydb; Integrated Security = True; Connect Timeout = 30; ");
+        SqlConnection Con = new SqlConnection(@"Data Source=DESKTOP-NQAIIND\SQLEXPRESS; Initial Catalog=mydb; Integrated Security = True; Connect Timeout = 30; ");
 
-        /// <summary>
-        /// this function display product dataset/table
-        /// </summary>
+
         private void DisplayProducts()
         {
             Con.Open();
@@ -55,9 +55,9 @@ namespace GPOS
 
 
             ProductDGV.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Bold);
-         
+
             Con.Close();
-         
+
         }
         private void button2_Click(object sender, EventArgs e)
         {
@@ -76,7 +76,7 @@ namespace GPOS
 
 
                     cmd.ExecuteNonQuery();
-                   MBox1.Show("Product Deleted ");
+                    MBox1.Show("Product Deleted ");
                     Con.Close();
                     DisplayProducts();
                     //eset();
@@ -136,16 +136,18 @@ namespace GPOS
                     Con.Open();
                     SqlCommand cmd = new SqlCommand(" Update ProductTbl set PName = @PN,Pcat=@PC,Pprice = @PP, pQty = @PQ where PId = @Pkey", Con);
                     cmd.Parameters.AddWithValue("@PN", PnameTb.Text);
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
                     cmd.Parameters.AddWithValue("@PC", PcatCB.SelectedItem.ToString());
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
                     cmd.Parameters.AddWithValue("@PP", PriceTb.Text);
-                    cmd.Parameters.AddWithValue("@PQ", QtyTb.Text); 
-                    cmd.Parameters.AddWithValue("@Pkey" , keyMain);  
+                    cmd.Parameters.AddWithValue("@PQ", QtyTb.Text);
+                    cmd.Parameters.AddWithValue("@Pkey", keyMain);
 
                     cmd.ExecuteNonQuery();
                     MBox1.Show("Product Product Updated");
                     Con.Close();
                     DisplayProducts();
-                //  Reset();
+                    //  Reset();
                 }
                 catch (Exception Ex)
                 {
@@ -153,6 +155,20 @@ namespace GPOS
                 }
             }
 
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+            AddProducts obj = new AddProducts();
+            obj.Show();
+            this.Hide();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            ViewProducts Obj = new ViewProducts();
+            Obj.Show();
+            this.Close(); 
         }
     }
 }

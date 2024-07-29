@@ -3,24 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\GidCode\\Desktop\\CodeMe\\actualManagement\\GPOS\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AE82E97D-8A4F-458A-9188-8CF8A3B68E14}|GPOS\\GPOS.csproj|c:\\users\\gidcode\\desktop\\codeme\\actualmanagement\\gpos\\gpos\\billing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{AE82E97D-8A4F-458A-9188-8CF8A3B68E14}|GPOS\\GPOS.csproj|solutionrelative:gpos\\billing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AE82E97D-8A4F-458A-9188-8CF8A3B68E14}|GPOS\\GPOS.csproj|c:\\users\\gidcode\\desktop\\codeme\\actualmanagement\\gpos\\gpos\\billing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE82E97D-8A4F-458A-9188-8CF8A3B68E14}|GPOS\\GPOS.csproj|solutionrelative:gpos\\billing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AE82E97D-8A4F-458A-9188-8CF8A3B68E14}|GPOS\\GPOS.csproj|C:\\Users\\GidCode\\Desktop\\CodeMe\\actualManagement\\GPOS\\gpos\\viewsuppliers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{AE82E97D-8A4F-458A-9188-8CF8A3B68E14}|GPOS\\GPOS.csproj|solutionrelative:gpos\\viewsuppliers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AE82E97D-8A4F-458A-9188-8CF8A3B68E14}|GPOS\\GPOS.csproj|C:\\Users\\GidCode\\Desktop\\CodeMe\\actualManagement\\GPOS\\gpos\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{AE82E97D-8A4F-458A-9188-8CF8A3B68E14}|GPOS\\GPOS.csproj|solutionrelative:gpos\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AE82E97D-8A4F-458A-9188-8CF8A3B68E14}|GPOS\\GPOS.csproj|C:\\Users\\GidCode\\Desktop\\CodeMe\\actualManagement\\GPOS\\gpos\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE82E97D-8A4F-458A-9188-8CF8A3B68E14}|GPOS\\GPOS.csproj|solutionrelative:gpos\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AE82E97D-8A4F-458A-9188-8CF8A3B68E14}|GPOS\\GPOS.csproj|c:\\users\\gidcode\\desktop\\codeme\\actualmanagement\\gpos\\gpos\\properties\\suppliersadd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE82E97D-8A4F-458A-9188-8CF8A3B68E14}|GPOS\\GPOS.csproj|solutionrelative:gpos\\properties\\suppliersadd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,68 +14,20 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Viewsuppliers.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\GidCode\\Desktop\\CodeMe\\actualManagement\\GPOS\\GPOS\\Viewsuppliers.cs",
-              "RelativeDocumentMoniker": "GPOS\\Viewsuppliers.cs",
-              "ToolTip": "C:\\Users\\GidCode\\Desktop\\CodeMe\\actualManagement\\GPOS\\GPOS\\Viewsuppliers.cs [Design]",
-              "RelativeToolTip": "GPOS\\Viewsuppliers.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-14T15:37:37.681Z",
-              "IsPinned": true,
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Billing.cs",
-              "DocumentMoniker": "C:\\Users\\GidCode\\Desktop\\CodeMe\\actualManagement\\GPOS\\GPOS\\Billing.cs",
-              "RelativeDocumentMoniker": "GPOS\\Billing.cs",
-              "ToolTip": "C:\\Users\\GidCode\\Desktop\\CodeMe\\actualManagement\\GPOS\\GPOS\\Billing.cs",
-              "RelativeToolTip": "GPOS\\Billing.cs",
-              "ViewState": "AQIAABQAAAAAAAAAAAAewCQAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-14T17:15:00.095Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Billing.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\GidCode\\Desktop\\CodeMe\\actualManagement\\GPOS\\GPOS\\Billing.cs",
-              "RelativeDocumentMoniker": "GPOS\\Billing.cs",
-              "ToolTip": "C:\\Users\\GidCode\\Desktop\\CodeMe\\actualManagement\\GPOS\\GPOS\\Billing.cs [Design]",
-              "RelativeToolTip": "GPOS\\Billing.cs [Design]",
+              "Title": "SuppliersAdd.cs",
+              "DocumentMoniker": "C:\\Users\\GidCode\\Desktop\\CodeMe\\actualManagement\\GPOS\\GPOS\\Properties\\SuppliersAdd.cs",
+              "RelativeDocumentMoniker": "GPOS\\Properties\\SuppliersAdd.cs",
+              "ToolTip": "C:\\Users\\GidCode\\Desktop\\CodeMe\\actualManagement\\GPOS\\GPOS\\Properties\\SuppliersAdd.cs",
+              "RelativeToolTip": "GPOS\\Properties\\SuppliersAdd.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-14T15:44:38.692Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Mainmenu.cs",
-              "DocumentMoniker": "C:\\Users\\GidCode\\Desktop\\CodeMe\\actualManagement\\GPOS\\GPOS\\Mainmenu.cs",
-              "RelativeDocumentMoniker": "GPOS\\Mainmenu.cs",
-              "ToolTip": "C:\\Users\\GidCode\\Desktop\\CodeMe\\actualManagement\\GPOS\\GPOS\\Mainmenu.cs",
-              "RelativeToolTip": "GPOS\\Mainmenu.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAmwBgAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-14T15:34:05.145Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Mainmenu.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\GidCode\\Desktop\\CodeMe\\actualManagement\\GPOS\\GPOS\\Mainmenu.cs",
-              "RelativeDocumentMoniker": "GPOS\\Mainmenu.cs",
-              "ToolTip": "C:\\Users\\GidCode\\Desktop\\CodeMe\\actualManagement\\GPOS\\GPOS\\Mainmenu.cs [Design]",
-              "RelativeToolTip": "GPOS\\Mainmenu.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-14T15:33:57.358Z"
+              "WhenOpened": "2024-07-24T10:31:21.867Z",
+              "EditorCaption": ""
             }
           ]
         }

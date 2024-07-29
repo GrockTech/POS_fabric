@@ -229,6 +229,7 @@
             label5.Size = new Size(98, 18);
             label5.TabIndex = 6;
             label5.Text = "View Products";
+            label5.Click += label5_Click;
             // 
             // pictureBox4
             // 
@@ -249,6 +250,7 @@
             label4.Size = new Size(64, 18);
             label4.TabIndex = 4;
             label4.Text = "Products";
+            label4.Click += label4_Click;
             // 
             // pictureBox3
             // 
@@ -264,7 +266,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Stencil", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(125, 44);
+            label1.Location = new Point(114, 45);
             label1.Name = "label1";
             label1.Size = new Size(52, 19);
             label1.TabIndex = 9;
@@ -273,7 +275,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(89, 30);
+            pictureBox1.Location = new Point(63, 31);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(36, 39);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -306,11 +308,11 @@
             ProductDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             ProductDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             ProductDGV.GridColor = Color.Black;
-            ProductDGV.Location = new Point(104, 109);
+            ProductDGV.Location = new Point(63, 109);
             ProductDGV.Name = "ProductDGV";
             ProductDGV.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Sunken;
             ProductDGV.ScrollBars = ScrollBars.Vertical;
-            ProductDGV.Size = new Size(479, 327);
+            ProductDGV.Size = new Size(520, 327);
             ProductDGV.TabIndex = 10;
             ProductDGV.CellContentClick += ProductDGV_CellContentClick;
             // 

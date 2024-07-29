@@ -317,6 +317,7 @@
             label7.Size = new Size(57, 18);
             label7.TabIndex = 7;
             label7.Text = "Supplier";
+            label7.Click += label7_Click;
             // 
             // pictureBox6
             // 
