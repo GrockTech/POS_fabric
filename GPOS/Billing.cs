@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace GPOS
 {
@@ -37,6 +38,7 @@ namespace GPOS
         {
             getCustomer();
         }
+        string productName;
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -66,7 +68,7 @@ namespace GPOS
             {
                 Con.Open();
                 string Query = "SELECT * FROM ProductTbl WHERE PName LIKE @SearchTerm";
-                SqlDataAdapter adapter = new SqlDataAdapter(Query, Con);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(Query, Con);
                 adapter.SelectCommand.Parameters.AddWithValue("@SearchTerm", "%" + searchTerm + "%");
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
@@ -99,20 +101,15 @@ namespace GPOS
 
 
         //billing view grid 
-        SqlConnection Con = new SqlConnection(@"Data Source=DESKTOP-NQAIIND\SQLEXPRESS; Initial Catalog=mydb; Integrated Security = True; Connect Timeout = 30; ");
+        MySqlConnection Con = new MySqlConnection("server=localhost; database=posdb; username=root; password=;");
 
-      //  SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\GidCode\Desktop\CodeMe\actualManagement\GPOS\GPOS\GidPosDB.mdf;Integrated Security=True;Connect Timeout=30");
-        // SqlConnection Con = GetDBConnection.GetConnect();
-        /// <summary>
-        /// this function display product dataset/table
-        /// </summary>
         private void DisplayProducts()
 
         {
             Con.Open();
             string Query = "select * from ProductTbl";
-            SqlDataAdapter adapter = new SqlDataAdapter(Query, Con);
-            SqlCommandBuilder builder = new SqlCommandBuilder(adapter);
+            MySqlDataAdapter adapter = new MySqlDataAdapter(Query, Con);
+            MySqlCommandBuilder builder = new MySqlCommandBuilder(adapter);
             var ds = new DataSet();
             adapter.Fill(ds);
             // we fill data grid with the acutal data in db
@@ -143,8 +140,8 @@ namespace GPOS
         private void getCustomer()
         {
             Con.Open();
-            SqlCommand cmd = new SqlCommand("Select CusId from CustomerTbl", Con);
-            SqlDataReader rdr;
+            MySqlCommand cmd = new MySqlCommand("Select CusId from CustomerTbl", Con);
+            MySqlDataReader rdr;
             rdr = cmd.ExecuteReader();
             DataTable dt = new DataTable();
             dt.Columns.Add("CusId", typeof(int));
@@ -189,6 +186,9 @@ namespace GPOS
                     // This might be an index or counter, but its definition is not provided in this snippet
                     newRow.Cells[0].Value = n;
 
+                   //rodname  = PnameTb.Text;
+                   
+                   //abel4 = newRow.Cells[1].Value = PnameTb;
                     // Set the value of the second cell to the product name from the PnameTb TextBox
                     newRow.Cells[1].Value = PnameTb;
 
@@ -259,7 +259,7 @@ namespace GPOS
             {
                 // we open db connection 
                 Con.Open();
-                SqlCommand cmd = new SqlCommand(" Update ProductTbl set PQty = @PQ  where PId = @Pkey", Con);
+                MySqlCommand cmd = new MySqlCommand(" Update ProductTbl set PQty = @PQ  where PId = @Pkey", Con);
 
                 cmd.Parameters.AddWithValue("@PQ", newQty);
                 cmd.Parameters.AddWithValue("@Pkey", keyMain);
@@ -366,6 +366,7 @@ namespace GPOS
         int bflag = 0;
         private void InsertBill()
         {
+         //rodname = "" + row.Cells["Column2"].Value;
 
             if (CusIDCB.SelectedIndex == -1 || PaymentCB.SelectedIndex == -1 || GrdTotal.Text == "")
             {
@@ -377,7 +378,7 @@ namespace GPOS
                 {
                     // we open db connection 
                     Con.Open();
-                    SqlCommand cmd = new SqlCommand(" insert into BillT(BDate, CustId, CustName, PMethod, Amt) values(@BD, @CI, @CN, @PM, @AM)", Con);
+                    MySqlCommand cmd = new MySqlCommand(" insert into BillT(BDate, CustId, CustName, PMethod, Amt) values(@BD, @CI, @CN, @PM, @AM)", Con);
                     cmd.Parameters.AddWithValue("@BD", BDateCB.Value.Date);
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
                     cmd.Parameters.AddWithValue("@CI", CusIDCB.SelectedValue.ToString());
@@ -530,6 +531,25 @@ namespace GPOS
         private void GrdTotal_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void Billing_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            BillDGV.Rows.Clear();
+            int zero = 0;
+            total = 0;
+            SubTotal.Text = "";
+            
         }
     }
 }

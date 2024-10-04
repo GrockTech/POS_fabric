@@ -38,19 +38,7 @@
             Column4 = new DataGridViewTextBoxColumn();
             Column5 = new DataGridViewTextBoxColumn();
             label14 = new Label();
-            panel2 = new Panel();
             label8 = new Label();
-            pictureBox7 = new PictureBox();
-            pictureBox8 = new PictureBox();
-            pictureBox5 = new PictureBox();
-            label9 = new Label();
-            label6 = new Label();
-            label7 = new Label();
-            pictureBox6 = new PictureBox();
-            label5 = new Label();
-            pictureBox4 = new PictureBox();
-            label4 = new Label();
-            pictureBox3 = new PictureBox();
             label1 = new Label();
             pictureBox1 = new PictureBox();
             panel3 = new Panel();
@@ -88,14 +76,10 @@
             printDocument1 = new System.Drawing.Printing.PrintDocument();
             printPreviewDialog1 = new PrintPreviewDialog();
             BtnEdit = new Button();
+            panel2 = new Panel();
+            pictureBox3 = new PictureBox();
+            label4 = new Label();
             ((System.ComponentModel.ISupportInitialize)BillDGV).BeginInit();
-            panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel3.SuspendLayout();
             panel1.SuspendLayout();
@@ -105,6 +89,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ProductsDVG).BeginInit();
             panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // label12
@@ -176,146 +161,18 @@
             label14.Text = "Customer  Name";
             label14.Click += label14_Click;
             // 
-            // panel2
-            // 
-            panel2.BackColor = Color.Yellow;
-            panel2.Controls.Add(label8);
-            panel2.Controls.Add(pictureBox7);
-            panel2.Controls.Add(pictureBox8);
-            panel2.Controls.Add(pictureBox5);
-            panel2.Controls.Add(label9);
-            panel2.Controls.Add(label6);
-            panel2.Controls.Add(label7);
-            panel2.Controls.Add(pictureBox6);
-            panel2.Controls.Add(label5);
-            panel2.Controls.Add(pictureBox4);
-            panel2.Controls.Add(label4);
-            panel2.Controls.Add(pictureBox3);
-            panel2.Location = new Point(407, 46);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(635, 29);
-            panel2.TabIndex = 85;
-            // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label8.Location = new Point(574, 7);
+            label8.BackColor = Color.Silver;
+            label8.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.ForeColor = Color.White;
+            label8.Location = new Point(940, 55);
             label8.Name = "label8";
-            label8.Size = new Size(42, 18);
+            label8.Size = new Size(90, 18);
             label8.TabIndex = 18;
-            label8.Text = "View ";
+            label8.Text = "View Sales";
             label8.Click += label8_Click;
-            // 
-            // pictureBox7
-            // 
-            pictureBox7.Image = (Image)resources.GetObject("pictureBox7.Image");
-            pictureBox7.Location = new Point(547, 6);
-            pictureBox7.Name = "pictureBox7";
-            pictureBox7.Size = new Size(37, 19);
-            pictureBox7.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox7.TabIndex = 17;
-            pictureBox7.TabStop = false;
-            // 
-            // pictureBox8
-            // 
-            pictureBox8.Image = (Image)resources.GetObject("pictureBox8.Image");
-            pictureBox8.Location = new Point(434, 7);
-            pictureBox8.Name = "pictureBox8";
-            pictureBox8.Size = new Size(37, 19);
-            pictureBox8.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox8.TabIndex = 16;
-            pictureBox8.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
-            pictureBox5.Location = new Point(305, 7);
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(37, 19);
-            pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox5.TabIndex = 15;
-            pictureBox5.TabStop = false;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label9.Location = new Point(468, 7);
-            label9.Name = "label9";
-            label9.Size = new Size(71, 18);
-            label9.TabIndex = 11;
-            label9.Text = "Customer";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.Location = new Point(340, 8);
-            label6.Name = "label6";
-            label6.Size = new Size(91, 18);
-            label6.TabIndex = 10;
-            label6.Text = "View Supplier";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.Location = new Point(251, 7);
-            label7.Name = "label7";
-            label7.Size = new Size(57, 18);
-            label7.TabIndex = 7;
-            label7.Text = "Supplier";
-            // 
-            // pictureBox6
-            // 
-            pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
-            pictureBox6.Location = new Point(224, 6);
-            pictureBox6.Name = "pictureBox6";
-            pictureBox6.Size = new Size(37, 19);
-            pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox6.TabIndex = 8;
-            pictureBox6.TabStop = false;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(121, 8);
-            label5.Name = "label5";
-            label5.Size = new Size(98, 18);
-            label5.TabIndex = 6;
-            label5.Text = "View Products";
-            // 
-            // pictureBox4
-            // 
-            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(94, 7);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(37, 19);
-            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox4.TabIndex = 5;
-            pictureBox4.TabStop = false;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Tahoma", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(33, 7);
-            label4.Name = "label4";
-            label4.Size = new Size(64, 18);
-            label4.TabIndex = 4;
-            label4.Text = "Products";
-            // 
-            // pictureBox3
-            // 
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(0, 6);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(37, 19);
-            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox3.TabIndex = 4;
-            pictureBox3.TabStop = false;
             // 
             // label1
             // 
@@ -441,6 +298,7 @@
             button2.TabIndex = 105;
             button2.Text = "Refresh";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // AddBtn
             // 
@@ -706,12 +564,43 @@
             BtnEdit.UseVisualStyleBackColor = false;
             BtnEdit.Click += button1_Click;
             // 
+            // panel2
+            // 
+            panel2.BackColor = Color.Silver;
+            panel2.Location = new Point(892, 45);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(150, 35);
+            panel2.TabIndex = 108;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.BackColor = Color.Transparent;
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(894, 47);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(42, 30);
+            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox3.TabIndex = 109;
+            pictureBox3.TabStop = false;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(468, 455);
+            label4.Name = "label4";
+            label4.Size = new Size(38, 15);
+            label4.TabIndex = 110;
+            label4.Text = "label4";
+            // 
             // Billing
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1057, 521);
+            Controls.Add(label4);
+            Controls.Add(pictureBox3);
+            Controls.Add(label8);
             Controls.Add(panel5);
             Controls.Add(groupBox1);
             Controls.Add(panel4);
@@ -722,7 +611,6 @@
             Controls.Add(BillDGV);
             Controls.Add(label19);
             Controls.Add(label14);
-            Controls.Add(panel2);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
             Controls.Add(panel3);
@@ -731,19 +619,13 @@
             Controls.Add(button4);
             Controls.Add(Quantity);
             Controls.Add(CusNameCB);
+            Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Billing";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Billing";
+            Load += Billing_Load;
             ((System.ComponentModel.ISupportInitialize)BillDGV).EndInit();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
@@ -757,6 +639,7 @@
             ((System.ComponentModel.ISupportInitialize)ProductsDVG).EndInit();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -767,19 +650,7 @@
         private Label label10;
         private DataGridView BillDGV;
         private Label label14;
-        private Panel panel2;
         private Label label8;
-        private PictureBox pictureBox7;
-        private PictureBox pictureBox8;
-        private PictureBox pictureBox5;
-        private Label label9;
-        private Label label6;
-        private Label label7;
-        private PictureBox pictureBox6;
-        private Label label5;
-        private PictureBox pictureBox4;
-        private Label label4;
-        private PictureBox pictureBox3;
         private Label label1;
         private PictureBox pictureBox1;
         private Panel panel3;
@@ -825,6 +696,9 @@
         private System.Drawing.Printing.PrintDocument printDocument1;
         private PrintPreviewDialog printPreviewDialog1;
         private Button BtnEdit;
+        private Panel panel2;
+        private PictureBox pictureBox3;
+        private Label label4;
         //  private TextBox QtyTb;
     }
 }

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace GPOS
 {
@@ -23,15 +24,14 @@ namespace GPOS
         {
             this.Close();
         }
-        SqlConnection Con = new SqlConnection(@"Data Source=DESKTOP-NQAIIND\SQLEXPRESS; Initial Catalog=mydb; Integrated Security = True; Connect Timeout = 30; ");
+        MySqlConnection Con = new MySqlConnection("server=localhost; database=posdb; username=root; password=;");
 
-        //SqlConnection Con = new SqlConnection(@"DESKTOP-NQAIIND\SQLEXPRESS; Initial Catalog=mydb; Integrated Security = True; Connect Timeout = 30; ");
         private void ViewBills()
         {
             Con.Open();
             string Query = "select * from BillT";
-            SqlDataAdapter adapter = new SqlDataAdapter(Query, Con);
-            SqlCommandBuilder builder = new SqlCommandBuilder(adapter);
+            MySqlDataAdapter adapter = new MySqlDataAdapter(Query, Con);
+            MySqlCommandBuilder builder = new MySqlCommandBuilder(adapter);
             var ds = new DataSet();
             adapter.Fill(ds);
             // we fill data grid with the acutal data in db

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace GPOS
 {
@@ -39,15 +40,17 @@ namespace GPOS
         }
         //  SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\GidCode\Desktop\CodeMe\GPOSDB.mdf;Integrated Security=True;Connect Timeout=30");
         // SqlConnection Con = new SqlConnection(Data Source="DESKTOP-NQAIIND\SQLEXPRESS; Initial Catalog=mydb; Integrated Security = True; Connect Timeout = 30; ");
-        SqlConnection Con = new SqlConnection(@"Data Source=DESKTOP-NQAIIND\SQLEXPRESS; Initial Catalog=mydb; Integrated Security = True; Connect Timeout = 30; ");
-
+        //  SqlConnection Con = new SqlConnection(@"Data Source=DESKTOP-NQAIIND\SQLEXPRESS; Initial Catalog=mydb; Integrated Security = True; Connect Timeout = 30; ");
+        MySqlConnection Con = new MySqlConnection("server=localhost; database=posdb; username=root; password=;");
 
         private void DisplayProducts()
         {
             Con.Open();
             string Query = "select * from ProductTbl";
-            SqlDataAdapter adapter = new SqlDataAdapter(Query, Con);
-            SqlCommandBuilder builder = new SqlCommandBuilder(adapter);
+           
+            //SqlCommandBuilder builder = new SqlCommandBuilder(adapter);
+            MySqlCommand cmd = new MySqlCommand(Query, Con);
+            MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
             var ds = new DataSet();
             adapter.Fill(ds);
             // we fill data grid with the acutal data in db
@@ -71,7 +74,7 @@ namespace GPOS
                 {
                     // we open db connection 
                     Con.Open();
-                    SqlCommand cmd = new SqlCommand(" delete from ProductTbl where PId=@Pkey", Con);
+                    MySqlCommand cmd = new MySqlCommand(" delete from ProductTbl where PId=@Pkey", Con);
                     cmd.Parameters.AddWithValue("@PKey", keyMain);
 
 
@@ -134,7 +137,7 @@ namespace GPOS
                 {
                     // we open db connection 
                     Con.Open();
-                    SqlCommand cmd = new SqlCommand(" Update ProductTbl set PName = @PN,Pcat=@PC,Pprice = @PP, pQty = @PQ where PId = @Pkey", Con);
+                    MySqlCommand cmd = new MySqlCommand(" Update ProductTbl set PName = @PN,Pcat=@PC,Pprice = @PP, pQty = @PQ where PId = @Pkey", Con);
                     cmd.Parameters.AddWithValue("@PN", PnameTb.Text);
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
                     cmd.Parameters.AddWithValue("@PC", PcatCB.SelectedItem.ToString());

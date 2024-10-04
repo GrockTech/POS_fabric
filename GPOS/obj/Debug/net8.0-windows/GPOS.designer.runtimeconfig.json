@@ -12,8 +12,8 @@
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\GidCode\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\GidCode\\.nuget\\packages"
+      "C:\\Users\\Elva\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Elva\\.nuget\\packages"
     ],
     "configProperties": {
       "System.Runtime.Serialization.EnableUnsafeBinaryFormatterSerialization": true,

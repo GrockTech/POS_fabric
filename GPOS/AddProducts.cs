@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 using System.Data.SqlClient;
 using static System.Runtime.InteropServices.JavaScript.JSType;
@@ -31,17 +32,7 @@ namespace GPOS
         }
 
         // game changer string
-      //SqlConnection Con = new SqlConnection();
-     // SqlConnection Con = MyDBConnection.GetConnected();
-       // string connetionString = "Data Source=.;Initial Catalog=mytocks;Integrated Security=True;MultipleActiveResultSets=True";
-
-        //   SqlConnection Con = DatabaseHelper.GetConnection();
-        //SqlConnection dbConnection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\GidCode\Desktop\CodeMe\actualManagement\GPOS\GPOS\mystocks.mdf;Integrated Security=True;Connect Timeout=30;Encrypt=False");
-     //   SqlConnection connetionString = new SqlConnection(@"Data Source=.;Initial Catalog=mytocks;Integrated Security=True;MultipleActiveResultSets=True");
-
-       // SqlConnection conn = new SqlConnection (@" Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\GidCode\Desktop\CodeMe\actualManagement\GPOS\GPOS\mystocks.mdf;Integrated Security = True; Connect Timeout = 30; Encrypt=True");
-        SqlConnection Con = new SqlConnection(@"Data Source=DESKTOP-NQAIIND\SQLEXPRESS; Initial Catalog=mydb; Integrated Security = True; Connect Timeout = 30; ");
-        //SqlConnection connectionString = new SqlConnection("data source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\mystocks.mdf;Integrated Security=True;Connect Timeout=30");
+        MySqlConnection Con = new MySqlConnection("server=localhost; database=posdb; username=root; password=;");
 
         private void Reset()
         {
@@ -66,7 +57,7 @@ namespace GPOS
                     Con.Open();
                    // connetionString.Open();
                     // dbConnection.Open();
-                    SqlCommand cmd = new SqlCommand(" insert into ProductTbl(PName, Pcat, Pprice, PQty) values(@PN, @PC, @PP, @PQ)", Con);
+                    MySqlCommand cmd = new MySqlCommand(" insert into ProductTbl(PName, Pcat, Pprice, PQty) values(@PN, @PC, @PP, @PQ)", Con);
                     cmd.Parameters.AddWithValue("@PN", PnameTb.Text);
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
                     cmd.Parameters.AddWithValue("@PC", PcatCB.SelectedItem.ToString());

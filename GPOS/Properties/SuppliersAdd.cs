@@ -9,6 +9,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace GPOS.Properties
 {
@@ -28,11 +29,8 @@ namespace GPOS.Properties
         {
             this.Close();
         }
-        // SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\GidCode\Desktop\CodeMe\GPOSDB.mdf;Integrated Security=True;Connect Timeout=30");
-        // SqlConnection Con = DatabaseHelperSingleton.Instance.GetConnection();
+        MySqlConnection Con = new MySqlConnection("server=localhost; database=posdb; username=root; password=;");
 
-        SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\GidCode\Desktop\CodeMe\actualManagement\GPOS\GPOS\GidPosDB.mdf;Integrated Security=True;Connect Timeout=30");
-       // SqlConnection Con = GetDBConnection.GetConnect();
         private void button1_Click(object sender, EventArgs e)
         {
             if (SupName.Text == "" || SupAdd.Text == "" || SupPhone.Text == "" || SupRem.Text == "")
@@ -45,7 +43,7 @@ namespace GPOS.Properties
                 {
                     // we open db connection 
                     Con.Open();
-                    SqlCommand cmd = new SqlCommand(" insert into SupplierTbl(SupName, SupAddress, SupPhone, SupRem) values(@SN, @SA, @SP, @SR)", Con);
+                    MySqlCommand cmd = new MySqlCommand(" insert into SupplierTbl(SupName, SupAddress, SupPhone, SupRem) values(@SN, @SA, @SP, @SR)", Con);
                     cmd.Parameters.AddWithValue("@SN", SupName.Text);
                     cmd.Parameters.AddWithValue("@SA", SupAdd.Text);
                     cmd.Parameters.AddWithValue("@SP", Convert.ToInt32(SupPhone.Text).ToString());

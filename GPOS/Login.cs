@@ -30,14 +30,19 @@ namespace GPOS
             obj.Show();
             this.Hide();
         }
+        string pass;
         private void Loginclick()
+
         {
-            if (UsernameTB.Text == "" || PasswordTB.Text == "")
+            string username = UsernameTB.Text;
+            //string password = PasswordTB.Text;
+            string pass = txtPass.Text;
+            if (username == "" || pass == "")
             {
                 MBox1.Show("Enter UserName and Password");
 
             }
-            else if (UsernameTB.Text == "Admin" && PasswordTB.Text == "Gidcode")
+            else if (username == "Admin" && pass == "yourps")
             {
                 Mainmenu Obj = new Mainmenu();
                 Obj.Show();
@@ -55,6 +60,7 @@ namespace GPOS
 
         //  }
 
+
         private void LoginBtn_Click(object sender, EventArgs e)
         {
             Loginclick();
@@ -64,5 +70,27 @@ namespace GPOS
         {
 
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void showpwd_CheckedChanged(object sender, EventArgs e)
+        {
+        }
+        /*
+private void ViewPassword_CheckedChanged(object sender, EventArgs e)
+{
+if (ViewPassword.Checked)
+{
+PasswordTB.PasswordChar = '\0';
+}
+else
+{
+PasswordTB.PasswordChar = '*';
+}
+}
+*/
     }
 }

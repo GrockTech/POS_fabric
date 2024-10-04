@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace GPOS
 {
@@ -39,13 +40,14 @@ namespace GPOS
 
 
 
-        SqlConnection Con = new SqlConnection(@"DESKTOP-NQAIIND\SQLEXPRESS; Initial Catalog=mydb; Integrated Security = True; Connect Timeout = 30; ");
+        //    SqlConnection Con = new SqlConnection(@"DESKTOP-NQAIIND\SQLEXPRESS; Initial Catalog=mydb; Integrated Security = True; Connect Timeout = 30; ");
+        MySqlConnection Con = new MySqlConnection("server=localhost; database=posdb; username=root; password=;");
         private void DisplaySuppliers()
         {
             Con.Open();
             string Query = "select * from SupplierTBL";
-            SqlDataAdapter adapter = new SqlDataAdapter(Query, Con);
-            SqlCommandBuilder builder = new SqlCommandBuilder(adapter);
+            MySqlDataAdapter adapter = new MySqlDataAdapter(Query, Con);
+            MySqlCommandBuilder builder = new MySqlCommandBuilder(adapter);
             var ds = new DataSet();
             adapter.Fill(ds);
             // we fill data grid with the acutal data in db
@@ -97,7 +99,7 @@ namespace GPOS
                 {
                     // we open db connection 
                     Con.Open();
-                    SqlCommand cmd = new SqlCommand(" Update SupplierTBL set SupName = @SN, SupAddress=@SA, SupPhone = @SP, SupRem = @SR where SupId = @Pkey", Con);
+                    MySqlCommand cmd = new MySqlCommand(" Update SupplierTBL set SupName = @SN, SupAddress=@SA, SupPhone = @SP, SupRem = @SR where SupId = @Pkey", Con);
                     cmd.Parameters.AddWithValue("@SN", SupName.Text);
                     cmd.Parameters.AddWithValue("@SA", SupAdd.Text);
                     cmd.Parameters.AddWithValue("@SP", SupPhone.Text);
@@ -136,7 +138,7 @@ namespace GPOS
                 {
                     // we open db connection 
                     Con.Open();
-                    SqlCommand cmd = new SqlCommand(" delete from SupplierTbl where SupId=@Pkey", Con);
+                    MySqlCommand cmd = new MySqlCommand(" delete from SupplierTbl where SupId=@Pkey", Con);
                     cmd.Parameters.AddWithValue("@PKey", key);
 
 

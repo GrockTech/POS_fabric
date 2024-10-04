@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\GidCode\\Desktop\\CodeMe\\actualManagement\\GPOS\\GPOS\\GPOS.csproj": {}
+    "C:\\Users\\Elva\\Source\\Repos\\GrockTech\\GPOS-CSharp\\GPOS\\GPOS.csproj": {}
   },
   "projects": {
-    "C:\\Users\\GidCode\\Desktop\\CodeMe\\actualManagement\\GPOS\\GPOS\\GPOS.csproj": {
+    "C:\\Users\\Elva\\Source\\Repos\\GrockTech\\GPOS-CSharp\\GPOS\\GPOS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\GidCode\\Desktop\\CodeMe\\actualManagement\\GPOS\\GPOS\\GPOS.csproj",
+        "projectUniqueName": "C:\\Users\\Elva\\Source\\Repos\\GrockTech\\GPOS-CSharp\\GPOS\\GPOS.csproj",
         "projectName": "GPOS",
-        "projectPath": "C:\\Users\\GidCode\\Desktop\\CodeMe\\actualManagement\\GPOS\\GPOS\\GPOS.csproj",
-        "packagesPath": "C:\\Users\\GidCode\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\GidCode\\Desktop\\CodeMe\\actualManagement\\GPOS\\GPOS\\obj\\",
+        "projectPath": "C:\\Users\\Elva\\Source\\Repos\\GrockTech\\GPOS-CSharp\\GPOS\\GPOS.csproj",
+        "packagesPath": "C:\\Users\\Elva\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Elva\\Source\\Repos\\GrockTech\\GPOS-CSharp\\GPOS\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\GidCode\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Elva\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -45,6 +45,10 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "dependencies": {
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
             "System.Configuration.ConfigurationManager": {
               "target": "Package",
               "version": "[8.0.0, )"
@@ -73,7 +77,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

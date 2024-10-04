@@ -3,7 +3,9 @@
 
 using GPOS.Properties;
 using Microsoft.VisualBasic;
+using MySql.Data.MySqlClient;
 using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 //using GPOS.Utilities;
 
 namespace GPOS
@@ -72,30 +74,22 @@ namespace GPOS
             wantoHide.Hide();
         }
 
-        //     string connection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\GidCode\Desktop\CodeMe\GPOSDB.mdf;Integrated Security=True;Connect Timeout=30";
 
+        MySqlConnection Con = new MySqlConnection("server=localhost; database=posdb; username=root; password=;");
 
-        // SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\GidCode\Desktop\CodeMe\actualManagement\GPOS\GPOS\GidPosDB.mdf;Integrated Security=True;Connect Timeout=30");
-        SqlConnection Con = new SqlConnection(@"Data Source=DESKTOP-NQAIIND\SQLEXPRESS; Initial Catalog=mydb; Integrated Security = True; Connect Timeout = 30; ");
-
-
-        //   //  SqlConnection Con = GetDBConnection.GetConnect();
-
-
-        // SqlConnection Con = DatabaseHelper.GetConnection();
         private decimal CalculateTotalPrices()
         {
             decimal totalPrice = 0m;
 
-            using (SqlConnection con = DatabaseHelper.GetConnection())
+            using (MySqlConnection con = new MySqlConnection("server=localhost; database=posdb; username=root; password=;"))
             {
                 string query = "SELECT PPrice, PQty FROM ProductTbl";
 
-                using (SqlCommand cmd = new SqlCommand(query, con))
+                using (MySqlCommand cmd = new MySqlCommand(query, con))
                 {
                     con.Open();
 
-                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
@@ -114,13 +108,15 @@ namespace GPOS
         {
             decimal mainTotal = CalculateTotalPrices();
             MessageBox.Show($"Store Value GH¢: {mainTotal}", "Store Values");
+           //Box1.Show($"Store Value GH¢: {mainTotal}", "Store Values");
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            Login obj = new Login();
-            obj.Show();
+            //Login obj = new Login();
+            //obj.Show();
             this.Close();
+            //this.Close();
         }
 
 
@@ -131,16 +127,16 @@ namespace GPOS
 #pragma warning disable CS0219 // Variable is assigned but its value is never used
             int totalQuantity = 0;
 #pragma warning restore CS0219 // Variable is assigned but its value is never used
- 
-            using (SqlConnection con = new SqlConnection())
-            {
-                string query = "SELECT SUM(Amt) AS TotalSales FROM BillT WHERE CONVERT(date, BDate) = CONVERT(date, GETDATE())";
 
-                using (SqlCommand cmd = new SqlCommand(query, con))
+            using (MySqlConnection con = new MySqlConnection("server=localhost; database=posdb; username=root; password=;"))
+            {
+                string query = "SELECT SUM(Amt) AS TotalSales FROM BillT WHERE DATE(BDate) =  CURDATE()";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, con))
                 {
                     con.Open();
 
-                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
                         if (reader.Read())
                         {
@@ -152,6 +148,8 @@ namespace GPOS
             }
 
             MessageBox.Show($"Total Sales for Today: GH¢ {totalSales:C}\n", "Daily Sales", MessageBoxButtons.OK, MessageBoxIcon.Information);
+         // MBox1.Show("Total Sales for Today: GHS '"++"');
+
         }
 
         public void CheckMonthlySales()
@@ -159,15 +157,15 @@ namespace GPOS
             decimal totalSales = 0m;
             int totalQuantity = 0;
 
-            using (SqlConnection con = new SqlConnection())
+            using (MySqlConnection con = new MySqlConnection("server=localhost; database=posdb; username=root; password=;"))
             {
                 string query = "SELECT SUM(Amt) AS TotalSales,  FROM BillT WHERE MONTH(BDate) = MONTH(GETDATE()) AND YEAR(BDate) = YEAR(GETDATE())";
 
-                using (SqlCommand cmd = new SqlCommand(query, Con))
+                using (MySqlCommand cmd = new MySqlCommand(query, con))
                 {
                     Con.Open();
 
-                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
                         if (reader.Read())
                         {
@@ -187,6 +185,11 @@ namespace GPOS
         }
 
         private void btnMonthlySales_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Mainmenu_Load(object sender, EventArgs e)
         {
 
         }
