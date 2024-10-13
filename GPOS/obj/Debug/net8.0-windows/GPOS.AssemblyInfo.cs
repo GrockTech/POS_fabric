@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GPOS")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+60b7c945658fe2a19a50b1353eb3c144b32ad4f5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+98e3043d2ba6e1f669f3a2c2bab9c29fc6d0be21")]
 [assembly: System.Reflection.AssemblyProductAttribute("GPOS")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GPOS")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

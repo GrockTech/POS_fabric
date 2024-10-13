@@ -15,16 +15,52 @@ namespace GPOS
         public Mainmenu()
         {
             InitializeComponent();
+         //   this.Load += new System.EventHandler(this.Mainmenu_Load);
+            //  notifyIcon1.Icon = "C://Users/Elva/sourcerepos\\GrockTech\\GPOS-CSharp\\GPOS\\icons8-warning-96.ico";
+
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
         }
+       
+        private void CheckStock()
+        {
+            int lowstockNo = 10;
+
+            Con.Open();
+
+            string query = "SELECT Pname, PQty FROM productTbl WHERE PQty < @lowStockNo";
+            MySqlCommand cmd = new MySqlCommand(query, Con);
+            cmd.Parameters.AddWithValue("@lowStockNo", lowstockNo);
+            MySqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                string productname = dr["Pname"].ToString();
+                int quantity = Convert.ToInt32(dr["PQty"]);
+
+                // Show notification
+                ShowStockNotification(productname, quantity);
+            }
+
+            dr.Close();
+            Con.Close();
+        }
+
+        
 
         private void pictureBox6_Click(object sender, EventArgs e)
         {
         }
 
+        private void ShowStockNotification(string productname, int quantity)
+        {
+
+            notifyIcon1.BalloonTipTitle = "Low Stock Alert";
+            notifyIcon1.BalloonTipText = $"{productname} stock is low: Only {quantity} left";
+            notifyIcon1.ShowBalloonTip(5000);
+        }
         private void label10_Click(object sender, EventArgs e)
         {
         }
@@ -128,18 +164,27 @@ namespace GPOS
             int totalQuantity = 0;
 #pragma warning restore CS0219 // Variable is assigned but its value is never used
 
+
+            ////
+            ///
+
+
+         
             using (MySqlConnection con = new MySqlConnection("server=localhost; database=posdb; username=root; password=;"))
             {
                 string query = "SELECT SUM(Amt) AS TotalSales FROM BillT WHERE DATE(BDate) =  CURDATE()";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, con))
                 {
+
+                    //con.Open();
                     con.Open();
 
                     using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
                         if (reader.Read())
                         {
+                            
                             totalSales = reader["TotalSales"] != DBNull.Value ? Convert.ToDecimal(reader["TotalSales"]) : 0m;
                             //   totalQuantity = reader["TotalQuantity"] != DBNull.Value ? Convert.ToInt32(reader["TotalQuantity"]) : 0;
                         }
@@ -147,10 +192,73 @@ namespace GPOS
                 }
             }
 
-            MessageBox.Show($"Total Sales for Today: GH¢ {totalSales:C}\n", "Daily Sales", MessageBoxButtons.OK, MessageBoxIcon.Information);
-         // MBox1.Show("Total Sales for Today: GHS '"++"');
+            MessageBox.Show($"Total Sales for Today: GH¢ {totalSales}", "Daily Sales", MessageBoxButtons.OK, MessageBoxIcon.Information);
+          //  MessageBox.Show($"Daily Sales is GH¢: {totalSales}", "Daily Sales");
+
+            // MBox1.Show("Total Sales for Today: GHS '"++"');
 
         }
+        
+        public async void CheckProductQuantity()
+        {
+            try
+            {
+                string query = "SELECT * FROM producttbl WHERE PQty < 5";
+
+                using (MySqlConnection connection = new MySqlConnection("server=localhost; database=posdb; username=root; password=;"))
+                {
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    connection.Open();
+                    MySqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        string productName = reader["PName"].ToString();
+                        Task.Delay(10000);
+                        ShowNotification(productName);
+                    }
+
+                    reader.Close();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                
+            }
+           
+        }
+        /*
+        private void ShowNotification(string productName)
+        {
+            MessageBox.Show($"The quantity of {productName} is less than 5!", "Low Stock Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+        */
+
+            private void ShowNotification(string productName)
+            {
+                using (NotifyIcon notifyIcon = new NotifyIcon())
+                {
+                    notifyIcon.Icon = SystemIcons.Information; // Use your desired icon
+                    notifyIcon.Visible = true;
+
+                    // Set up the balloon tip
+                    notifyIcon.BalloonTipTitle = "Low Stock Alert";
+                    notifyIcon.BalloonTipText = $"{productName} has low stock!";
+                    notifyIcon.BalloonTipIcon = ToolTipIcon.Warning;
+
+                    // Show the balloon tip
+                    notifyIcon.ShowBalloonTip(3000); // Display for 3 seconds
+
+                    // Optional: hide the icon after a few seconds
+                    System.Threading.Thread.Sleep(3000); // Sleep for 3 seconds to allow the notification to be seen
+                    notifyIcon.Visible = false;
+                }
+            }
 
         public void CheckMonthlySales()
         {
@@ -189,9 +297,10 @@ namespace GPOS
 
         }
 
-        private void Mainmenu_Load(object sender, EventArgs e)
+        private async void Mainmenu_Load(object sender, EventArgs e)
         {
-
+           await Task.Delay(20000);
+          CheckProductQuantity();
         }
     }
 }

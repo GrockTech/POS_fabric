@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GPOS", "GPOS\GPOS.csproj", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6340800D-CC6D-41D3-A454-3A3C585C153B}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "POS", "POS\POS.vdproj", "{943B616D-0054-4344-B29F-F2BFF3F73E54}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -16,6 +18,8 @@ Global
 		{AE82E97D-8A4F-458A-9188-8CF8A3B68E14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AE82E97D-8A4F-458A-9188-8CF8A3B68E14}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE82E97D-8A4F-458A-9188-8CF8A3B68E14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{943B616D-0054-4344-B29F-F2BFF3F73E54}.Debug|Any CPU.ActiveCfg = Debug
+		{943B616D-0054-4344-B29F-F2BFF3F73E54}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

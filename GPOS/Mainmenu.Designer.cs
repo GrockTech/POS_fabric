@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Mainmenu));
             panel1 = new Panel();
             label2 = new Label();
@@ -72,6 +73,7 @@
             btnStore = new Button();
             button1 = new Button();
             btnMonthlySales = new Button();
+            notifyIcon1 = new NotifyIcon(components);
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel2.SuspendLayout();
@@ -598,6 +600,11 @@
             btnMonthlySales.UseVisualStyleBackColor = false;
             btnMonthlySales.Click += btnMonthlySales_Click;
             // 
+            // notifyIcon1
+            // 
+            notifyIcon1.Text = "notifyIcon1";
+            notifyIcon1.Visible = true;
+            // 
             // Mainmenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -696,5 +703,6 @@
         private Button btnStore;
         private Button button1;
         private Button btnMonthlySales;
+        private NotifyIcon notifyIcon1;
     }
 }

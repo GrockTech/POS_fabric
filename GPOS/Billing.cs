@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using Mysqlx.Resultset;
 
 namespace GPOS
 {
@@ -135,6 +136,14 @@ namespace GPOS
 
 
         }
+        private void Del()
+        {
+            SubTotal.Text = "";
+            VATtb.Text = "";
+            discountTb.Text = "";
+            //  SubTotal = 0
+            // Subtotal = Convert.ToInt32(Quantity.Text) * Pprice;
+        }
 
 
         private void getCustomer()
@@ -186,9 +195,10 @@ namespace GPOS
                     // This might be an index or counter, but its definition is not provided in this snippet
                     newRow.Cells[0].Value = n;
 
-                   //rodname  = PnameTb.Text;
-                   
-                   //abel4 = newRow.Cells[1].Value = PnameTb;
+                    //rodname  = PnameTb.Text;
+                    //  productName = "" + newRow.Cells["Column2"].Value;
+
+                    //abel4 = newRow.Cells[1].Value = PnameTb;
                     // Set the value of the second cell to the product name from the PnameTb TextBox
                     newRow.Cells[1].Value = PnameTb;
 
@@ -296,6 +306,8 @@ namespace GPOS
                     printDocument1.Print();
                     CusIDCB.SelectedIndex = -1;
                     CusNameCB.Text = "";
+                    Del();
+
 
                 }
             }
@@ -364,9 +376,13 @@ namespace GPOS
 
         }
         int bflag = 0;
+        string getName;
+
+
         private void InsertBill()
         {
-         //rodname = "" + row.Cells["Column2"].Value;
+
+
 
             if (CusIDCB.SelectedIndex == -1 || PaymentCB.SelectedIndex == -1 || GrdTotal.Text == "")
             {
@@ -377,14 +393,27 @@ namespace GPOS
                 try
                 {
                     // we open db connection 
+                    foreach (DataGridViewRow row in BillDGV.Rows)
+                    {
+
+                        if (row.Cells["Column2"].Value != null)
+                        {
+                            getName = row.Cells["Column2"].Value.ToString(); // This will take the last value
+                                                                             //    Console.WriteLine($"getName: {getName}");
+                        }
+                    }
+
+
                     Con.Open();
-                    MySqlCommand cmd = new MySqlCommand(" insert into BillT(BDate, CustId, CustName, PMethod, Amt) values(@BD, @CI, @CN, @PM, @AM)", Con);
+                    MySqlCommand cmd = new MySqlCommand(" insert into BillT(BDate, CustId, CustName, PMethod, Amt, ProductName) values(@BD, @CI, @CN, @PM, @AM, @PN)", Con);
                     cmd.Parameters.AddWithValue("@BD", BDateCB.Value.Date);
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
                     cmd.Parameters.AddWithValue("@CI", CusIDCB.SelectedValue.ToString());
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
                     //cmd.Parameters.AddWithValue("@CN", PriceTb.Text);
                     cmd.Parameters.AddWithValue("@CN", CusNameCB.Text);
+                    cmd.Parameters.AddWithValue("@PN", getName);
+                    //  cmd.Parameters.AddWithValue("@PN", productName);
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
                     cmd.Parameters.AddWithValue("@PM", PaymentCB.SelectedItem.ToString());
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
@@ -424,6 +453,9 @@ namespace GPOS
             {
                 try
                 {
+
+
+
                     double VAT = (Convert.ToDouble(VATtb.Text) / 100) * Convert.ToInt32(SubTotal.Text);
                     TotTaxTb.Text = "" + VAT;
                     GrdTotal.Text = "" + (Convert.ToInt32(SubTotal.Text) + Convert.ToDouble(TotTaxTb.Text));
@@ -472,10 +504,10 @@ namespace GPOS
         string prodname;
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
-            e.Graphics.DrawString("Gid SuperMarket", new Font("Centry Gothic", 12, FontStyle.Bold), Brushes.Red, new Point(80));
+#pragma warning disable CS8602 //1   Dereference of a possibly null reference.
+            e.Graphics.DrawString("Your Company", new Font("Centry Gothic", 12, FontStyle.Bold), Brushes.Black, new Point(70, 10));
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
-            e.Graphics.DrawString("ID PRODUCT PRICE QUALITY TOTAL", new Font("Centry Gothic", 8, FontStyle.Bold), Brushes.Red, new Point(26, 40));
+            e.Graphics.DrawString("ID PRODUCT PRICE QUANTITY TOTAL", new Font("Centry Gothic", 8, FontStyle.Bold), Brushes.Black, new Point(26, 40));
             foreach (DataGridViewRow row in BillDGV.Rows)
             {
                 prodid = Convert.ToInt32(row.Cells["Column1"].Value);
@@ -483,6 +515,7 @@ namespace GPOS
                 prodprice = Convert.ToInt32(row.Cells["Column3"].Value);
                 prodqty = Convert.ToInt32(row.Cells["Column4"].Value);
                 tottal = Convert.ToInt32(row.Cells["Column5"].Value);
+
 
 
                 e.Graphics.DrawString("" + prodid, new Font("Centry Gothic", 6, FontStyle.Bold), Brushes.Blue, new Point(26, pos));
@@ -498,19 +531,29 @@ namespace GPOS
 #pragma warning disable CS0219 // Variable is assigned but its value is never used
             int lineSpacing = 20;
 #pragma warning restore CS0219 // Variable is assigned but its value is never used
-            e.Graphics.DrawString("Grand Total: GH¢" + GrdTotal.Text, new Font("Centry Gothic", 8, FontStyle.Bold), Brushes.Crimson, new Point(50, pos + 50));
+
+            e.Graphics.DrawString("**********GrockTech Consult************", new Font("Century Gothic", 8, FontStyle.Bold), Brushes.Crimson, new Point(35, pos + 70));
+
+
+            e.Graphics.DrawString("Grand Total: GH¢" + GrdTotal.Text, new Font("Centry Gothic", 8, FontStyle.Bold), Brushes.Crimson, new Point(50, pos + 30));
             //e.Graphics.DrawString("***************************GrockTech Consult**********************" , new Font("Centry Gothic", 8, FontStyle.Bold), Brushes.Crimson, new Point(50, pos + 50 + lineSpacing));
             e.Graphics.DrawLine(Pens.Black, new Point(50, pos + 70), new Point(250, pos + 70));
 
             // Draw the footer text
-            e.Graphics.DrawString("**********GrockTech Consult************", new Font("Century Gothic", 8, FontStyle.Bold), Brushes.Crimson, new Point(50, pos + 10));
 
             BillDGV.Rows.Clear();
             BillDGV.Refresh();
+            //Del();
             pos = 100;
             GrdTotal.Text = "";
+            //  tot n  = 0;
+            total = 0;
+            SubTotal.Text = "";
+
             n = 0;
 
+
+            //    Subtotal = Convert.ToInt32(Quantity.Text) * Pprice;
 
 
 
@@ -546,10 +589,52 @@ namespace GPOS
         private void button2_Click(object sender, EventArgs e)
         {
             BillDGV.Rows.Clear();
-            int zero = 0;
+            // int zero = 0;
             total = 0;
             SubTotal.Text = "";
-            
+
+        }
+
+        private void VATtb_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar))
+            {
+                // Check if the character is a digit or a decimal point
+                if (!char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+                {
+                    e.Handled = true; // Ignore the input
+                }
+
+                // Optional: Prevent multiple decimal points
+                if (e.KeyChar == '.' && VATtb.Text.Contains('.'))
+                {
+                    e.Handled = true; // Ignore the input
+                }
+            }
+        }
+
+        private void discountTb_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar))
+            {
+                // Check if the character is a digit or a decimal point
+                if (!char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+                {
+                    e.Handled = true; // Ignore the input
+                }
+
+                // Optional: Prevent multiple decimal points
+                if (e.KeyChar == '.' && discountTb.Text.Contains('.'))
+                {
+                    e.Handled = true; // Ignore the input
+                }
+            }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            VATtb.Text = "";
+            discountTb.Text = "";
         }
     }
 }

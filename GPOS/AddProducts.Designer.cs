@@ -177,7 +177,7 @@
             // PcatCB
             // 
             PcatCB.FormattingEnabled = true;
-            PcatCB.Items.AddRange(new object[] { "Electronics", "Bulbs ", "Chargers", "HeadPhones", "Cylinders", "Irons", "Cables", "Sockets", "" });
+            PcatCB.Items.AddRange(new object[] { "General" });
             PcatCB.Location = new Point(70, 202);
             PcatCB.Name = "PcatCB";
             PcatCB.Size = new Size(298, 23);

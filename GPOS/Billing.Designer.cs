@@ -70,7 +70,6 @@
             label15 = new Label();
             VATtb = new TextBox();
             label13 = new Label();
-            button4 = new Button();
             label19 = new Label();
             Quantity = new TextBox();
             printDocument1 = new System.Drawing.Printing.PrintDocument();
@@ -78,7 +77,7 @@
             BtnEdit = new Button();
             panel2 = new Panel();
             pictureBox3 = new PictureBox();
-            label4 = new Label();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)BillDGV).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel3.SuspendLayout();
@@ -316,9 +315,10 @@
             // 
             // Search
             // 
-            Search.Location = new Point(6, 39);
+            Search.Location = new Point(6, 33);
+            Search.Multiline = true;
             Search.Name = "Search";
-            Search.Size = new Size(307, 25);
+            Search.Size = new Size(307, 42);
             Search.TabIndex = 94;
             Search.TextChanged += Search_TextChanged;
             // 
@@ -339,9 +339,9 @@
             // pictureBox9
             // 
             pictureBox9.Image = (Image)resources.GetObject("pictureBox9.Image");
-            pictureBox9.Location = new Point(400, 32);
+            pictureBox9.Location = new Point(404, 32);
             pictureBox9.Name = "pictureBox9";
-            pictureBox9.Size = new Size(29, 33);
+            pictureBox9.Size = new Size(43, 43);
             pictureBox9.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox9.TabIndex = 5;
             pictureBox9.TabStop = false;
@@ -350,12 +350,13 @@
             // button3
             // 
             button3.BackColor = Color.FromArgb(0, 64, 64);
+            button3.FlatStyle = FlatStyle.Flat;
             button3.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button3.ForeColor = Color.White;
-            button3.Location = new Point(319, 31);
+            button3.Location = new Point(315, 32);
             button3.Name = "button3";
             button3.Padding = new Padding(5);
-            button3.Size = new Size(71, 40);
+            button3.Size = new Size(87, 43);
             button3.TabIndex = 105;
             button3.Text = "Search";
             button3.UseVisualStyleBackColor = false;
@@ -367,7 +368,6 @@
             ProductsDVG.Location = new Point(550, 197);
             ProductsDVG.Name = "ProductsDVG";
             ProductsDVG.ReadOnly = true;
-            ProductsDVG.ScrollBars = ScrollBars.Horizontal;
             ProductsDVG.Size = new Size(457, 189);
             ProductsDVG.TabIndex = 89;
             ProductsDVG.CellContentClick += dataGridView1_CellContentClick;
@@ -471,6 +471,7 @@
             discountTb.Name = "discountTb";
             discountTb.Size = new Size(75, 23);
             discountTb.TabIndex = 106;
+            discountTb.KeyPress += discountTb_KeyPress;
             discountTb.KeyUp += textBox5_KeyUp;
             // 
             // label15
@@ -491,6 +492,7 @@
             VATtb.TabIndex = 106;
             VATtb.TextChanged += VATtb_TextChanged;
             VATtb.KeyDown += VATtb_KeyDown;
+            VATtb.KeyPress += VATtb_KeyPress;
             VATtb.KeyUp += VATtb_KeyUp;
             VATtb.MouseLeave += VATtb_MouseLeave;
             // 
@@ -503,19 +505,6 @@
             label13.Size = new Size(31, 14);
             label13.TabIndex = 107;
             label13.Text = "VAT";
-            // 
-            // button4
-            // 
-            button4.BackColor = Color.FromArgb(0, 64, 64);
-            button4.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button4.ForeColor = Color.White;
-            button4.Location = new Point(934, 450);
-            button4.Name = "button4";
-            button4.Size = new Size(85, 34);
-            button4.TabIndex = 98;
-            button4.Text = "Reset";
-            button4.UseVisualStyleBackColor = false;
-            button4.Click += button1_Click;
             // 
             // label19
             // 
@@ -583,14 +572,18 @@
             pictureBox3.TabIndex = 109;
             pictureBox3.TabStop = false;
             // 
-            // label4
+            // button1
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(468, 455);
-            label4.Name = "label4";
-            label4.Size = new Size(38, 15);
-            label4.TabIndex = 110;
-            label4.Text = "label4";
+            button1.BackColor = Color.FromArgb(0, 64, 64);
+            button1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(934, 441);
+            button1.Name = "button1";
+            button1.Size = new Size(85, 36);
+            button1.TabIndex = 110;
+            button1.Text = "Reset";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click_1;
             // 
             // Billing
             // 
@@ -598,7 +591,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1057, 521);
-            Controls.Add(label4);
+            Controls.Add(button1);
             Controls.Add(pictureBox3);
             Controls.Add(label8);
             Controls.Add(panel5);
@@ -616,7 +609,6 @@
             Controls.Add(panel3);
             Controls.Add(panel1);
             Controls.Add(BtnEdit);
-            Controls.Add(button4);
             Controls.Add(Quantity);
             Controls.Add(CusNameCB);
             Controls.Add(panel2);
@@ -669,7 +661,6 @@
         private DataGridView ProductsDVG;
         private TextBox SubTotal;
         private Panel panel5;
-        private Button button4;
         private TextBox VATtb;
         private Label label13;
         private Label label18;
@@ -698,7 +689,7 @@
         private Button BtnEdit;
         private Panel panel2;
         private PictureBox pictureBox3;
-        private Label label4;
+        private Button button1;
         //  private TextBox QtyTb;
     }
 }
