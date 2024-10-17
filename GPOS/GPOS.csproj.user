@@ -40,6 +40,9 @@
     <Compile Update="showValue.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="TrackerNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="ViewBill.cs">
       <SubType>Form</SubType>
     </Compile>

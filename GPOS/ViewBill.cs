@@ -43,5 +43,10 @@ namespace GPOS
             Con.Close();
 
         }
+
+        private void ViewBill_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

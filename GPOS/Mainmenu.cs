@@ -15,7 +15,7 @@ namespace GPOS
         public Mainmenu()
         {
             InitializeComponent();
-         //   this.Load += new System.EventHandler(this.Mainmenu_Load);
+            //   this.Load += new System.EventHandler(this.Mainmenu_Load);
             //  notifyIcon1.Icon = "C://Users/Elva/sourcerepos\\GrockTech\\GPOS-CSharp\\GPOS\\icons8-warning-96.ico";
 
         }
@@ -23,7 +23,7 @@ namespace GPOS
         private void label1_Click(object sender, EventArgs e)
         {
         }
-       
+
         private void CheckStock()
         {
             int lowstockNo = 10;
@@ -48,7 +48,7 @@ namespace GPOS
             Con.Close();
         }
 
-        
+
 
         private void pictureBox6_Click(object sender, EventArgs e)
         {
@@ -144,7 +144,7 @@ namespace GPOS
         {
             decimal mainTotal = CalculateTotalPrices();
             MessageBox.Show($"Store Value GH¢: {mainTotal}", "Store Values");
-           //Box1.Show($"Store Value GH¢: {mainTotal}", "Store Values");
+            //Box1.Show($"Store Value GH¢: {mainTotal}", "Store Values");
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -169,7 +169,7 @@ namespace GPOS
             ///
 
 
-         
+
             using (MySqlConnection con = new MySqlConnection("server=localhost; database=posdb; username=root; password=;"))
             {
                 string query = "SELECT SUM(Amt) AS TotalSales FROM BillT WHERE DATE(BDate) =  CURDATE()";
@@ -184,7 +184,7 @@ namespace GPOS
                     {
                         if (reader.Read())
                         {
-                            
+
                             totalSales = reader["TotalSales"] != DBNull.Value ? Convert.ToDecimal(reader["TotalSales"]) : 0m;
                             //   totalQuantity = reader["TotalQuantity"] != DBNull.Value ? Convert.ToInt32(reader["TotalQuantity"]) : 0;
                         }
@@ -193,12 +193,12 @@ namespace GPOS
             }
 
             MessageBox.Show($"Total Sales for Today: GH¢ {totalSales}", "Daily Sales", MessageBoxButtons.OK, MessageBoxIcon.Information);
-          //  MessageBox.Show($"Daily Sales is GH¢: {totalSales}", "Daily Sales");
+            //  MessageBox.Show($"Daily Sales is GH¢: {totalSales}", "Daily Sales");
 
             // MBox1.Show("Total Sales for Today: GHS '"++"');
 
         }
-        
+
         public async void CheckProductQuantity()
         {
             try
@@ -228,9 +228,9 @@ namespace GPOS
             }
             finally
             {
-                
+
             }
-           
+
         }
         /*
         private void ShowNotification(string productName)
@@ -239,26 +239,26 @@ namespace GPOS
         }
         */
 
-            private void ShowNotification(string productName)
+        private void ShowNotification(string productName)
+        {
+            using (NotifyIcon notifyIcon = new NotifyIcon())
             {
-                using (NotifyIcon notifyIcon = new NotifyIcon())
-                {
-                    notifyIcon.Icon = SystemIcons.Information; // Use your desired icon
-                    notifyIcon.Visible = true;
+                notifyIcon.Icon = SystemIcons.Information; // Use your desired icon
+                notifyIcon.Visible = true;
 
-                    // Set up the balloon tip
-                    notifyIcon.BalloonTipTitle = "Low Stock Alert";
-                    notifyIcon.BalloonTipText = $"{productName} has low stock!";
-                    notifyIcon.BalloonTipIcon = ToolTipIcon.Warning;
+                // Set up the balloon tip
+                notifyIcon.BalloonTipTitle = "Low Stock Alert";
+                notifyIcon.BalloonTipText = $"{productName} has low stock!";
+                notifyIcon.BalloonTipIcon = ToolTipIcon.Warning;
 
-                    // Show the balloon tip
-                    notifyIcon.ShowBalloonTip(3000); // Display for 3 seconds
+                // Show the balloon tip
+                notifyIcon.ShowBalloonTip(3000); // Display for 3 seconds
 
-                    // Optional: hide the icon after a few seconds
-                    System.Threading.Thread.Sleep(3000); // Sleep for 3 seconds to allow the notification to be seen
-                    notifyIcon.Visible = false;
-                }
+                // Optional: hide the icon after a few seconds
+                System.Threading.Thread.Sleep(3000); // Sleep for 3 seconds to allow the notification to be seen
+                notifyIcon.Visible = false;
             }
+        }
 
         public void CheckMonthlySales()
         {
@@ -299,8 +299,15 @@ namespace GPOS
 
         private async void Mainmenu_Load(object sender, EventArgs e)
         {
-           await Task.Delay(20000);
-          CheckProductQuantity();
+            await Task.Delay(20000);
+            CheckProductQuantity();
+        }
+
+        private void btnExp_Click(object sender, EventArgs e)
+        {
+            TrackerNew expenseTracker = new TrackerNew();
+            expenseTracker.Show();
+            //this.Hide();
         }
     }
 }

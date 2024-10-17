@@ -94,5 +94,3 @@ C:\Users\Elva\Source\Repos\GrockTech\GPOS-CSharp\GPOS\obj\Debug\net8.0-windows\G
 C:\Users\Elva\Source\Repos\GrockTech\GPOS-CSharp\GPOS\obj\Debug\net8.0-windows\GPOS.genruntimeconfig.cache
 C:\Users\Elva\Source\Repos\GrockTech\GPOS-CSharp\GPOS\obj\Debug\net8.0-windows\ref\GPOS.dll
 C:\Users\Elva\Source\Repos\GrockTech\GPOS-CSharp\GPOS\obj\Debug\net8.0-windows\GPOS.addSup.resources
-C:\Users\Elva\Source\Repos\GrockTech\GPOS-CSharp\GPOS\bin\Debug\net8.0-windows\mysql.data.entity.dll
-C:\Users\Elva\Source\Repos\GrockTech\GPOS-CSharp\GPOS\bin\Debug\net8.0-windows\mysql.web.dll

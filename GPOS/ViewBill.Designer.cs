@@ -59,10 +59,10 @@
             // label14
             // 
             label14.AutoSize = true;
-            label14.Font = new Font("Vivaldi", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            label14.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
             label14.Location = new Point(247, 442);
             label14.Name = "label14";
-            label14.Size = new Size(127, 19);
+            label14.Size = new Size(153, 20);
             label14.TabIndex = 77;
             label14.Text = " Grock Tech Consult";
             // 
@@ -90,6 +90,7 @@
             Name = "ViewBill";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ViewBill";
+            Load += ViewBill_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)SellDGV).EndInit();
             ResumeLayout(false);

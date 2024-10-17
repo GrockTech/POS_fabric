@@ -74,6 +74,7 @@
             button1 = new Button();
             btnMonthlySales = new Button();
             notifyIcon1 = new NotifyIcon(components);
+            btnExp = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel2.SuspendLayout();
@@ -293,10 +294,10 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Stencil", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(85, 44);
             label1.Name = "label1";
-            label1.Size = new Size(52, 19);
+            label1.Size = new Size(59, 20);
             label1.TabIndex = 3;
             label1.Text = "GPOS";
             label1.Click += label1_Click;
@@ -361,11 +362,11 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Font = new Font("Script MT Bold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label10.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label10.ForeColor = Color.Black;
             label10.Location = new Point(40, 14);
             label10.Name = "label10";
-            label10.Size = new Size(86, 23);
+            label10.Size = new Size(98, 24);
             label10.TabIndex = 5;
             label10.Text = "Suppliers";
             label10.Click += label10_Click;
@@ -420,11 +421,11 @@
             // label15
             // 
             label15.AutoSize = true;
-            label15.Font = new Font("Script MT Bold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label15.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label15.ForeColor = Color.Black;
             label15.Location = new Point(40, 14);
             label15.Name = "label15";
-            label15.Size = new Size(78, 23);
+            label15.Size = new Size(92, 24);
             label15.TabIndex = 5;
             label15.Text = "Products";
             label15.Click += label10_Click;
@@ -479,11 +480,11 @@
             // label18
             // 
             label18.AutoSize = true;
-            label18.Font = new Font("Script MT Bold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label18.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label18.ForeColor = Color.Black;
             label18.Location = new Point(40, 14);
             label18.Name = "label18";
-            label18.Size = new Size(88, 23);
+            label18.Size = new Size(109, 24);
             label18.TabIndex = 5;
             label18.Text = "Customers";
             label18.Click += label10_Click;
@@ -538,11 +539,11 @@
             // label21
             // 
             label21.AutoSize = true;
-            label21.Font = new Font("Script MT Bold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label21.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label21.ForeColor = Color.Black;
             label21.Location = new Point(40, 14);
             label21.Name = "label21";
-            label21.Size = new Size(64, 23);
+            label21.Size = new Size(67, 24);
             label21.TabIndex = 5;
             label21.Text = "Billing";
             label21.Click += label10_Click;
@@ -561,7 +562,7 @@
             // 
             btnStore.BackColor = Color.Green;
             btnStore.FlatStyle = FlatStyle.Flat;
-            btnStore.Font = new Font("Arial Rounded MT Bold", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnStore.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnStore.ForeColor = Color.Yellow;
             btnStore.Location = new Point(244, 89);
             btnStore.Name = "btnStore";
@@ -573,7 +574,7 @@
             // 
             // button1
             // 
-            button1.BackColor = Color.FromArgb(192, 0, 192);
+            button1.BackColor = Color.FromArgb(64, 0, 64);
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.White;
@@ -605,12 +606,27 @@
             notifyIcon1.Text = "notifyIcon1";
             notifyIcon1.Visible = true;
             // 
+            // btnExp
+            // 
+            btnExp.BackColor = Color.Black;
+            btnExp.FlatStyle = FlatStyle.Flat;
+            btnExp.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnExp.ForeColor = Color.White;
+            btnExp.Location = new Point(744, 89);
+            btnExp.Name = "btnExp";
+            btnExp.Size = new Size(155, 33);
+            btnExp.TabIndex = 107;
+            btnExp.Text = "Expense Tracker";
+            btnExp.UseVisualStyleBackColor = false;
+            btnExp.Click += btnExp_Click;
+            // 
             // Mainmenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1057, 521);
+            Controls.Add(btnExp);
             Controls.Add(btnMonthlySales);
             Controls.Add(button1);
             Controls.Add(btnStore);
@@ -704,5 +720,6 @@
         private Button button1;
         private Button btnMonthlySales;
         private NotifyIcon notifyIcon1;
+        private Button btnExp;
     }
 }

@@ -3,44 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\Elva\\source\\repos\\GrockTech\\GPOS-CSharp\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{AE82E97D-8A4F-458A-9188-8CF8A3B68E14}|GPOS\\GPOS.csproj|c:\\users\\elva\\source\\repos\\grocktech\\gpos-csharp\\gpos\\trackernew.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{AE82E97D-8A4F-458A-9188-8CF8A3B68E14}|GPOS\\GPOS.csproj|solutionrelative:gpos\\trackernew.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE82E97D-8A4F-458A-9188-8CF8A3B68E14}|GPOS\\GPOS.csproj|c:\\users\\elva\\source\\repos\\grocktech\\gpos-csharp\\gpos\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE82E97D-8A4F-458A-9188-8CF8A3B68E14}|GPOS\\GPOS.csproj|solutionrelative:gpos\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE82E97D-8A4F-458A-9188-8CF8A3B68E14}|GPOS\\GPOS.csproj|c:\\users\\elva\\source\\repos\\grocktech\\gpos-csharp\\gpos\\trackernew.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE82E97D-8A4F-458A-9188-8CF8A3B68E14}|GPOS\\GPOS.csproj|solutionrelative:gpos\\trackernew.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE82E97D-8A4F-458A-9188-8CF8A3B68E14}|GPOS\\GPOS.csproj|c:\\users\\elva\\source\\repos\\grocktech\\gpos-csharp\\gpos\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{AE82E97D-8A4F-458A-9188-8CF8A3B68E14}|GPOS\\GPOS.csproj|solutionrelative:gpos\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE82E97D-8A4F-458A-9188-8CF8A3B68E14}|GPOS\\GPOS.csproj|c:\\users\\elva\\source\\repos\\grocktech\\gpos-csharp\\gpos\\viewbill.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE82E97D-8A4F-458A-9188-8CF8A3B68E14}|GPOS\\GPOS.csproj|solutionrelative:gpos\\viewbill.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{AE82E97D-8A4F-458A-9188-8CF8A3B68E14}|GPOS\\GPOS.csproj|c:\\users\\elva\\source\\repos\\grocktech\\gpos-csharp\\gpos\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AE82E97D-8A4F-458A-9188-8CF8A3B68E14}|GPOS\\GPOS.csproj|solutionrelative:gpos\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AE82E97D-8A4F-458A-9188-8CF8A3B68E14}|GPOS\\GPOS.csproj|C:\\Users\\Elva\\source\\repos\\GrockTech\\GPOS-CSharp\\gpos\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{AE82E97D-8A4F-458A-9188-8CF8A3B68E14}|GPOS\\GPOS.csproj|solutionrelative:gpos\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AE82E97D-8A4F-458A-9188-8CF8A3B68E14}|GPOS\\GPOS.csproj|c:\\users\\elva\\source\\repos\\grocktech\\gpos-csharp\\gpos\\addproducts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE82E97D-8A4F-458A-9188-8CF8A3B68E14}|GPOS\\GPOS.csproj|solutionrelative:gpos\\addproducts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AE82E97D-8A4F-458A-9188-8CF8A3B68E14}|GPOS\\GPOS.csproj|c:\\users\\elva\\source\\repos\\grocktech\\gpos-csharp\\gpos\\addproducts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{AE82E97D-8A4F-458A-9188-8CF8A3B68E14}|GPOS\\GPOS.csproj|solutionrelative:gpos\\addproducts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AE82E97D-8A4F-458A-9188-8CF8A3B68E14}|GPOS\\GPOS.csproj|c:\\users\\elva\\source\\repos\\grocktech\\gpos-csharp\\gpos\\billing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE82E97D-8A4F-458A-9188-8CF8A3B68E14}|GPOS\\GPOS.csproj|solutionrelative:gpos\\billing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AE82E97D-8A4F-458A-9188-8CF8A3B68E14}|GPOS\\GPOS.csproj|C:\\Users\\Elva\\source\\repos\\GrockTech\\GPOS-CSharp\\gpos\\addcustomer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{AE82E97D-8A4F-458A-9188-8CF8A3B68E14}|GPOS\\GPOS.csproj|solutionrelative:gpos\\addcustomer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AE82E97D-8A4F-458A-9188-8CF8A3B68E14}|GPOS\\GPOS.csproj|C:\\Users\\Elva\\source\\repos\\GrockTech\\GPOS-CSharp\\gpos\\billing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{AE82E97D-8A4F-458A-9188-8CF8A3B68E14}|GPOS\\GPOS.csproj|solutionrelative:gpos\\billing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AE82E97D-8A4F-458A-9188-8CF8A3B68E14}|GPOS\\GPOS.csproj|C:\\Users\\Elva\\source\\repos\\GrockTech\\GPOS-CSharp\\gpos\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{AE82E97D-8A4F-458A-9188-8CF8A3B68E14}|GPOS\\GPOS.csproj|solutionrelative:gpos\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AE82E97D-8A4F-458A-9188-8CF8A3B68E14}|GPOS\\GPOS.csproj|c:\\users\\elva\\source\\repos\\grocktech\\gpos-csharp\\gpos\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE82E97D-8A4F-458A-9188-8CF8A3B68E14}|GPOS\\GPOS.csproj|solutionrelative:gpos\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AE82E97D-8A4F-458A-9188-8CF8A3B68E14}|GPOS\\GPOS.csproj|c:\\users\\elva\\source\\repos\\grocktech\\gpos-csharp\\gpos\\login.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE82E97D-8A4F-458A-9188-8CF8A3B68E14}|GPOS\\GPOS.csproj|solutionrelative:gpos\\login.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AE82E97D-8A4F-458A-9188-8CF8A3B68E14}|GPOS\\GPOS.csproj|c:\\users\\elva\\source\\repos\\grocktech\\gpos-csharp\\gpos\\viewbill.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{AE82E97D-8A4F-458A-9188-8CF8A3B68E14}|GPOS\\GPOS.csproj|solutionrelative:gpos\\viewbill.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,130 +38,107 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 7,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AddProducts.cs",
-              "DocumentMoniker": "C:\\Users\\Elva\\source\\repos\\GrockTech\\GPOS-CSharp\\GPOS\\AddProducts.cs",
-              "RelativeDocumentMoniker": "GPOS\\AddProducts.cs",
-              "ToolTip": "C:\\Users\\Elva\\source\\repos\\GrockTech\\GPOS-CSharp\\GPOS\\AddProducts.cs",
-              "RelativeToolTip": "GPOS\\AddProducts.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAmwDsAAABQAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Elva\\source\\repos\\GrockTech\\GPOS-CSharp\\GPOS\\Program.cs",
+              "RelativeDocumentMoniker": "GPOS\\Program.cs",
+              "ToolTip": "C:\\Users\\Elva\\source\\repos\\GrockTech\\GPOS-CSharp\\GPOS\\Program.cs",
+              "RelativeToolTip": "GPOS\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-07T09:55:07.708Z",
+              "WhenOpened": "2024-10-16T21:37:00.346Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Mainmenu.cs",
+              "DocumentMoniker": "C:\\Users\\Elva\\source\\repos\\GrockTech\\GPOS-CSharp\\GPOS\\Mainmenu.cs",
+              "RelativeDocumentMoniker": "GPOS\\Mainmenu.cs",
+              "ToolTip": "C:\\Users\\Elva\\source\\repos\\GrockTech\\GPOS-CSharp\\GPOS\\Mainmenu.cs",
+              "RelativeToolTip": "GPOS\\Mainmenu.cs",
+              "ViewState": "AgIAACYBAAAAAAAAAAAiwCwBAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T20:50:43.831Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "AddProducts.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Elva\\source\\repos\\GrockTech\\GPOS-CSharp\\GPOS\\AddProducts.cs",
-              "RelativeDocumentMoniker": "GPOS\\AddProducts.cs",
-              "ToolTip": "C:\\Users\\Elva\\source\\repos\\GrockTech\\GPOS-CSharp\\GPOS\\AddProducts.cs [Design]",
-              "RelativeToolTip": "GPOS\\AddProducts.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-06T17:59:09.961Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "AddCustomer.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Elva\\source\\repos\\GrockTech\\GPOS-CSharp\\GPOS\\AddCustomer.cs",
-              "RelativeDocumentMoniker": "GPOS\\AddCustomer.cs",
-              "ToolTip": "C:\\Users\\Elva\\source\\repos\\GrockTech\\GPOS-CSharp\\GPOS\\AddCustomer.cs [Design]",
-              "RelativeToolTip": "GPOS\\AddCustomer.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-04T15:21:23.62Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "Mainmenu.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Elva\\source\\repos\\GrockTech\\GPOS-CSharp\\GPOS\\Mainmenu.cs",
               "RelativeDocumentMoniker": "GPOS\\Mainmenu.cs",
               "ToolTip": "C:\\Users\\Elva\\source\\repos\\GrockTech\\GPOS-CSharp\\GPOS\\Mainmenu.cs [Design]",
               "RelativeToolTip": "GPOS\\Mainmenu.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-04T07:39:07.25Z",
+              "WhenOpened": "2024-10-16T20:50:30.61Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TrackerNew.cs",
+              "DocumentMoniker": "C:\\Users\\Elva\\source\\repos\\GrockTech\\GPOS-CSharp\\GPOS\\TrackerNew.cs",
+              "RelativeDocumentMoniker": "GPOS\\TrackerNew.cs",
+              "ToolTip": "C:\\Users\\Elva\\source\\repos\\GrockTech\\GPOS-CSharp\\GPOS\\TrackerNew.cs",
+              "RelativeToolTip": "GPOS\\TrackerNew.cs",
+              "ViewState": "AgIAABABAAAAAAAAAAAQwCABAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T20:38:08.008Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TrackerNew.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Elva\\source\\repos\\GrockTech\\GPOS-CSharp\\GPOS\\TrackerNew.cs",
+              "RelativeDocumentMoniker": "GPOS\\TrackerNew.cs",
+              "ToolTip": "C:\\Users\\Elva\\source\\repos\\GrockTech\\GPOS-CSharp\\GPOS\\TrackerNew.cs [Design]",
+              "RelativeToolTip": "GPOS\\TrackerNew.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T20:19:18.268Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ViewBill.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Elva\\source\\repos\\GrockTech\\GPOS-CSharp\\GPOS\\ViewBill.cs",
+              "RelativeDocumentMoniker": "GPOS\\ViewBill.cs",
+              "ToolTip": "C:\\Users\\Elva\\source\\repos\\GrockTech\\GPOS-CSharp\\GPOS\\ViewBill.cs [Design]",
+              "RelativeToolTip": "GPOS\\ViewBill.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T21:51:02.093Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Billing.cs",
-              "DocumentMoniker": "C:\\Users\\Elva\\source\\repos\\GrockTech\\GPOS-CSharp\\GPOS\\Billing.cs",
-              "RelativeDocumentMoniker": "GPOS\\Billing.cs",
-              "ToolTip": "C:\\Users\\Elva\\source\\repos\\GrockTech\\GPOS-CSharp\\GPOS\\Billing.cs",
-              "RelativeToolTip": "GPOS\\Billing.cs",
-              "ViewState": "AgIAAFIAAAAAAAAAAAAAAGgAAAAAAAAAAAAAAA==",
+              "Title": "ViewBill.cs",
+              "DocumentMoniker": "C:\\Users\\Elva\\source\\repos\\GrockTech\\GPOS-CSharp\\GPOS\\ViewBill.cs",
+              "RelativeDocumentMoniker": "GPOS\\ViewBill.cs",
+              "ToolTip": "C:\\Users\\Elva\\source\\repos\\GrockTech\\GPOS-CSharp\\GPOS\\ViewBill.cs",
+              "RelativeToolTip": "GPOS\\ViewBill.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAiwBoAAABvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-03T15:45:21.066Z",
+              "WhenOpened": "2024-10-16T21:51:06.233Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Mainmenu.cs",
-              "DocumentMoniker": "C:\\Users\\Elva\\source\\repos\\GrockTech\\GPOS-CSharp\\GPOS\\Mainmenu.cs",
-              "RelativeDocumentMoniker": "GPOS\\Mainmenu.cs",
-              "ToolTip": "C:\\Users\\Elva\\source\\repos\\GrockTech\\GPOS-CSharp\\GPOS\\Mainmenu.cs",
-              "RelativeToolTip": "GPOS\\Mainmenu.cs",
-              "ViewState": "AgIAABQBAAAAAAAAAAAiwC8BAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-03T15:53:22.198Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Billing.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Elva\\source\\repos\\GrockTech\\GPOS-CSharp\\GPOS\\Billing.cs",
-              "RelativeDocumentMoniker": "GPOS\\Billing.cs",
-              "ToolTip": "C:\\Users\\Elva\\source\\repos\\GrockTech\\GPOS-CSharp\\GPOS\\Billing.cs [Design]",
-              "RelativeToolTip": "GPOS\\Billing.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-03T15:45:12.383Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Login.cs",
-              "DocumentMoniker": "C:\\Users\\Elva\\source\\repos\\GrockTech\\GPOS-CSharp\\GPOS\\Login.cs",
-              "RelativeDocumentMoniker": "GPOS\\Login.cs",
-              "ToolTip": "C:\\Users\\Elva\\source\\repos\\GrockTech\\GPOS-CSharp\\GPOS\\Login.cs",
-              "RelativeToolTip": "GPOS\\Login.cs",
-              "ViewState": "AgIAAEAAAAAAAAAAAAAAAE8AAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-03T09:11:08.032Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Login.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Elva\\source\\repos\\GrockTech\\GPOS-CSharp\\GPOS\\Login.cs",
-              "RelativeDocumentMoniker": "GPOS\\Login.cs",
-              "ToolTip": "C:\\Users\\Elva\\source\\repos\\GrockTech\\GPOS-CSharp\\GPOS\\Login.cs [Design]",
-              "RelativeToolTip": "GPOS\\Login.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-03T09:09:21.636Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Login.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\Elva\\source\\repos\\GrockTech\\GPOS-CSharp\\GPOS\\Login.Designer.cs",
-              "RelativeDocumentMoniker": "GPOS\\Login.Designer.cs",
-              "ToolTip": "C:\\Users\\Elva\\source\\repos\\GrockTech\\GPOS-CSharp\\GPOS\\Login.Designer.cs",
-              "RelativeToolTip": "GPOS\\Login.Designer.cs",
-              "ViewState": "AgIAAHoAAAAAAAAAAAAvwIQAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-03T09:03:55.407Z"
             }
           ]
         }
