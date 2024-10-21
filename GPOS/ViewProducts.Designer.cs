@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewProducts));
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             label3 = new Label();
             panel1 = new Panel();
             label2 = new Label();
@@ -50,11 +50,17 @@
             label13 = new Label();
             label14 = new Label();
             label10 = new Label();
+            search = new TextBox();
+            txtSearch = new Button();
+            pictureBox3 = new PictureBox();
+            pictureBox4 = new PictureBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ProductDGV).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             SuspendLayout();
             // 
             // label3
@@ -103,10 +109,10 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Stencil", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(114, 45);
             label1.Name = "label1";
-            label1.Size = new Size(52, 19);
+            label1.Size = new Size(59, 20);
             label1.TabIndex = 9;
             label1.Text = "GPOS";
             // 
@@ -131,22 +137,22 @@
             // 
             // ProductDGV
             // 
-            dataGridViewCellStyle1.ForeColor = Color.FromArgb(255, 255, 192);
-            ProductDGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(255, 255, 192);
+            ProductDGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             ProductDGV.BackgroundColor = SystemColors.ButtonFace;
             ProductDGV.BorderStyle = BorderStyle.Fixed3D;
             ProductDGV.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.Yellow;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            ProductDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.Yellow;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            ProductDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             ProductDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             ProductDGV.GridColor = Color.Black;
-            ProductDGV.Location = new Point(63, 109);
+            ProductDGV.Location = new Point(63, 183);
             ProductDGV.Name = "ProductDGV";
             ProductDGV.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Sunken;
             ProductDGV.ScrollBars = ScrollBars.Vertical;
@@ -261,12 +267,60 @@
             label10.Text = "Back";
             label10.Click += label10_Click;
             // 
+            // search
+            // 
+            search.Location = new Point(63, 135);
+            search.Multiline = true;
+            search.Name = "search";
+            search.Size = new Size(361, 42);
+            search.TabIndex = 51;
+            search.TextChanged += textBox1_TextChanged;
+            // 
+            // txtSearch
+            // 
+            txtSearch.BackColor = Color.Black;
+            txtSearch.FlatStyle = FlatStyle.Flat;
+            txtSearch.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtSearch.ForeColor = Color.White;
+            txtSearch.Location = new Point(484, 141);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(99, 36);
+            txtSearch.TabIndex = 52;
+            txtSearch.Text = "Search";
+            txtSearch.UseVisualStyleBackColor = false;
+            txtSearch.Click += txtSearch_Click;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(431, 138);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(43, 39);
+            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox3.TabIndex = 53;
+            pictureBox3.TabStop = false;
+            pictureBox3.Click += pictureBox3_Click;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(381, 135);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(43, 39);
+            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox4.TabIndex = 53;
+            pictureBox4.TabStop = false;
+            // 
             // ViewProducts
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1073, 560);
+            Controls.Add(pictureBox4);
+            Controls.Add(pictureBox3);
+            Controls.Add(txtSearch);
+            Controls.Add(search);
             Controls.Add(label10);
             Controls.Add(PcatCB);
             Controls.Add(button2);
@@ -295,6 +349,8 @@
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)ProductDGV).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -319,5 +375,9 @@
         private Label label13;
         private Label label14;
         private Label label10;
+        private TextBox search;
+        private Button txtSearch;
+        private PictureBox pictureBox3;
+        private PictureBox pictureBox4;
     }
 }

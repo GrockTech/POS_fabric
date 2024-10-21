@@ -149,10 +149,10 @@ namespace GPOS
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            //Login obj = new Login();
-            //obj.Show();
+            Login obj = new Login();
+            obj.Show();
+            
             this.Close();
-            //this.Close();
         }
 
 

@@ -505,7 +505,7 @@ namespace GPOS
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
 #pragma warning disable CS8602 //1   Dereference of a possibly null reference.
-            e.Graphics.DrawString("Your Company", new Font("Centry Gothic", 12, FontStyle.Bold), Brushes.Black, new Point(70, 10));
+            e.Graphics.DrawString("AHAVAH ODO ENTERPRISE", new Font("Centry Gothic", 12, FontStyle.Bold), Brushes.Black, new Point(70, 10));
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
             e.Graphics.DrawString("ID PRODUCT PRICE QUANTITY TOTAL", new Font("Centry Gothic", 8, FontStyle.Bold), Brushes.Black, new Point(26, 40));
             foreach (DataGridViewRow row in BillDGV.Rows)
@@ -532,7 +532,7 @@ namespace GPOS
             int lineSpacing = 20;
 #pragma warning restore CS0219 // Variable is assigned but its value is never used
 
-            e.Graphics.DrawString("**********GrockTech Consult************", new Font("Century Gothic", 8, FontStyle.Bold), Brushes.Crimson, new Point(35, pos + 70));
+            e.Graphics.DrawString("**********Powered by: GrockTech Consult************", new Font("Century Gothic", 8, FontStyle.Bold), Brushes.Crimson, new Point(35, pos + 70));
 
 
             e.Graphics.DrawString("Grand Total: GH¢" + GrdTotal.Text, new Font("Centry Gothic", 8, FontStyle.Bold), Brushes.Crimson, new Point(50, pos + 30));

@@ -47,7 +47,7 @@ namespace GPOS
         {
             Con.Open();
             string Query = "select * from ProductTbl";
-           
+
             //SqlCommandBuilder builder = new SqlCommandBuilder(adapter);
             MySqlCommand cmd = new MySqlCommand(Query, Con);
             MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
@@ -171,7 +171,45 @@ namespace GPOS
         {
             ViewProducts Obj = new ViewProducts();
             Obj.Show();
-            this.Close(); 
+            this.Close();
+        }
+
+        private void txtSearch_Click(object sender, EventArgs e)
+        {
+            string searchTerm = search.Text.Trim();
+            SearchProducts(searchTerm);
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void SearchProducts(string searchTerm)
+        {
+            try
+            {
+                Con.Open();
+                string Query = "SELECT * FROM ProductTbl WHERE PName LIKE @SearchTerm";
+                MySqlDataAdapter adapter = new MySqlDataAdapter(Query, Con);
+                adapter.SelectCommand.Parameters.AddWithValue("@SearchTerm", "%" + searchTerm + "%");
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                ProductDGV.DataSource = dt;
+                ProductDGV.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Bold);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Con.Close();
+            }
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            DisplayProducts();
         }
     }
 }
