@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Elva\\source\\repos\\GrockTech\\GPOS-CSharp\\GPOS\\GPOS.csproj": {}
+    "C:\\Users\\Elva\\Source\\Repos\\GrockTech\\GPOS-CSharp\\GPOS\\GPOS.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Elva\\source\\repos\\GrockTech\\GPOS-CSharp\\GPOS\\GPOS.csproj": {
+    "C:\\Users\\Elva\\Source\\Repos\\GrockTech\\GPOS-CSharp\\GPOS\\GPOS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Elva\\source\\repos\\GrockTech\\GPOS-CSharp\\GPOS\\GPOS.csproj",
+        "projectUniqueName": "C:\\Users\\Elva\\Source\\Repos\\GrockTech\\GPOS-CSharp\\GPOS\\GPOS.csproj",
         "projectName": "GPOS",
-        "projectPath": "C:\\Users\\Elva\\source\\repos\\GrockTech\\GPOS-CSharp\\GPOS\\GPOS.csproj",
+        "projectPath": "C:\\Users\\Elva\\Source\\Repos\\GrockTech\\GPOS-CSharp\\GPOS\\GPOS.csproj",
         "packagesPath": "C:\\Users\\Elva\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Elva\\source\\repos\\GrockTech\\GPOS-CSharp\\GPOS\\obj\\",
+        "outputPath": "C:\\Users\\Elva\\Source\\Repos\\GrockTech\\GPOS-CSharp\\GPOS\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Elva\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -22,7 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

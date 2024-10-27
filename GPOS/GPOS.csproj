@@ -6,10 +6,11 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
-    <ApplicationIcon>Oxygen-Icons.org-Oxygen-Actions-office-chart-area.ico</ApplicationIcon>
+    <ApplicationIcon>icons8-point-of-sale-64.ico</ApplicationIcon>
   </PropertyGroup>
+
   <ItemGroup>
-    <Content Include="Oxygen-Icons.org-Oxygen-Actions-office-chart-area.ico" />
+    <Content Include="icons8-point-of-sale-64.ico" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,6 +21,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="itextsharp">
+      <HintPath>bin\Debug\net8.0-windows7.0\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data">
       <HintPath>..\..\..\..\..\Downloads\v46\mysql.data.dll</HintPath>
     </Reference>
@@ -28,6 +32,9 @@
     </Reference>
     <Reference Include="MySql.Web">
       <HintPath>..\..\..\..\..\Downloads\v46\mysql.web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SqlClient">
+      <HintPath>bin\Debug\net8.0-windows7.0\System.Data.SqlClient.dll</HintPath>
     </Reference>
   </ItemGroup>
 

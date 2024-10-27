@@ -176,10 +176,10 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Stencil", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(74, 27);
             label1.Name = "label1";
-            label1.Size = new Size(52, 19);
+            label1.Size = new Size(59, 20);
             label1.TabIndex = 88;
             label1.Text = "GPOS";
             label1.Click += label1_Click;
@@ -539,6 +539,7 @@
             printPreviewDialog1.Icon = (Icon)resources.GetObject("printPreviewDialog1.Icon");
             printPreviewDialog1.Name = "printPreviewDialog1";
             printPreviewDialog1.Visible = false;
+            printPreviewDialog1.Load += printPreviewDialog1_Load;
             // 
             // BtnEdit
             // 

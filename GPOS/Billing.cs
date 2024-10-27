@@ -505,12 +505,53 @@ namespace GPOS
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
 #pragma warning disable CS8602 //1   Dereference of a possibly null reference.
-            e.Graphics.DrawString("AHAVAH ODO ENTERPRISE", new Font("Centry Gothic", 12, FontStyle.Bold), Brushes.Black, new Point(70, 10));
+            //    e.Graphics.DrawString("AHAVAH ODO", new Font("Centry Gothic", 12, FontStyle.Bold), Brushes.Black, new Point(70, 10));
+            //  e.Graphics.DrawString("ENTERPRISE", new Font("Centry Gothic", 8, FontStyle.Bold), Brushes.Black, new Point(60, 12));
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
-            e.Graphics.DrawString("ID PRODUCT PRICE QUANTITY TOTAL", new Font("Centry Gothic", 8, FontStyle.Bold), Brushes.Black, new Point(26, 40));
+            /*
+             string contact = "Tel: +233 557 569 669";
+             string subtitle = "ENTERPRISE";
+
+             // Draw "AHAVAH ODO" at position (70, 10)
+             e.Graphics.DrawString("AHAVAH ODO", new Font("Century Gothic", 10, FontStyle.Bold), Brushes.Black, new Point(70, 10));
+
+             // Draw "ENTERPRISE" at position (70, 30)
+             e.Graphics.DrawString(subtitle, new Font("Century Gothic", 6, FontStyle.Bold), Brushes.Blue, new Point(70, 30));
+
+             // Draw contact at position (70, 50)
+             e.Graphics.DrawString(contact, new Font("Century Gothic", 6, FontStyle.Bold), Brushes.Blue, new Point(70, 50));
+
+
+
+             e.Graphics.DrawString("ID PRODUCT PRICE QUANTITY TOTAL", new Font("Centry Gothic", 8, FontStyle.Bold), Brushes.Black, new Point(26, 40));
+             */
+            string contact = "Tel: +233 557 569 669";
+            string subtitle = "ENTERPRISE";
+            //string heading = "ID PRODUCT PRICE QUANTITY TOTAL";
+
+            // Get the width of the printable area
+            int printableWidth = e.PageBounds.Width;
+
+            // Calculate positions to center text
+            int titleX = (printableWidth / 2) - (int)e.Graphics.MeasureString("AHAVAH ODO", new Font("Century Gothic", 10, FontStyle.Bold)).Width / 2;
+            int subtitleX = (printableWidth / 2) - (int)e.Graphics.MeasureString(subtitle, new Font("Century Gothic", 6, FontStyle.Bold)).Width / 2;
+            int contactX = (printableWidth / 2) - (int)e.Graphics.MeasureString(contact, new Font("Century Gothic", 6, FontStyle.Bold)).Width / 2;
+            //  int headingX = (printableWidth / 2) - (int)e.Graphics.MeasureString(heading, new Font("Century Gothic", 8, FontStyle.Bold)).Width / 2;
+            string location = "Loc: Jema, Kintampo South";
+            // Draw the text
+            e.Graphics.DrawString("AHAVAH ODO", new Font("Century Gothic", 10, FontStyle.Bold), Brushes.Black, new Point(titleX, 5));
+            e.Graphics.DrawString(subtitle, new Font("Century Gothic", 6, FontStyle.Bold), Brushes.Black, new Point(subtitleX, 20));
+            e.Graphics.DrawString(contact, new Font("Century Gothic", 6, FontStyle.Bold), Brushes.Black, new Point(contactX, 30));
+            e.Graphics.DrawString(location, new Font("Century Gothic", 6, FontStyle.Bold), Brushes.Black, new Point(contactX, 40));
+
+            // Add vertical spacing between heading and ID product line
+
+            // e.Graphics.DrawString(heading, new Font("Century Gothic", 8, FontStyle.Bold), Brushes.Black, new Point(headingX, 80));
+
+            e.Graphics.DrawString("ID PRODUCT QUANTITY PRICE  TOTAL", new Font("Centry Gothic", 8, FontStyle.Bold), Brushes.Black, new Point(36, 68));
             foreach (DataGridViewRow row in BillDGV.Rows)
             {
-                prodid = Convert.ToInt32(row.Cells["Column1"].Value);
+              prodid = Convert.ToInt32(row.Cells["Column1"].Value);
                 prodname = "" + row.Cells["Column2"].Value;
                 prodprice = Convert.ToInt32(row.Cells["Column3"].Value);
                 prodqty = Convert.ToInt32(row.Cells["Column4"].Value);
@@ -518,13 +559,23 @@ namespace GPOS
 
 
 
-                e.Graphics.DrawString("" + prodid, new Font("Centry Gothic", 6, FontStyle.Bold), Brushes.Blue, new Point(26, pos));
-                e.Graphics.DrawString("" + prodname, new Font("Centry Gothic", 6, FontStyle.Bold), Brushes.Blue, new Point(45, pos));
-                e.Graphics.DrawString(" " + prodprice, new Font("Centry Gothic", 6, FontStyle.Bold), Brushes.Blue, new Point(120, pos));
-                e.Graphics.DrawString("" + prodqty, new Font("Centry Gothic", 6, FontStyle.Bold), Brushes.Blue, new Point(170, pos));
-                e.Graphics.DrawString("" + tottal, new Font("Centry Gothic", 8, FontStyle.Bold), Brushes.Blue, new Point(235, pos));
+              //  e.Graphics.DrawString("" + prodid, new Font("Centry Gothic", 6, FontStyle.Bold), Brushes.Blue, new Point(50, pos));
+               // e.Graphics.DrawString("" + prodname, new Font("Centry Gothic", 6, FontStyle.Bold), Brushes.Blue, new Point(45, pos));
+                //e.Graphics.DrawString(" " + prodprice, new Font("Centry Gothic", 6, FontStyle.Bold), Brushes.Blue, new Point(120, pos));
+                //e.Graphics.DrawString("" + prodqty, new Font("Centry Gothic", 6, FontStyle.Bold), Brushes.Blue, new Point(170, pos));
+                //e.Graphics.DrawString("" + tottal, new Font("Centry Gothic", 8, FontStyle.Bold), Brushes.Blue, new Point(235, pos));
 
-                pos = pos + 20;
+
+
+               // e.Graphics.DrawString("" + prodid, new Font("Centry Gothic", 6, FontStyle.Bold), Brushes.Blue, new Point(50, pos + 40));
+                e.Graphics.DrawString("" + prodname, new Font("Centry Gothic", 6, FontStyle.Bold), Brushes.Blue, new Point(45, pos + 40));
+                e.Graphics.DrawString(" " + prodprice, new Font("Centry Gothic", 6, FontStyle.Bold), Brushes.Blue, new Point(120, pos + 40));
+                e.Graphics.DrawString("" + prodqty, new Font("Centry Gothic", 6, FontStyle.Bold), Brushes.Blue, new Point(170, pos + 40));
+                e.Graphics.DrawString("" + tottal, new Font("Centry Gothic", 8, FontStyle.Bold), Brushes.Blue, new Point(235, pos + 40));
+
+
+
+                pos = pos + 40;
 
 
             }
@@ -532,10 +583,10 @@ namespace GPOS
             int lineSpacing = 20;
 #pragma warning restore CS0219 // Variable is assigned but its value is never used
 
-            e.Graphics.DrawString("**********Powered by: GrockTech Consult************", new Font("Century Gothic", 8, FontStyle.Bold), Brushes.Crimson, new Point(35, pos + 70));
+            e.Graphics.DrawString("******Powered by: GrockTech Consult******", new Font("Century Gothic", 6, FontStyle.Bold), Brushes.Crimson, new Point(50, pos + 80));
 
 
-            e.Graphics.DrawString("Grand Total: GH¢" + GrdTotal.Text, new Font("Centry Gothic", 8, FontStyle.Bold), Brushes.Crimson, new Point(50, pos + 30));
+            e.Graphics.DrawString("Grand Total: GH¢" + GrdTotal.Text, new Font("Centry Gothic", 8, FontStyle.Bold), Brushes.Crimson, new Point(50, pos + 40));
             //e.Graphics.DrawString("***************************GrockTech Consult**********************" , new Font("Centry Gothic", 8, FontStyle.Bold), Brushes.Crimson, new Point(50, pos + 50 + lineSpacing));
             e.Graphics.DrawLine(Pens.Black, new Point(50, pos + 70), new Point(250, pos + 70));
 
@@ -635,6 +686,11 @@ namespace GPOS
         {
             VATtb.Text = "";
             discountTb.Text = "";
+        }
+
+        private void printPreviewDialog1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
