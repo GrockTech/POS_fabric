@@ -44,6 +44,9 @@ namespace GPOS
 
         private void SaveBtn_Click(object sender, EventArgs e)
         {
+            string expiry = dateTimePicker1.Value.ToString("yyyy-MM-dd");
+            //DateTime expiry = dateTimePicker1.Value;
+
             if (PnameTb.Text == "" || PcatCB.SelectedIndex == -1 || PriceTb.Text == "" || QtyTb.Text == "")
             {
              MBox1.Show("All fields are required ");
@@ -57,13 +60,14 @@ namespace GPOS
                     Con.Open();
                    // connetionString.Open();
                     // dbConnection.Open();
-                    MySqlCommand cmd = new MySqlCommand(" insert into ProductTbl(PName, Pcat, Pprice, PQty) values(@PN, @PC, @PP, @PQ)", Con);
+                    MySqlCommand cmd = new MySqlCommand(" insert into ProductTbl(PName, Pcat, Pprice, PQty, expiry_date) values(@PN, @PC, @PP, @PQ, @ED)", Con);
                     cmd.Parameters.AddWithValue("@PN", PnameTb.Text);
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
                     cmd.Parameters.AddWithValue("@PC", PcatCB.SelectedItem.ToString());
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
                     cmd.Parameters.AddWithValue("@PP", PriceTb.Text);
                     cmd.Parameters.AddWithValue("@PQ", QtyTb.Text);
+                    cmd.Parameters.AddWithValue("@ED", expiry);
 
                     cmd.ExecuteNonQuery();
                     MBox1.Show("Product Added");

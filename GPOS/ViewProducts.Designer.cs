@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewProducts));
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             label3 = new Label();
             panel1 = new Panel();
             label2 = new Label();
@@ -137,23 +137,26 @@
             // 
             // ProductDGV
             // 
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(255, 255, 192);
-            ProductDGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            ProductDGV.AllowUserToAddRows = false;
+            ProductDGV.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.ForeColor = Color.FromArgb(255, 255, 192);
+            ProductDGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             ProductDGV.BackgroundColor = SystemColors.ButtonFace;
             ProductDGV.BorderStyle = BorderStyle.Fixed3D;
             ProductDGV.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.Yellow;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            ProductDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.Yellow;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            ProductDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             ProductDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             ProductDGV.GridColor = Color.Black;
             ProductDGV.Location = new Point(63, 183);
             ProductDGV.Name = "ProductDGV";
+            ProductDGV.ReadOnly = true;
             ProductDGV.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Sunken;
             ProductDGV.ScrollBars = ScrollBars.Vertical;
             ProductDGV.Size = new Size(520, 327);
@@ -163,7 +166,7 @@
             // PcatCB
             // 
             PcatCB.FormattingEnabled = true;
-            PcatCB.Items.AddRange(new object[] { "Electronics", "Bulbs ", "Chargers", "HeadPhones", "Cylinders", "Irons", "Cables", "Sockets" });
+            PcatCB.Items.AddRange(new object[] { "General", "Tablet", "Syrup ", "Injection ", "Gel", "Ointment ", "Capsules", "Cream", "Herbal Mixture", "Lotion", "Balm", "Pessaries", "Antiseptic", "Condom", "Oil " });
             PcatCB.Location = new Point(646, 237);
             PcatCB.Name = "PcatCB";
             PcatCB.Size = new Size(298, 23);

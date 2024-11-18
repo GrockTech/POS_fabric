@@ -24,36 +24,13 @@ namespace GPOS
         {
         }
 
-        private void CheckStock()
-        {
-            int lowstockNo = 10;
-
-            Con.Open();
-
-            string query = "SELECT Pname, PQty FROM productTbl WHERE PQty < @lowStockNo";
-            MySqlCommand cmd = new MySqlCommand(query, Con);
-            cmd.Parameters.AddWithValue("@lowStockNo", lowstockNo);
-            MySqlDataReader dr = cmd.ExecuteReader();
-
-            while (dr.Read())
-            {
-                string productname = dr["Pname"].ToString();
-                int quantity = Convert.ToInt32(dr["PQty"]);
-
-                // Show notification
-                ShowStockNotification(productname, quantity);
-            }
-
-            dr.Close();
-            Con.Close();
-        }
 
 
 
         private void pictureBox6_Click(object sender, EventArgs e)
         {
         }
-
+        /*
         private void ShowStockNotification(string productname, int quantity)
         {
 
@@ -61,6 +38,8 @@ namespace GPOS
             notifyIcon1.BalloonTipText = $"{productname} stock is low: Only {quantity} left";
             notifyIcon1.ShowBalloonTip(5000);
         }
+        */
+
         private void label10_Click(object sender, EventArgs e)
         {
         }
@@ -151,7 +130,7 @@ namespace GPOS
         {
             Login obj = new Login();
             obj.Show();
-            
+
             this.Close();
         }
 
@@ -214,8 +193,8 @@ namespace GPOS
                     while (reader.Read())
                     {
                         string productName = reader["PName"].ToString();
-                        Task.Delay(10000);
-                        ShowNotification(productName);
+                        //                Task.Delay(10000);
+                        //              ShowNotification(productName);
                     }
 
                     reader.Close();
@@ -238,7 +217,7 @@ namespace GPOS
             MessageBox.Show($"The quantity of {productName} is less than 5!", "Low Stock Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
         */
-
+        /*
         private void ShowNotification(string productName)
         {
             using (NotifyIcon notifyIcon = new NotifyIcon())
@@ -259,6 +238,7 @@ namespace GPOS
                 notifyIcon.Visible = false;
             }
         }
+        */
 
         public void CheckMonthlySales()
         {
@@ -299,8 +279,8 @@ namespace GPOS
 
         private async void Mainmenu_Load(object sender, EventArgs e)
         {
-            await Task.Delay(20000);
-            CheckProductQuantity();
+            //            await Task.Delay(20000);
+            //          CheckProductQuantity();
         }
 
         private void btnExp_Click(object sender, EventArgs e)
@@ -308,6 +288,12 @@ namespace GPOS
             TrackerNew expenseTracker = new TrackerNew();
             expenseTracker.Show();
             //this.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            lowstock ld = new lowstock();
+            ld.Show();
         }
     }
 }

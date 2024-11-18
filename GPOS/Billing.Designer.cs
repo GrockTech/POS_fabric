@@ -78,6 +78,7 @@
             panel2 = new Panel();
             pictureBox3 = new PictureBox();
             button1 = new Button();
+            button4 = new Button();
             ((System.ComponentModel.ISupportInitialize)BillDGV).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel3.SuspendLayout();
@@ -280,7 +281,7 @@
             // 
             panel4.Controls.Add(button2);
             panel4.Controls.Add(AddBtn);
-            panel4.Location = new Point(448, 197);
+            panel4.Location = new Point(429, 197);
             panel4.Name = "panel4";
             panel4.Size = new Size(96, 189);
             panel4.TabIndex = 103;
@@ -328,9 +329,9 @@
             groupBox1.Controls.Add(button3);
             groupBox1.Controls.Add(Search);
             groupBox1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            groupBox1.Location = new Point(550, 96);
+            groupBox1.Location = new Point(531, 96);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(453, 98);
+            groupBox1.Size = new Size(506, 98);
             groupBox1.TabIndex = 104;
             groupBox1.TabStop = false;
             groupBox1.Text = "Search By Product Name";
@@ -365,10 +366,10 @@
             // ProductsDVG
             // 
             ProductsDVG.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            ProductsDVG.Location = new Point(550, 197);
+            ProductsDVG.Location = new Point(531, 197);
             ProductsDVG.Name = "ProductsDVG";
             ProductsDVG.ReadOnly = true;
-            ProductsDVG.Size = new Size(457, 189);
+            ProductsDVG.Size = new Size(511, 189);
             ProductsDVG.TabIndex = 89;
             ProductsDVG.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -395,10 +396,11 @@
             panel5.Controls.Add(label13);
             panel5.Controls.Add(SubTotal);
             panel5.Controls.Add(label12);
-            panel5.Location = new Point(550, 391);
+            panel5.Location = new Point(531, 392);
             panel5.Name = "panel5";
-            panel5.Size = new Size(374, 117);
+            panel5.Size = new Size(393, 117);
             panel5.TabIndex = 107;
+            panel5.Paint += panel5_Paint;
             // 
             // label18
             // 
@@ -449,7 +451,7 @@
             // 
             PaymentCB.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             PaymentCB.FormattingEnabled = true;
-            PaymentCB.Items.AddRange(new object[] { "Momo", "Cash", "Card" });
+            PaymentCB.Items.AddRange(new object[] { "Momo", "Cash", "Credit", "Installment" });
             PaymentCB.Location = new Point(169, 87);
             PaymentCB.Name = "PaymentCB";
             PaymentCB.Size = new Size(130, 25);
@@ -586,12 +588,25 @@
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click_1;
             // 
+            // button4
+            // 
+            button4.BackColor = Color.Yellow;
+            button4.Font = new Font("Bahnschrift Condensed", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button4.Location = new Point(785, 48);
+            button4.Name = "button4";
+            button4.Size = new Size(101, 33);
+            button4.TabIndex = 111;
+            button4.Text = "View Expiring";
+            button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
+            // 
             // Billing
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1057, 521);
+            Controls.Add(button4);
             Controls.Add(button1);
             Controls.Add(pictureBox3);
             Controls.Add(label8);
@@ -691,6 +706,7 @@
         private Panel panel2;
         private PictureBox pictureBox3;
         private Button button1;
+        private Button button4;
         //  private TextBox QtyTb;
     }
 }

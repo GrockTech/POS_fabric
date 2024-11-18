@@ -43,6 +43,8 @@
             label1 = new Label();
             pictureBox1 = new PictureBox();
             PcatCB = new ComboBox();
+            label7 = new Label();
+            dateTimePicker1 = new DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -94,14 +96,14 @@
             // 
             // QtyTb
             // 
-            QtyTb.Location = new Point(70, 320);
+            QtyTb.Location = new Point(63, 285);
             QtyTb.Name = "QtyTb";
             QtyTb.Size = new Size(298, 23);
             QtyTb.TabIndex = 30;
             // 
             // PriceTb
             // 
-            PriceTb.Location = new Point(70, 259);
+            PriceTb.Location = new Point(63, 224);
             PriceTb.Name = "PriceTb";
             PriceTb.Size = new Size(298, 23);
             PriceTb.TabIndex = 31;
@@ -110,7 +112,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(70, 299);
+            label5.Location = new Point(63, 264);
             label5.Name = "label5";
             label5.Size = new Size(73, 18);
             label5.TabIndex = 25;
@@ -120,7 +122,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(70, 238);
+            label4.Location = new Point(63, 203);
             label4.Name = "label4";
             label4.Size = new Size(109, 18);
             label4.TabIndex = 26;
@@ -128,7 +130,7 @@
             // 
             // PnameTb
             // 
-            PnameTb.Location = new Point(70, 138);
+            PnameTb.Location = new Point(63, 103);
             PnameTb.Name = "PnameTb";
             PnameTb.Size = new Size(298, 23);
             PnameTb.TabIndex = 33;
@@ -137,7 +139,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(70, 177);
+            label3.Location = new Point(63, 142);
             label3.Name = "label3";
             label3.Size = new Size(147, 18);
             label3.TabIndex = 27;
@@ -148,7 +150,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(70, 117);
+            label2.Location = new Point(63, 82);
             label2.Name = "label2";
             label2.Size = new Size(113, 18);
             label2.TabIndex = 28;
@@ -177,12 +179,29 @@
             // PcatCB
             // 
             PcatCB.FormattingEnabled = true;
-            PcatCB.Items.AddRange(new object[] { "General" });
-            PcatCB.Location = new Point(70, 202);
+            PcatCB.Items.AddRange(new object[] { "General", "Tablet", "Syrup ", "Injection ", "Gel", "Ointment ", "Capsules", "Cream", "Herbal Mixture", "Lotion", "Balm", "Pessaries", "Antiseptic", "Condom", "Oil " });
+            PcatCB.Location = new Point(63, 167);
             PcatCB.Name = "PcatCB";
             PcatCB.Size = new Size(298, 23);
             PcatCB.TabIndex = 38;
             PcatCB.SelectedIndexChanged += PcatCB_SelectedIndexChanged;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.Location = new Point(63, 320);
+            label7.Name = "label7";
+            label7.Size = new Size(95, 18);
+            label7.TabIndex = 25;
+            label7.Text = "Expiry Date";
+            // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Location = new Point(63, 343);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(298, 23);
+            dateTimePicker1.TabIndex = 39;
             // 
             // AddProducts
             // 
@@ -190,6 +209,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(423, 512);
+            Controls.Add(dateTimePicker1);
             Controls.Add(PcatCB);
             Controls.Add(pictureBox2);
             Controls.Add(label6);
@@ -197,6 +217,7 @@
             Controls.Add(SaveBtn);
             Controls.Add(QtyTb);
             Controls.Add(PriceTb);
+            Controls.Add(label7);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(PnameTb);
@@ -230,5 +251,7 @@
         private Label label1;
         private PictureBox pictureBox1;
         private ComboBox PcatCB;
+        private Label label7;
+        private DateTimePicker dateTimePicker1;
     }
 }

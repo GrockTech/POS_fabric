@@ -75,6 +75,7 @@
             btnMonthlySales = new Button();
             notifyIcon1 = new NotifyIcon(components);
             btnExp = new Button();
+            button2 = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel2.SuspendLayout();
@@ -595,7 +596,7 @@
             btnMonthlySales.ForeColor = Color.White;
             btnMonthlySales.Location = new Point(557, 90);
             btnMonthlySales.Name = "btnMonthlySales";
-            btnMonthlySales.Size = new Size(167, 33);
+            btnMonthlySales.Size = new Size(167, 34);
             btnMonthlySales.TabIndex = 106;
             btnMonthlySales.Text = "Check Monthly Sales";
             btnMonthlySales.UseVisualStyleBackColor = false;
@@ -620,12 +621,25 @@
             btnExp.UseVisualStyleBackColor = false;
             btnExp.Click += btnExp_Click;
             // 
+            // button2
+            // 
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button2.Location = new Point(411, 91);
+            button2.Name = "button2";
+            button2.Size = new Size(137, 32);
+            button2.TabIndex = 108;
+            button2.Text = "Check Low Stocks";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
             // Mainmenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1057, 521);
+            Controls.Add(button2);
             Controls.Add(btnExp);
             Controls.Add(btnMonthlySales);
             Controls.Add(button1);
@@ -721,5 +735,6 @@
         private Button btnMonthlySales;
         private NotifyIcon notifyIcon1;
         private Button btnExp;
+        private Button button2;
     }
 }

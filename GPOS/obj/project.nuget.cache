@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tcCgfJeEEKM=",
+  "dgSpecHash": "PsP+LeUOKVY=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Elva\\Source\\Repos\\GrockTech\\GPOS-CSharp\\GPOS\\GPOS.csproj",
+  "projectFilePath": "C:\\Users\\Elva\\source\\repos\\CopperPOS\\GPOS-CSharp\\GPOS\\GPOS.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Elva\\.nuget\\packages\\bouncycastle.cryptography\\2.4.0\\bouncycastle.cryptography.2.4.0.nupkg.sha512",
     "C:\\Users\\Elva\\.nuget\\packages\\google.protobuf\\3.26.1\\google.protobuf.3.26.1.nupkg.sha512",
