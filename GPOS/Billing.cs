@@ -25,8 +25,8 @@ namespace GPOS
             DisplayProducts();
             //getCustomer();
             //GetCusName();
-            ProductsDVG.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            ProductsDVG.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;
+           ProductsDVG.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            ProductsDVG.AlternatingRowsDefaultCellStyle.BackColor = Color.LightCyan;
             ProductsDVG.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
         }
 
@@ -74,7 +74,7 @@ namespace GPOS
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 ProductsDVG.DataSource = dt;
-                ProductsDVG.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Bold);
+             //   ProductsDVG.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Bold);
             }
             catch (Exception ex)
             {
@@ -125,7 +125,9 @@ namespace GPOS
         int keyMain = 0;
         string PnameTb;
         //PStock is tracking the remaining stock
-        int Pprice, PStock;
+        float Pprice;
+        int PStock;
+        float total;
         int n = 0;
 
         private void Reset()
@@ -161,7 +163,7 @@ namespace GPOS
 
             Con.Close();
         }
-        int total = 0;
+        //int total = 0;
         private void AddBtn_Click(object sender, EventArgs e)
         {
             {
@@ -182,9 +184,13 @@ namespace GPOS
                 else
                 {
                     // Calculate the subtotal for the selected product
-                    // Convert the quantity from the Quantity TextBox to an integer and multiply by the product price
-                    int Subtotal = Convert.ToInt32(Quantity.Text) * Pprice;
+                     float Subtotal = Convert.ToInt32(Quantity.Text) * Pprice;
                     total = total + Subtotal;
+                    //    
+                    //double Subtotal = Convert.ToInt32(Quantity.Text) * Pprice;
+                    //total = total + (float)Subtotal;
+
+
                     // Create a new row for the DataGridView
                     DataGridViewRow newRow = new DataGridViewRow();
 
@@ -194,12 +200,7 @@ namespace GPOS
                     // Set the value of the first cell to the variable 'n'
                     // This might be an index or counter, but its definition is not provided in this snippet
                     newRow.Cells[0].Value = n;
-
-                    //rodname  = PnameTb.Text;
-                    //  productName = "" + newRow.Cells["Column2"].Value;
-
-                    //abel4 = newRow.Cells[1].Value = PnameTb;
-                    // Set the value of the second cell to the product name from the PnameTb TextBox
+                // Set the value of the second cell to the product name from the PnameTb TextBox
                     newRow.Cells[1].Value = PnameTb;
 
                     // Set the value of the third cell to the quantity from the Quantity TextBox
@@ -210,7 +211,7 @@ namespace GPOS
 
                     // Set the value of the fifth cell to the calculated subtotal
                     newRow.Cells[4].Value = Subtotal;
-
+                    ResetButtonColor();
                     // Add the new row to the SupplierDGV DataGridView
                     BillDGV.Rows.Add(newRow);
                     SubTotal.Text = "" + total;
@@ -244,10 +245,10 @@ namespace GPOS
 
             //PnameTb = ProductsDVG.SelectedRows[0].Cells[1].Value.ToString();
             //PcatCB.SelectedItem = ProductDGV.SelectedRows[0].Cells[2].Value.ToString();
-            Pprice = Convert.ToInt32(ProductsDVG.SelectedRows[0].Cells[3].Value.ToString());
+            Pprice = Convert.ToSingle(ProductsDVG.SelectedRows[0].Cells[3].Value.ToString());
             PStock = Convert.ToInt32(ProductsDVG.SelectedRows[0].Cells[4].Value.ToString());
 
-
+            
             if (PnameTb == "")
             {
 
@@ -257,11 +258,15 @@ namespace GPOS
             {
 
                 keyMain = Convert.ToInt32(ProductsDVG.SelectedRows[0].Cells[0].Value.ToString());
-
+                AddBtn.BackColor = Color.ForestGreen;
             }
 
 
         }
+        private void ResetButtonColor()
+        {
+            AddBtn.BackColor = Color.Teal; 
+        }// Reset to default button color }
         private void UpdateQuantity()
         {
             int newQty = PStock - Convert.ToInt32(Quantity.Text);
@@ -456,9 +461,10 @@ namespace GPOS
 
 
 
-                    double VAT = (Convert.ToDouble(VATtb.Text) / 100) * Convert.ToInt32(SubTotal.Text);
-                    TotTaxTb.Text = "" + VAT;
-                    GrdTotal.Text = "" + (Convert.ToInt32(SubTotal.Text) + Convert.ToDouble(TotTaxTb.Text));
+                    float VAT = (Convert.ToSingle(VATtb.Text) / 100) * Convert.ToSingle(SubTotal.Text);
+                    TotTaxTb.Text = VAT.ToString();
+
+                    GrdTotal.Text = "" + (Convert.ToSingle(SubTotal.Text) + Convert.ToSingle(TotTaxTb.Text));
 
                 }
                 catch (Exception Ex)
@@ -479,23 +485,28 @@ namespace GPOS
             }
             else if (SubTotal.Text == "")
             {
-                MBox1.Show("Add Products to Cart ");
+               // MBox1.Show("Add Products to Cart ");
+                MessageBox.Show("Add Products to Cart ");
                 discountTb.Text = "";
             }
             else
             {
                 try
                 {
-                    double Disc = (Convert.ToDouble(discountTb.Text) / 100) * Convert.ToInt32(SubTotal.Text);
-                    //  TotalDiscount.Text = "" + Disc;
+
+                    float Disc = (Convert.ToSingle(discountTb.Text) / 100) * Convert.ToSingle(SubTotal.Text);
+                    // TotalDiscount.Text = "" + Disc;
                     TotalDiscount.Text = Disc.ToString();
-                    GrdTotal.Text = "" + (Convert.ToInt32(SubTotal.Text) + Convert.ToDouble(TotTaxTb.Text) - Convert.ToDouble(TotalDiscount.Text));
+
+                    GrdTotal.Text = "" + (Convert.ToSingle(SubTotal.Text) + Convert.ToSingle(TotTaxTb.Text) - Convert.ToSingle(TotalDiscount.Text));
+
 
 
                 }
                 catch (Exception Ex)
                 {
                     MBox1.Show(Ex.Message);
+                    MessageBox.Show(Ex.ToString());
 
                 }
             }
@@ -508,23 +519,7 @@ namespace GPOS
             //    e.Graphics.DrawString("AHAVAH ODO", new Font("Centry Gothic", 12, FontStyle.Bold), Brushes.Black, new Point(70, 10));
             //  e.Graphics.DrawString("ENTERPRISE", new Font("Centry Gothic", 8, FontStyle.Bold), Brushes.Black, new Point(60, 12));
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
-            /*
-             string contact = "Tel: +233 557 569 669";
-             string subtitle = "ENTERPRISE";
-
-             // Draw "AHAVAH ODO" at position (70, 10)
-             e.Graphics.DrawString("AHAVAH ODO", new Font("Century Gothic", 10, FontStyle.Bold), Brushes.Black, new Point(70, 10));
-
-             // Draw "ENTERPRISE" at position (70, 30)
-             e.Graphics.DrawString(subtitle, new Font("Century Gothic", 6, FontStyle.Bold), Brushes.Blue, new Point(70, 30));
-
-             // Draw contact at position (70, 50)
-             e.Graphics.DrawString(contact, new Font("Century Gothic", 6, FontStyle.Bold), Brushes.Blue, new Point(70, 50));
-
-
-
-             e.Graphics.DrawString("ID PRODUCT PRICE QUANTITY TOTAL", new Font("Centry Gothic", 8, FontStyle.Bold), Brushes.Black, new Point(26, 40));
-             */
+            
             string contact = "Tel:+233 240 811 975 | 233 240 811 975";
             string subtitle = "OVER-THE-COUNTER DRUGSTORE";
             //string heading = "ID PRODUCT PRICE QUANTITY TOTAL";
@@ -560,12 +555,6 @@ namespace GPOS
 
 
 
-                //  e.Graphics.DrawString("" + prodid, new Font("Centry Gothic", 6, FontStyle.Bold), Brushes.Blue, new Point(50, pos));
-                // e.Graphics.DrawString("" + prodname, new Font("Centry Gothic", 6, FontStyle.Bold), Brushes.Blue, new Point(45, pos));
-                //e.Graphics.DrawString(" " + prodprice, new Font("Centry Gothic", 6, FontStyle.Bold), Brushes.Blue, new Point(120, pos));
-                //e.Graphics.DrawString("" + prodqty, new Font("Centry Gothic", 6, FontStyle.Bold), Brushes.Blue, new Point(170, pos));
-                //e.Graphics.DrawString("" + tottal, new Font("Centry Gothic", 8, FontStyle.Bold), Brushes.Blue, new Point(235, pos));
-
 
 
                 // e.Graphics.DrawString("" + prodid, new Font("Centry Gothic", 6, FontStyle.Bold), Brushes.Blue, new Point(50, pos + 40));
@@ -587,7 +576,7 @@ namespace GPOS
             e.Graphics.DrawString("******Powered by: GrockTech Consult******", new Font("Century Gothic", 6, FontStyle.Bold), Brushes.Black, new Point(50, pos + 80));
 
 
-            e.Graphics.DrawString("Grand Total: GH¢" + GrdTotal.Text, new Font("Centry Gothic", 8, FontStyle.Bold), Brushes.Black, new Point(50, pos + 40));
+            e.Graphics.DrawString("Grand Total: GH¢" + GrdTotal.Text + ".00", new Font("Centry Gothic", 8, FontStyle.Bold), Brushes.Crimson, new Point(50, pos + 40));
             //e.Graphics.DrawString("***************************GrockTech Consult**********************" , new Font("Centry Gothic", 8, FontStyle.Bold), Brushes.Crimson, new Point(50, pos + 50 + lineSpacing));
             e.Graphics.DrawLine(Pens.Black, new Point(50, pos + 70), new Point(250, pos + 70));
 

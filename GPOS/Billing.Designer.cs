@@ -76,7 +76,6 @@
             printPreviewDialog1 = new PrintPreviewDialog();
             BtnEdit = new Button();
             panel2 = new Panel();
-            pictureBox3 = new PictureBox();
             button1 = new Button();
             button4 = new Button();
             ((System.ComponentModel.ISupportInitialize)BillDGV).BeginInit();
@@ -89,7 +88,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ProductsDVG).BeginInit();
             panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // label12
@@ -164,10 +163,10 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.BackColor = Color.Silver;
+            label8.BackColor = Color.Teal;
             label8.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label8.ForeColor = Color.White;
-            label8.Location = new Point(940, 55);
+            label8.Location = new Point(10, 7);
             label8.Name = "label8";
             label8.Size = new Size(90, 18);
             label8.TabIndex = 18;
@@ -197,7 +196,7 @@
             // 
             // panel3
             // 
-            panel3.BackColor = Color.Yellow;
+            panel3.BackColor = Color.Teal;
             panel3.Controls.Add(label3);
             panel3.Location = new Point(293, 14);
             panel3.Name = "panel3";
@@ -207,20 +206,21 @@
             // label3
             // 
             label3.AutoSize = true;
+            label3.BackColor = Color.Teal;
             label3.Font = new Font("Tahoma", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.ForeColor = Color.Black;
+            label3.ForeColor = Color.Transparent;
             label3.Location = new Point(2, 2);
             label3.Name = "label3";
             label3.Size = new Size(149, 13);
             label3.TabIndex = 5;
-            label3.Text = "Point of Sale Version 16.2";
+            label3.Text = "Point of Sale Version 17.0";
             // 
             // panel1
             // 
             panel1.BackColor = Color.Black;
             panel1.Controls.Add(label2);
             panel1.Controls.Add(pictureBox2);
-            panel1.Location = new Point(378, 2);
+            panel1.Location = new Point(392, 1);
             panel1.Name = "panel1";
             panel1.Size = new Size(665, 44);
             panel1.TabIndex = 84;
@@ -234,7 +234,7 @@
             label2.Name = "label2";
             label2.Size = new Size(219, 19);
             label2.TabIndex = 4;
-            label2.Text = "Point of Sale Version 16.2";
+            label2.Text = "Point of Sale Version 17.0";
             // 
             // pictureBox2
             // 
@@ -288,29 +288,36 @@
             // 
             // button2
             // 
-            button2.BackColor = Color.FromArgb(0, 64, 64);
+            button2.BackColor = Color.Teal;
+            button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button2.ForeColor = Color.White;
+            button2.ImageAlign = ContentAlignment.MiddleRight;
             button2.Location = new Point(7, 105);
             button2.Name = "button2";
             button2.Padding = new Padding(5);
             button2.Size = new Size(78, 34);
             button2.TabIndex = 105;
             button2.Text = "Refresh";
+            button2.TextAlign = ContentAlignment.MiddleLeft;
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
             // AddBtn
             // 
-            AddBtn.BackColor = Color.FromArgb(0, 64, 64);
+            AddBtn.BackColor = Color.Teal;
+            AddBtn.FlatStyle = FlatStyle.Flat;
             AddBtn.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             AddBtn.ForeColor = Color.White;
+            AddBtn.Image = (Image)resources.GetObject("AddBtn.Image");
+            AddBtn.ImageAlign = ContentAlignment.MiddleRight;
             AddBtn.Location = new Point(7, 65);
             AddBtn.Name = "AddBtn";
             AddBtn.Padding = new Padding(5);
             AddBtn.Size = new Size(78, 34);
             AddBtn.TabIndex = 104;
             AddBtn.Text = "Add";
+            AddBtn.TextAlign = ContentAlignment.MiddleLeft;
             AddBtn.UseVisualStyleBackColor = false;
             AddBtn.Click += AddBtn_Click;
             // 
@@ -350,7 +357,7 @@
             // 
             // button3
             // 
-            button3.BackColor = Color.FromArgb(0, 64, 64);
+            button3.BackColor = Color.Teal;
             button3.FlatStyle = FlatStyle.Flat;
             button3.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button3.ForeColor = Color.White;
@@ -365,7 +372,10 @@
             // 
             // ProductsDVG
             // 
+            ProductsDVG.BackgroundColor = Color.White;
+            ProductsDVG.BorderStyle = BorderStyle.Fixed3D;
             ProductsDVG.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            ProductsDVG.GridColor = Color.DimGray;
             ProductsDVG.Location = new Point(531, 197);
             ProductsDVG.Name = "ProductsDVG";
             ProductsDVG.ReadOnly = true;
@@ -545,56 +555,59 @@
             // 
             // BtnEdit
             // 
-            BtnEdit.BackColor = Color.FromArgb(0, 64, 64);
-            BtnEdit.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BtnEdit.BackColor = Color.Teal;
+            BtnEdit.FlatStyle = FlatStyle.Flat;
+            BtnEdit.Font = new Font("Trebuchet MS", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BtnEdit.ForeColor = Color.White;
+            BtnEdit.Image = (Image)resources.GetObject("BtnEdit.Image");
+            BtnEdit.ImageAlign = ContentAlignment.MiddleRight;
             BtnEdit.Location = new Point(934, 401);
             BtnEdit.Name = "BtnEdit";
-            BtnEdit.Size = new Size(85, 34);
+            BtnEdit.Padding = new Padding(20, 0, 0, 0);
+            BtnEdit.Size = new Size(108, 34);
             BtnEdit.TabIndex = 98;
-            BtnEdit.Text = "Print";
+            BtnEdit.Text = "Sale";
+            BtnEdit.TextAlign = ContentAlignment.MiddleLeft;
             BtnEdit.UseVisualStyleBackColor = false;
             BtnEdit.Click += button1_Click;
             // 
             // panel2
             // 
-            panel2.BackColor = Color.Silver;
-            panel2.Location = new Point(892, 45);
+            panel2.BackColor = Color.Teal;
+            panel2.Controls.Add(label8);
+            panel2.Location = new Point(932, 48);
             panel2.Name = "panel2";
-            panel2.Size = new Size(150, 35);
+            panel2.Size = new Size(108, 35);
             panel2.TabIndex = 108;
-            // 
-            // pictureBox3
-            // 
-            pictureBox3.BackColor = Color.Transparent;
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(894, 47);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(42, 30);
-            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox3.TabIndex = 109;
-            pictureBox3.TabStop = false;
             // 
             // button1
             // 
-            button1.BackColor = Color.FromArgb(0, 64, 64);
-            button1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.White;
+            button1.BackColor = Color.Teal;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.Transparent;
+            button1.Image = (Image)resources.GetObject("button1.Image");
+            button1.ImageAlign = ContentAlignment.MiddleRight;
             button1.Location = new Point(934, 441);
             button1.Name = "button1";
-            button1.Size = new Size(85, 36);
+            button1.Padding = new Padding(20, 0, 0, 0);
+            button1.Size = new Size(108, 36);
             button1.TabIndex = 110;
             button1.Text = "Reset";
+            button1.TextAlign = ContentAlignment.MiddleLeft;
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click_1;
             // 
             // button4
             // 
-            button4.BackColor = Color.Yellow;
-            button4.Font = new Font("Bahnschrift Condensed", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button4.Location = new Point(785, 48);
+            button4.BackColor = Color.Teal;
+            button4.BackgroundImageLayout = ImageLayout.Stretch;
+            button4.FlatStyle = FlatStyle.Flat;
+            button4.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button4.ForeColor = Color.White;
+            button4.Location = new Point(805, 48);
             button4.Name = "button4";
-            button4.Size = new Size(101, 33);
+            button4.Size = new Size(126, 35);
             button4.TabIndex = 111;
             button4.Text = "View Expiring";
             button4.UseVisualStyleBackColor = false;
@@ -608,8 +621,6 @@
             ClientSize = new Size(1057, 521);
             Controls.Add(button4);
             Controls.Add(button1);
-            Controls.Add(pictureBox3);
-            Controls.Add(label8);
             Controls.Add(panel5);
             Controls.Add(groupBox1);
             Controls.Add(panel4);
@@ -647,7 +658,8 @@
             ((System.ComponentModel.ISupportInitialize)ProductsDVG).EndInit();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -704,7 +716,6 @@
         private PrintPreviewDialog printPreviewDialog1;
         private Button BtnEdit;
         private Panel panel2;
-        private PictureBox pictureBox3;
         private Button button1;
         private Button button4;
         //  private TextBox QtyTb;

@@ -20,7 +20,7 @@ namespace GPOS
             DisplayProducts();
             ProductDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             ProductDGV.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;
-            ProductDGV.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
+           ProductDGV.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
         }
 
         private void ViewProducts_Load(object sender, EventArgs e)
@@ -79,10 +79,15 @@ namespace GPOS
 
 
                     cmd.ExecuteNonQuery();
-                    MBox1.Show("Product Deleted ");
+                    MBox1.Show("Product Deleted!");
                     Con.Close();
                     DisplayProducts();
                     //eset();
+                    PnameTb.Clear();
+                    PriceTb.Clear();
+                    QtyTb.Clear();
+
+
                 }
                 catch (Exception Ex)
                 {
@@ -99,11 +104,17 @@ namespace GPOS
 
 
             // setting data in datagrid to fit text box for edit RESPECTIVELY 
-            PnameTb.Text = ProductDGV.SelectedRows[0].Cells[1].Value.ToString();
-            PcatCB.SelectedItem = ProductDGV.SelectedRows[0].Cells[2].Value.ToString();
-            PriceTb.Text = ProductDGV.SelectedRows[0].Cells[3].Value.ToString();
-            QtyTb.Text = ProductDGV.SelectedRows[0].Cells[4].Value.ToString();
-
+            PnameTb.Text = ProductDGV.SelectedRows[0].Cells[1].Value?.ToString();
+            PcatCB.SelectedItem = ProductDGV.SelectedRows[0].Cells[2].Value?.ToString();
+            PriceTb.Text = ProductDGV.SelectedRows[0].Cells[3].Value?.ToString();
+            QtyTb.Text = ProductDGV.SelectedRows[0].Cells[4].Value?.ToString();
+            string expiry = dateTimePicker1.Value.ToString();
+            string selectedDate = ProductDGV.SelectedRows[0].Cells[5].Value?.ToString();
+           // dateTimePicker1.Value = selectedDate;
+           
+                // dateTimePicker1.Value = selectedDateUpdate.Date;
+                expiry = selectedDate;
+            
 
             if (PnameTb.Text == "")
             {
@@ -127,9 +138,9 @@ namespace GPOS
         {
             //edit button
 
-            if (PnameTb.Text == "" || PcatCB.SelectedIndex == -1 || PriceTb.Text == "" || QtyTb.Text == "")
+            if (PnameTb.Text == "" ||  PriceTb.Text == "" || QtyTb.Text == "")
             {
-                MBox1.Show("Select the product ");
+                MBox1.Show("Select the product or product category ");
             }
             else
             {
@@ -137,7 +148,7 @@ namespace GPOS
                 {
                     // we open db connection 
                     Con.Open();
-                    MySqlCommand cmd = new MySqlCommand(" Update ProductTbl set PName = @PN,Pcat=@PC,Pprice = @PP, pQty = @PQ where PId = @Pkey", Con);
+                    MySqlCommand cmd = new MySqlCommand(" Update ProductTbl set PName = @PN,Pcat=@PC,Pprice = @PP,  expiry_date=@DD, pQty = @PQ where PId = @Pkey", Con);
                     cmd.Parameters.AddWithValue("@PN", PnameTb.Text);
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
                     cmd.Parameters.AddWithValue("@PC", PcatCB.SelectedItem.ToString());
@@ -145,12 +156,17 @@ namespace GPOS
                     cmd.Parameters.AddWithValue("@PP", PriceTb.Text);
                     cmd.Parameters.AddWithValue("@PQ", QtyTb.Text);
                     cmd.Parameters.AddWithValue("@Pkey", keyMain);
+                    cmd.Parameters.AddWithValue("DD", dateTimePicker1);
 
                     cmd.ExecuteNonQuery();
-                    MBox1.Show("Product Product Updated");
+                    MBox1.Show("Product Updated");
                     Con.Close();
                     DisplayProducts();
                     //  Reset();
+                    PnameTb.Clear();
+                    PriceTb.Clear();
+                    QtyTb.Clear();  
+                    //PcatCB.Items.Clear();
                 }
                 catch (Exception Ex)
                 {
@@ -210,6 +226,7 @@ namespace GPOS
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             DisplayProducts();
+            txtSearch.Text = "";
         }
     }
 }

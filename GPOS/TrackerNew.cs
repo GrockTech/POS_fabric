@@ -49,65 +49,7 @@ namespace GPOS
 
 
         }
-        /*
-        public double SumCostByDateRange(string connectionString, string startDate, string endDate)
-        {
-            double totalCost = 0.0;
-            //string startingDate = txtDateFrom.Text;
-            // Ensure the dates are in the correct format for the SQL query
-
-            
-
-            string query = "SELECT SUM(cost) FROM expense WHERE STR_TO_DATE(date, '%Y-%m-%d') >= @StartDate AND STR_TO_DATE(date, '%Y-%m-%d') <= @EndDate";
-
-            using (var con = new MySqlConnection(connectionString))
-            {
-                //dataGridView1 dgrid = new DataGridView();
-                using (var cmd = new MySqlCommand(query, con))
-                {
-                    // Add parameters with the correct types
-                    cmd.Parameters.AddWithValue("@StartDate", startDate);
-                    cmd.Parameters.AddWithValue("@EndDate", endDate);
-
-                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-                    DataTable dataTable = new DataTable();
-                    adapter.Fill(dataTable);
-                    dataGridView1.DataSource = dataTable; // 
-
-
-                    try
-                    {
-                        con.Open();
-                        object result = cmd.ExecuteScalar(); // Execute the query
-
-                        if (result != DBNull.Value) // Check if result is not null
-                        {
-                            totalCost = Convert.ToDouble(result); // Convert result to double
-                        }
-                        
-
-                    }
-                    catch (Exception ex)
-                    {
-                        // Handle exceptions (log, rethrow, etc.)
-                        Console.WriteLine("An error occurred: " + ex.Message);
-                    }
-                }
-            }
-
-            return totalCost; // Return the total cost
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            string connectionString = "server=localhost; database=posdb; username=root; password=;";
-            string sdate = txtDateFrom.Value.ToString("yyyy-MM-dd");
-            string tdate = txtDateTo.Value.ToString("yyyy-MM-dd");
-
-          double TotalCost =  SumCostByDateRange(connectionString, sdate, tdate);
-            label7.Text = TotalCost.ToString();
-        }
-        */
+       
         string TCost;
         public double SumCostByDateRange(string connectionString, string startDate, string endDate)
         {
