@@ -78,6 +78,8 @@
             panel2 = new Panel();
             button1 = new Button();
             button4 = new Button();
+            label4 = new Label();
+            label5 = new Label();
             ((System.ComponentModel.ISupportInitialize)BillDGV).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel3.SuspendLayout();
@@ -296,9 +298,9 @@
             button2.Location = new Point(7, 105);
             button2.Name = "button2";
             button2.Padding = new Padding(5);
-            button2.Size = new Size(78, 34);
+            button2.Size = new Size(86, 34);
             button2.TabIndex = 105;
-            button2.Text = "Refresh";
+            button2.Text = "Remove";
             button2.TextAlign = ContentAlignment.MiddleLeft;
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
@@ -314,7 +316,7 @@
             AddBtn.Location = new Point(7, 65);
             AddBtn.Name = "AddBtn";
             AddBtn.Padding = new Padding(5);
-            AddBtn.Size = new Size(78, 34);
+            AddBtn.Size = new Size(86, 34);
             AddBtn.TabIndex = 104;
             AddBtn.Text = "Add";
             AddBtn.TextAlign = ContentAlignment.MiddleLeft;
@@ -613,12 +615,37 @@
             button4.UseVisualStyleBackColor = false;
             button4.Click += button4_Click;
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.BackColor = Color.FromArgb(192, 0, 0);
+            label4.Font = new Font("Consolas", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.White;
+            label4.Location = new Point(212, 59);
+            label4.Name = "label4";
+            label4.Size = new Size(105, 15);
+            label4.TabIndex = 113;
+            label4.Text = "Today's Sales:";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.BackColor = Color.Teal;
+            label5.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.White;
+            label5.Location = new Point(218, 76);
+            label5.Name = "label5";
+            label5.Size = new Size(0, 21);
+            label5.TabIndex = 114;
+            // 
             // Billing
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1057, 521);
+            Controls.Add(label5);
+            Controls.Add(label4);
             Controls.Add(button4);
             Controls.Add(button1);
             Controls.Add(panel5);
@@ -718,6 +745,8 @@
         private Panel panel2;
         private Button button1;
         private Button button4;
+        private Label label4;
+        private Label label5;
         //  private TextBox QtyTb;
     }
 }

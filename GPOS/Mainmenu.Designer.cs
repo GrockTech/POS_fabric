@@ -55,16 +55,23 @@
             label11 = new Label();
             label10 = new Label();
             pictureBox9 = new PictureBox();
+            panel8 = new Panel();
+            label22 = new Label();
+            panel6 = new Panel();
+            button4 = new Button();
+            label16 = new Label();
+            label17 = new Label();
+            label18 = new Label();
+            button5 = new Button();
+            pictureBox11 = new PictureBox();
+            label23 = new Label();
+            label24 = new Label();
+            pictureBox13 = new PictureBox();
             panel5 = new Panel();
             label13 = new Label();
             label14 = new Label();
             label15 = new Label();
             pictureBox10 = new PictureBox();
-            panel6 = new Panel();
-            label16 = new Label();
-            label17 = new Label();
-            label18 = new Label();
-            pictureBox11 = new PictureBox();
             panel7 = new Panel();
             label19 = new Label();
             label20 = new Label();
@@ -76,6 +83,12 @@
             notifyIcon1 = new NotifyIcon(components);
             btnExp = new Button();
             button2 = new Button();
+            panel9 = new Panel();
+            label25 = new Label();
+            label26 = new Label();
+            label27 = new Label();
+            pictureBox14 = new PictureBox();
+            button3 = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel2.SuspendLayout();
@@ -89,12 +102,16 @@
             panel3.SuspendLayout();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
-            panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
+            panel8.SuspendLayout();
             panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox11).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox13).BeginInit();
+            panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
             panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox12).BeginInit();
+            panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox14).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -131,7 +148,7 @@
             // 
             // panel2
             // 
-            panel2.BackColor = Color.Gray;
+            panel2.BackColor = Color.Black;
             panel2.Controls.Add(label8);
             panel2.Controls.Add(pictureBox7);
             panel2.Controls.Add(pictureBox8);
@@ -330,10 +347,11 @@
             panel4.Controls.Add(label11);
             panel4.Controls.Add(label10);
             panel4.Controls.Add(pictureBox9);
+            panel4.Controls.Add(panel8);
             panel4.ForeColor = Color.FromArgb(224, 224, 224);
-            panel4.Location = new Point(57, 139);
+            panel4.Location = new Point(360, 284);
             panel4.Name = "panel4";
-            panel4.Size = new Size(342, 166);
+            panel4.Size = new Size(342, 174);
             panel4.TabIndex = 4;
             // 
             // label12
@@ -382,6 +400,155 @@
             pictureBox9.TabIndex = 2;
             pictureBox9.TabStop = false;
             // 
+            // panel8
+            // 
+            panel8.BackColor = Color.DarkGray;
+            panel8.Controls.Add(label22);
+            panel8.Controls.Add(panel6);
+            panel8.Controls.Add(label23);
+            panel8.Controls.Add(label24);
+            panel8.Controls.Add(pictureBox13);
+            panel8.ForeColor = Color.FromArgb(224, 224, 224);
+            panel8.Location = new Point(303, 145);
+            panel8.Name = "panel8";
+            panel8.Size = new Size(342, 166);
+            panel8.TabIndex = 4;
+            // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.Font = new Font("Times New Roman", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label22.ForeColor = Color.Black;
+            label22.Location = new Point(39, 71);
+            label22.Name = "label22";
+            label22.Size = new Size(219, 17);
+            label22.TabIndex = 5;
+            label22.Text = "information about your suppliers";
+            label22.Click += label10_Click;
+            // 
+            // panel6
+            // 
+            panel6.BackColor = Color.DarkGray;
+            panel6.Controls.Add(button4);
+            panel6.Controls.Add(label16);
+            panel6.Controls.Add(label17);
+            panel6.Controls.Add(label18);
+            panel6.Controls.Add(button5);
+            panel6.Controls.Add(pictureBox11);
+            panel6.ForeColor = Color.FromArgb(224, 224, 224);
+            panel6.Location = new Point(305, 142);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(342, 174);
+            panel6.TabIndex = 4;
+            // 
+            // button4
+            // 
+            button4.BackColor = Color.FromArgb(64, 0, 64);
+            button4.FlatStyle = FlatStyle.Flat;
+            button4.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button4.ForeColor = Color.White;
+            button4.Location = new Point(-67, 91);
+            button4.Name = "button4";
+            button4.Size = new Size(167, 60);
+            button4.TabIndex = 106;
+            button4.Text = "Check Monthly Sales";
+            button4.UseVisualStyleBackColor = false;
+            button4.Click += btnMonthlySales_Click;
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Font = new Font("Times New Roman", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label16.ForeColor = Color.Black;
+            label16.Location = new Point(39, 71);
+            label16.Name = "label16";
+            label16.Size = new Size(219, 17);
+            label16.TabIndex = 5;
+            label16.Text = "information about your suppliers";
+            label16.Click += label10_Click;
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Font = new Font("Times New Roman", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label17.ForeColor = Color.Black;
+            label17.Location = new Point(38, 45);
+            label17.Name = "label17";
+            label17.Size = new Size(151, 17);
+            label17.TabIndex = 5;
+            label17.Text = "The Module contains ";
+            label17.Click += label10_Click;
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label18.ForeColor = Color.Black;
+            label18.Location = new Point(40, 14);
+            label18.Name = "label18";
+            label18.Size = new Size(109, 24);
+            label18.TabIndex = 5;
+            label18.Text = "Customers";
+            label18.Click += label10_Click;
+            // 
+            // button5
+            // 
+            button5.BackColor = Color.Green;
+            button5.FlatStyle = FlatStyle.Flat;
+            button5.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button5.ForeColor = Color.Yellow;
+            button5.Location = new Point(155, -23);
+            button5.Name = "button5";
+            button5.Size = new Size(169, 61);
+            button5.TabIndex = 5;
+            button5.Text = "Store Value";
+            button5.UseVisualStyleBackColor = false;
+            button5.Click += btnStore_Click;
+            // 
+            // pictureBox11
+            // 
+            pictureBox11.Image = (Image)resources.GetObject("pictureBox11.Image");
+            pictureBox11.Location = new Point(292, 132);
+            pictureBox11.Name = "pictureBox11";
+            pictureBox11.Size = new Size(36, 39);
+            pictureBox11.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox11.TabIndex = 2;
+            pictureBox11.TabStop = false;
+            // 
+            // label23
+            // 
+            label23.AutoSize = true;
+            label23.Font = new Font("Times New Roman", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label23.ForeColor = Color.Black;
+            label23.Location = new Point(38, 45);
+            label23.Name = "label23";
+            label23.Size = new Size(151, 17);
+            label23.TabIndex = 5;
+            label23.Text = "The Module contains ";
+            label23.Click += label10_Click;
+            // 
+            // label24
+            // 
+            label24.AutoSize = true;
+            label24.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label24.ForeColor = Color.Black;
+            label24.Location = new Point(40, 14);
+            label24.Name = "label24";
+            label24.Size = new Size(98, 24);
+            label24.TabIndex = 5;
+            label24.Text = "Suppliers";
+            label24.Click += label10_Click;
+            // 
+            // pictureBox13
+            // 
+            pictureBox13.Image = (Image)resources.GetObject("pictureBox13.Image");
+            pictureBox13.Location = new Point(292, 124);
+            pictureBox13.Name = "pictureBox13";
+            pictureBox13.Size = new Size(36, 39);
+            pictureBox13.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox13.TabIndex = 2;
+            pictureBox13.TabStop = false;
+            // 
             // panel5
             // 
             panel5.BackColor = Color.DarkGray;
@@ -390,9 +557,9 @@
             panel5.Controls.Add(label15);
             panel5.Controls.Add(pictureBox10);
             panel5.ForeColor = Color.FromArgb(224, 224, 224);
-            panel5.Location = new Point(557, 141);
+            panel5.Location = new Point(710, 98);
             panel5.Name = "panel5";
-            panel5.Size = new Size(342, 166);
+            panel5.Size = new Size(342, 180);
             panel5.TabIndex = 4;
             // 
             // label13
@@ -441,65 +608,6 @@
             pictureBox10.TabIndex = 2;
             pictureBox10.TabStop = false;
             // 
-            // panel6
-            // 
-            panel6.BackColor = Color.DarkGray;
-            panel6.Controls.Add(label16);
-            panel6.Controls.Add(label17);
-            panel6.Controls.Add(label18);
-            panel6.Controls.Add(pictureBox11);
-            panel6.ForeColor = Color.FromArgb(224, 224, 224);
-            panel6.Location = new Point(57, 319);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(342, 174);
-            panel6.TabIndex = 4;
-            // 
-            // label16
-            // 
-            label16.AutoSize = true;
-            label16.Font = new Font("Times New Roman", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label16.ForeColor = Color.Black;
-            label16.Location = new Point(39, 71);
-            label16.Name = "label16";
-            label16.Size = new Size(219, 17);
-            label16.TabIndex = 5;
-            label16.Text = "information about your suppliers";
-            label16.Click += label10_Click;
-            // 
-            // label17
-            // 
-            label17.AutoSize = true;
-            label17.Font = new Font("Times New Roman", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label17.ForeColor = Color.Black;
-            label17.Location = new Point(38, 45);
-            label17.Name = "label17";
-            label17.Size = new Size(151, 17);
-            label17.TabIndex = 5;
-            label17.Text = "The Module contains ";
-            label17.Click += label10_Click;
-            // 
-            // label18
-            // 
-            label18.AutoSize = true;
-            label18.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label18.ForeColor = Color.Black;
-            label18.Location = new Point(40, 14);
-            label18.Name = "label18";
-            label18.Size = new Size(109, 24);
-            label18.TabIndex = 5;
-            label18.Text = "Customers";
-            label18.Click += label10_Click;
-            // 
-            // pictureBox11
-            // 
-            pictureBox11.Image = (Image)resources.GetObject("pictureBox11.Image");
-            pictureBox11.Location = new Point(292, 132);
-            pictureBox11.Name = "pictureBox11";
-            pictureBox11.Size = new Size(36, 39);
-            pictureBox11.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox11.TabIndex = 2;
-            pictureBox11.TabStop = false;
-            // 
             // panel7
             // 
             panel7.BackColor = Color.DarkGray;
@@ -508,7 +616,7 @@
             panel7.Controls.Add(label21);
             panel7.Controls.Add(pictureBox12);
             panel7.ForeColor = Color.FromArgb(224, 224, 224);
-            panel7.Location = new Point(557, 319);
+            panel7.Location = new Point(710, 284);
             panel7.Name = "panel7";
             panel7.Size = new Size(342, 174);
             panel7.TabIndex = 4;
@@ -561,13 +669,13 @@
             // 
             // btnStore
             // 
-            btnStore.BackColor = Color.Green;
+            btnStore.BackColor = Color.Black;
             btnStore.FlatStyle = FlatStyle.Flat;
             btnStore.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnStore.ForeColor = Color.Yellow;
-            btnStore.Location = new Point(244, 89);
+            btnStore.ForeColor = Color.White;
+            btnStore.Location = new Point(185, 179);
             btnStore.Name = "btnStore";
-            btnStore.Size = new Size(155, 34);
+            btnStore.Size = new Size(169, 82);
             btnStore.TabIndex = 5;
             btnStore.Text = "Store Value";
             btnStore.UseVisualStyleBackColor = false;
@@ -575,14 +683,14 @@
             // 
             // button1
             // 
-            button1.BackColor = Color.FromArgb(64, 0, 64);
+            button1.BackColor = Color.Black;
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.White;
-            button1.Location = new Point(84, 90);
+            button1.Location = new Point(12, 95);
             button1.Name = "button1";
             button1.Padding = new Padding(5);
-            button1.Size = new Size(147, 34);
+            button1.Size = new Size(169, 78);
             button1.TabIndex = 105;
             button1.Text = "Check Daily Sales";
             button1.UseVisualStyleBackColor = false;
@@ -590,13 +698,13 @@
             // 
             // btnMonthlySales
             // 
-            btnMonthlySales.BackColor = Color.FromArgb(64, 0, 64);
+            btnMonthlySales.BackColor = Color.Black;
             btnMonthlySales.FlatStyle = FlatStyle.Flat;
             btnMonthlySales.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnMonthlySales.ForeColor = Color.White;
-            btnMonthlySales.Location = new Point(557, 90);
+            btnMonthlySales.Location = new Point(12, 179);
             btnMonthlySales.Name = "btnMonthlySales";
-            btnMonthlySales.Size = new Size(167, 34);
+            btnMonthlySales.Size = new Size(167, 82);
             btnMonthlySales.TabIndex = 106;
             btnMonthlySales.Text = "Check Monthly Sales";
             btnMonthlySales.UseVisualStyleBackColor = false;
@@ -613,9 +721,9 @@
             btnExp.FlatStyle = FlatStyle.Flat;
             btnExp.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnExp.ForeColor = Color.White;
-            btnExp.Location = new Point(744, 89);
+            btnExp.Location = new Point(12, 267);
             btnExp.Name = "btnExp";
-            btnExp.Size = new Size(155, 33);
+            btnExp.Size = new Size(167, 79);
             btnExp.TabIndex = 107;
             btnExp.Text = "Expense Tracker";
             btnExp.UseVisualStyleBackColor = false;
@@ -623,15 +731,90 @@
             // 
             // button2
             // 
+            button2.BackColor = Color.Black;
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.Location = new Point(411, 91);
+            button2.ForeColor = Color.White;
+            button2.Location = new Point(185, 95);
             button2.Name = "button2";
-            button2.Size = new Size(137, 32);
+            button2.Size = new Size(169, 78);
             button2.TabIndex = 108;
             button2.Text = "Check Low Stocks";
-            button2.UseVisualStyleBackColor = true;
+            button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
+            // 
+            // panel9
+            // 
+            panel9.BackColor = Color.DarkGray;
+            panel9.Controls.Add(label25);
+            panel9.Controls.Add(label26);
+            panel9.Controls.Add(label27);
+            panel9.Controls.Add(pictureBox14);
+            panel9.ForeColor = Color.FromArgb(224, 224, 224);
+            panel9.Location = new Point(360, 95);
+            panel9.Name = "panel9";
+            panel9.Size = new Size(342, 183);
+            panel9.TabIndex = 4;
+            // 
+            // label25
+            // 
+            label25.AutoSize = true;
+            label25.Font = new Font("Times New Roman", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label25.ForeColor = Color.Black;
+            label25.Location = new Point(39, 71);
+            label25.Name = "label25";
+            label25.Size = new Size(219, 17);
+            label25.TabIndex = 5;
+            label25.Text = "information about your suppliers";
+            label25.Click += label10_Click;
+            // 
+            // label26
+            // 
+            label26.AutoSize = true;
+            label26.Font = new Font("Times New Roman", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label26.ForeColor = Color.Black;
+            label26.Location = new Point(38, 45);
+            label26.Name = "label26";
+            label26.Size = new Size(151, 17);
+            label26.TabIndex = 5;
+            label26.Text = "The Module contains ";
+            label26.Click += label10_Click;
+            // 
+            // label27
+            // 
+            label27.AutoSize = true;
+            label27.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label27.ForeColor = Color.Black;
+            label27.Location = new Point(40, 14);
+            label27.Name = "label27";
+            label27.Size = new Size(98, 24);
+            label27.TabIndex = 5;
+            label27.Text = "Suppliers";
+            label27.Click += label10_Click;
+            // 
+            // pictureBox14
+            // 
+            pictureBox14.Image = (Image)resources.GetObject("pictureBox14.Image");
+            pictureBox14.Location = new Point(300, 139);
+            pictureBox14.Name = "pictureBox14";
+            pictureBox14.Size = new Size(36, 39);
+            pictureBox14.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox14.TabIndex = 2;
+            pictureBox14.TabStop = false;
+            // 
+            // button3
+            // 
+            button3.BackColor = Color.Black;
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button3.ForeColor = Color.White;
+            button3.Location = new Point(185, 268);
+            button3.Name = "button3";
+            button3.Size = new Size(167, 79);
+            button3.TabIndex = 107;
+            button3.Text = "Expense Tracker";
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += btnExp_Click;
             // 
             // Mainmenu
             // 
@@ -640,13 +823,14 @@
             BackColor = Color.White;
             ClientSize = new Size(1057, 521);
             Controls.Add(button2);
+            Controls.Add(button1);
+            Controls.Add(button3);
             Controls.Add(btnExp);
             Controls.Add(btnMonthlySales);
-            Controls.Add(button1);
             Controls.Add(btnStore);
             Controls.Add(panel7);
             Controls.Add(panel5);
-            Controls.Add(panel6);
+            Controls.Add(panel9);
             Controls.Add(panel4);
             Controls.Add(panel3);
             Controls.Add(label1);
@@ -675,15 +859,21 @@
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
-            panel5.ResumeLayout(false);
-            panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
+            panel8.ResumeLayout(false);
+            panel8.PerformLayout();
             panel6.ResumeLayout(false);
             panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox11).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox13).EndInit();
+            panel5.ResumeLayout(false);
+            panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
             panel7.ResumeLayout(false);
             panel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox12).EndInit();
+            panel9.ResumeLayout(false);
+            panel9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox14).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -736,5 +926,18 @@
         private NotifyIcon notifyIcon1;
         private Button btnExp;
         private Button button2;
+        private Button button4;
+        private Button button5;
+        private Panel panel8;
+        private Label label22;
+        private Label label23;
+        private Label label24;
+        private PictureBox pictureBox13;
+        private Panel panel9;
+        private Label label25;
+        private Label label26;
+        private Label label27;
+        private PictureBox pictureBox14;
+        private Button button3;
     }
 }

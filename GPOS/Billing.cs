@@ -23,12 +23,57 @@ namespace GPOS
         {
             InitializeComponent();
             DisplayProducts();
+       CheckDailySales();
             //getCustomer();
             //GetCusName();
            ProductsDVG.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             ProductsDVG.AlternatingRowsDefaultCellStyle.BackColor = Color.LightCyan;
             ProductsDVG.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
         }
+        public void CheckDailySales()
+        {
+            decimal totalSales = 0m;
+#pragma warning disable CS0219 // Variable is assigned but its value is never used
+            int totalQuantity = 0;
+#pragma warning restore CS0219 // Variable is assigned but its value is never used
+
+
+            ////
+            ///
+
+
+
+            using (MySqlConnection con = new MySqlConnection("server=localhost; database=posdb; username=root; password=;"))
+            {
+                string query = "SELECT SUM(Amt) AS TotalSales FROM BillT WHERE DATE(BDate) =  CURDATE()";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, con))
+                {
+
+                    //con.Open();
+                    con.Open();
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+
+                            totalSales = reader["TotalSales"] != DBNull.Value ? Convert.ToDecimal(reader["TotalSales"]) : 0m;
+                         //   textBox1.Text = totalSales.ToString("N2");
+                            label5.Text = "GHS" + " " + totalSales.ToString("N2");
+                            //   totalQuantity = reader["TotalQuantity"] != DBNull.Value ? Convert.ToInt32(reader["TotalQuantity"]) : 0;
+                        }
+                    }
+                }
+            }
+
+         //   MessageBox.Show($"Total Sales for Today: GH¢ {totalSales}", "Daily Sales", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //  MessageBox.Show($"Daily Sales is GH¢: {totalSales}", "Daily Sales");
+
+            // MBox1.Show("Total Sales for Today: GHS '"++"');
+
+        }
+
 
         private void label14_Click(object sender, EventArgs e)
         {
@@ -227,7 +272,9 @@ namespace GPOS
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             // setting/getting  data in datagrid to fit text box for edit RESPECTIVELY 
-            if (ProductsDVG.SelectedRows.Count > 0 && ProductsDVG.SelectedRows[0].Cells[1].Value != null)
+            //if (customerDataGrid.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            //SelectedRows.Count > 0 && ProductsDVG.SelectedRows[0].Cells[1].Value
+            if (ProductsDVG.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
             {
 #pragma warning disable CS8601 // Possible null reference assignment.
                 PnameTb = ProductsDVG.SelectedRows[0].Cells[1].Value.ToString();
@@ -295,6 +342,8 @@ namespace GPOS
         private void button1_Click(object sender, EventArgs e)
         {
             InsertBill();
+            CheckDailySales();
+                
 
 
             if (bflag == 1)
@@ -462,8 +511,11 @@ namespace GPOS
 
 
                     float VAT = (Convert.ToSingle(VATtb.Text) / 100) * Convert.ToSingle(SubTotal.Text);
-                    TotTaxTb.Text = VAT.ToString();
+                   // int getvat = Convert.ToInt32(VATtb.Text) = 0);
+                   // float VAT = getvat * Convert.ToSingle(SubTotal.Text);
 
+                    TotTaxTb.Text = VAT.ToString();
+      //              VAT = 0;
                     GrdTotal.Text = "" + (Convert.ToSingle(SubTotal.Text) + Convert.ToSingle(TotTaxTb.Text));
 
                 }
@@ -496,6 +548,7 @@ namespace GPOS
 
                     float Disc = (Convert.ToSingle(discountTb.Text) / 100) * Convert.ToSingle(SubTotal.Text);
                     // TotalDiscount.Text = "" + Disc;
+                 //   discountTb.Text += 0;
                     TotalDiscount.Text = Disc.ToString();
 
                     GrdTotal.Text = "" + (Convert.ToSingle(SubTotal.Text) + Convert.ToSingle(TotTaxTb.Text) - Convert.ToSingle(TotalDiscount.Text));
@@ -520,25 +573,29 @@ namespace GPOS
             //  e.Graphics.DrawString("ENTERPRISE", new Font("Centry Gothic", 8, FontStyle.Bold), Brushes.Black, new Point(60, 12));
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
             
-            string contact = "Tel:+233 240 811 975 | 233 240 811 975";
-            string subtitle = "OVER-THE-COUNTER DRUGSTORE";
+            string contact = "Tel:+233 557 569 668 ";
+            string subtitle = "ENTERPRISE";
             //string heading = "ID PRODUCT PRICE QUANTITY TOTAL";
 
             // Get the width of the printable area
             int printableWidth = e.PageBounds.Width;
 
             // Calculate positions to center text
-            int titleX = (printableWidth / 2) - (int)e.Graphics.MeasureString("EVANS BAFFOE", new Font("Century Gothic", 10, FontStyle.Bold)).Width / 2;
+            int titleX = (printableWidth / 2) - (int)e.Graphics.MeasureString("AHAVAH ODO ", new Font("Century Gothic", 10, FontStyle.Bold)).Width / 2;
             int subtitleX = (printableWidth / 2) - (int)e.Graphics.MeasureString(subtitle, new Font("Century Gothic", 6, FontStyle.Bold)).Width / 2;
             int contactX = (printableWidth / 2) - (int)e.Graphics.MeasureString(contact, new Font("Century Gothic", 6, FontStyle.Bold)).Width / 2;
             //  int headingX = (printableWidth / 2) - (int)e.Graphics.MeasureString(heading, new Font("Century Gothic", 8, FontStyle.Bold)).Width / 2;
             string location = "Loc: Jema, Kintampo South";
+            int gap = 40;
             // Draw the text
-            e.Graphics.DrawString("EVANNSVIC", new Font("Century Gothic", 10, FontStyle.Bold), Brushes.Black, new Point(titleX + 10, 7));
-            e.Graphics.DrawString(subtitle, new Font("Century Gothic", 6, FontStyle.Bold), Brushes.Black, new Point(subtitleX, 22));
+            e.Graphics.DrawString("AHAVAH ODO", new Font("Century Gothic", 10, FontStyle.Bold), Brushes.Black, new Point(titleX + 10, 7));
+            e.Graphics.DrawString(subtitle, new Font("Century Gothic", 8, FontStyle.Bold), Brushes.Black, new Point(subtitleX, 22));
             e.Graphics.DrawString(contact, new Font("Century Gothic", 6, FontStyle.Bold), Brushes.Black, new Point(contactX, 32));
-            e.Graphics.DrawString(location, new Font("Century Gothic", 6, FontStyle.Bold), Brushes.Black, new Point(contactX + 20, 42));
-            e.Graphics.DrawString("_______________________________________", new Font("Century Gothic", 6, FontStyle.Bold), Brushes.Black, new Point(40, 48));
+           // e.Graphics.DrawString(location, new Font("Century Gothic", 6, FontStyle.Bold), Brushes.Black, new Point(50 + 15, 42));
+            e.Graphics.DrawString("Location: Kintampo South, Jema", new Font("Century Gothic", 6, FontStyle.Bold), Brushes.Black, new Point(40 + gap, 42));
+
+            e.Graphics.DrawString("___________________________________________________", new Font("Century Gothic", 6, FontStyle.Bold), Brushes.Black, new Point(40, 48));
+            e.Graphics.DrawString("___________________________________________________", new Font("Century Gothic", 6, FontStyle.Bold), Brushes.Black, new Point(40, 52));
 
             // Add vertical spacing between heading and ID product line
 
