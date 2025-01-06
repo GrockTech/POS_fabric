@@ -28,14 +28,14 @@ namespace GPOS
         {
             this.Close();
         }
-        MySqlConnection Con = new MySqlConnection("server=localhost; database=posdb; username=root; password=;");
+        MySqlConnection Con = new MySqlConnection("server=localhost; database=fabricdb; username=root; password=;");
 
 
         private void ExecuteQueryAndUpdateDataGridView(string query)
         {
             // Define the connection string (replace with your actual connection string)
 
-            string connectionString = "server=localhost; database=posdb; username=root; password=;";
+            string connectionString = "server=localhost; database=fabricdb; username=root; password=;";
             using (MySqlConnection con = new MySqlConnection(connectionString))
             {
                 con.Open(); // Open the database connection
@@ -80,29 +80,6 @@ namespace GPOS
 
 
 
-        // Event handler for ComboBox selection change
-        /*
-          private void cmbSort_SelectedIndexChanged(object sender, EventArgs e)
-          {
-              // Get the selected option from the ComboBox
-              string OptionSelected = cmbSort.SelectedItem.ToString();
-              //string query;
-
-              // Retrieve the corresponding value from the dictionary
-              Con.Open();
-              string querry = "SELECT FROM billt WHERE PMethod = @PMethod";
-              MySqlCommand cmd = new MySqlCommand(querry, Con);
-              cmd.Parameters.AddWithValue("@PMethod", OptionSelected);
-              MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-           //   MySqlCommandBuilder builder = new MySqlCommandBuilder(adapter);
-              var ds = new DataSet();
-              adapter.Fill(ds);
-              // we fill data grid with the acutal data in db
-              SellDGV.DataSource = ds.Tables[0];
-
-
-          }
-        */
         private void cmbSort_SelectedIndexChanged(object sender, EventArgs e)
         {
             try

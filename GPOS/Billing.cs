@@ -23,13 +23,16 @@ namespace GPOS
         {
             InitializeComponent();
             DisplayProducts();
-       CheckDailySales();
+            CheckDailySales();
+            CheckMonthlySales();
             //getCustomer();
             //GetCusName();
-           ProductsDVG.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            ProductsDVG.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             ProductsDVG.AlternatingRowsDefaultCellStyle.BackColor = Color.LightCyan;
             ProductsDVG.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
         }
+
+
         public void CheckDailySales()
         {
             decimal totalSales = 0m;
@@ -43,7 +46,7 @@ namespace GPOS
 
 
 
-            using (MySqlConnection con = new MySqlConnection("server=localhost; database=posdb; username=root; password=;"))
+            using (MySqlConnection con = new MySqlConnection("server=localhost; database=fabricdb; username=root; password=;"))
             {
                 string query = "SELECT SUM(Amt) AS TotalSales FROM BillT WHERE DATE(BDate) =  CURDATE()";
 
@@ -59,19 +62,44 @@ namespace GPOS
                         {
 
                             totalSales = reader["TotalSales"] != DBNull.Value ? Convert.ToDecimal(reader["TotalSales"]) : 0m;
-                         //   textBox1.Text = totalSales.ToString("N2");
-                            label5.Text = "GHS" + " " + totalSales.ToString("N2");
+                            //   textBox1.Text = totalSales.ToString("N2");
+                            textBox2.Text = "GHS" + " " + totalSales.ToString("N2");
                             //   totalQuantity = reader["TotalQuantity"] != DBNull.Value ? Convert.ToInt32(reader["TotalQuantity"]) : 0;
                         }
                     }
                 }
             }
 
-         //   MessageBox.Show($"Total Sales for Today: GH¢ {totalSales}", "Daily Sales", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //  MessageBox.Show($"Daily Sales is GH¢: {totalSales}", "Daily Sales");
 
-            // MBox1.Show("Total Sales for Today: GHS '"++"');
 
+        }
+        private void CheckMonthlySales()
+        {
+            decimal totalSales = 0m;
+            int totalQuantity = 0;
+
+            using (MySqlConnection con = new MySqlConnection("server=localhost; database=fabricdb; username=root; password=;"))
+            {
+                string query = "SELECT SUM(Amt) AS TotalSales FROM BillT WHERE MONTH(BDate) = MONTH(NOW()) AND YEAR(BDate) = YEAR(NOW())";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, con))
+                {
+                    con.Open();
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            totalSales = reader["TotalSales"] != DBNull.Value ? Convert.ToDecimal(reader["TotalSales"]) : 0m;
+                            // totalQuantity = reader["TotalQuantity"] != DBNull.Value ? Convert.ToInt32(reader["TotalQuantity"]) : 0;
+                            // textBox1.Text  + "GHS" + totalSales.ToString("N2");
+                            textBox1.Text = "GHS" + " " + totalSales.ToString("N2");
+                        }
+                    }
+                }
+            }
+
+            //MessageBox.Show($"Total Sales for This Month: {totalSales:C}\nTotal Quantity Sold: {totalQuantity}", "Monthly Sales", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
 
@@ -119,7 +147,7 @@ namespace GPOS
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 ProductsDVG.DataSource = dt;
-             //   ProductsDVG.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Bold);
+                //   ProductsDVG.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Bold);
             }
             catch (Exception ex)
             {
@@ -147,13 +175,13 @@ namespace GPOS
 
 
         //billing view grid 
-        MySqlConnection Con = new MySqlConnection("server=localhost; database=posdb; username=root; password=;");
+        MySqlConnection Con = new MySqlConnection("server=localhost; database=fabricdb; username=root; password=;");
 
         private void DisplayProducts()
 
         {
             Con.Open();
-            string Query = "select * from ProductTbl";
+            string Query = "select PId, PName, Pcat, color, width, Pprice, PQty from ProductTbl";
             MySqlDataAdapter adapter = new MySqlDataAdapter(Query, Con);
             MySqlCommandBuilder builder = new MySqlCommandBuilder(adapter);
             var ds = new DataSet();
@@ -229,7 +257,7 @@ namespace GPOS
                 else
                 {
                     // Calculate the subtotal for the selected product
-                     float Subtotal = Convert.ToInt32(Quantity.Text) * Pprice;
+                    float Subtotal = Convert.ToInt32(Quantity.Text) * Pprice;
                     total = total + Subtotal;
                     //    
                     //double Subtotal = Convert.ToInt32(Quantity.Text) * Pprice;
@@ -245,7 +273,7 @@ namespace GPOS
                     // Set the value of the first cell to the variable 'n'
                     // This might be an index or counter, but its definition is not provided in this snippet
                     newRow.Cells[0].Value = n;
-                // Set the value of the second cell to the product name from the PnameTb TextBox
+                    // Set the value of the second cell to the product name from the PnameTb TextBox
                     newRow.Cells[1].Value = PnameTb;
 
                     // Set the value of the third cell to the quantity from the Quantity TextBox
@@ -269,15 +297,72 @@ namespace GPOS
         }
 
 
+        private Image GetCustomerPhoto(int PId)
+        {
+            Image customerImage = null;
+            string query = "SELECT p_image FROM producttbl WHERE PId = @id";
+
+            using (MySqlConnection conn = new MySqlConnection("server=localhost; database=fabricdb; username=root; password=;"))
+            {
+                try
+                {
+                    conn.Open();
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@id", PId);
+
+                        // Execute the query and get the photo as a byte array
+                        object result = cmd.ExecuteScalar();  // Returns the first column of the first row
+
+                        if (result != null && result != DBNull.Value)
+                        {
+                            byte[] photoData = (byte[])result;
+
+                            if (photoData.Length > 0) // Ensure there's data
+                            {
+                                using (MemoryStream ms = new MemoryStream(photoData))
+                                {
+                                    customerImage = Image.FromStream(ms);
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("No image data found for customer ID: " + PId);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("No result found for customer ID: " + PId);
+                        }
+                    }
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show("Database error: " + ex.Message);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("General error: " + ex.ToString());
+                }
+            }
+
+            return customerImage;
+        }
+
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             // setting/getting  data in datagrid to fit text box for edit RESPECTIVELY 
             //if (customerDataGrid.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
             //SelectedRows.Count > 0 && ProductsDVG.SelectedRows[0].Cells[1].Value
+            int product_id;
+            string color;
+            ///  product_id = ProductsDVG.SelectedRows[0].Cells[1].Value.ToString();
             if (ProductsDVG.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
             {
 #pragma warning disable CS8601 // Possible null reference assignment.
                 PnameTb = ProductsDVG.SelectedRows[0].Cells[1].Value.ToString();
+
+#pragma  
 #pragma warning restore CS8601 // Possible null reference assignment.
             }
             else
@@ -288,14 +373,17 @@ namespace GPOS
             }
 
 
+            //    txtwidth.Text = ProductsDGV.SelectedRows[0].Cells[4].Value?.ToString();
+            //  txtfcolour.Text = ProductsDGV.SelectedRows[0].Cells[3].Value?.ToString();
 
 
             //PnameTb = ProductsDVG.SelectedRows[0].Cells[1].Value.ToString();
             //PcatCB.SelectedItem = ProductDGV.SelectedRows[0].Cells[2].Value.ToString();
-            Pprice = Convert.ToSingle(ProductsDVG.SelectedRows[0].Cells[3].Value.ToString());
-            PStock = Convert.ToInt32(ProductsDVG.SelectedRows[0].Cells[4].Value.ToString());
+            Pprice = Convert.ToSingle(ProductsDVG.SelectedRows[0].Cells[5].Value.ToString());
+            PStock = Convert.ToInt32(ProductsDVG.SelectedRows[0].Cells[6].Value.ToString());
+            product_id = Convert.ToInt32(ProductsDVG.SelectedRows[0].Cells[0].Value.ToString());
 
-            
+
             if (PnameTb == "")
             {
 
@@ -308,11 +396,16 @@ namespace GPOS
                 AddBtn.BackColor = Color.ForestGreen;
             }
 
+            Image clientphoto = GetCustomerPhoto(product_id);
+            if (clientphoto != null)
+            {
+                pictureBox3.Image = clientphoto;
+            }
 
         }
         private void ResetButtonColor()
         {
-            AddBtn.BackColor = Color.Teal; 
+            AddBtn.BackColor = Color.Teal;
         }// Reset to default button color }
         private void UpdateQuantity()
         {
@@ -343,7 +436,7 @@ namespace GPOS
         {
             InsertBill();
             CheckDailySales();
-                
+            CheckMonthlySales();
 
 
             if (bflag == 1)
@@ -366,7 +459,7 @@ namespace GPOS
                 }
             }
 
-
+            pictureBox3.Image = null;
         }
 
         private void label12_Click(object sender, EventArgs e)
@@ -511,11 +604,11 @@ namespace GPOS
 
 
                     float VAT = (Convert.ToSingle(VATtb.Text) / 100) * Convert.ToSingle(SubTotal.Text);
-                   // int getvat = Convert.ToInt32(VATtb.Text) = 0);
-                   // float VAT = getvat * Convert.ToSingle(SubTotal.Text);
+                    // int getvat = Convert.ToInt32(VATtb.Text) = 0);
+                    // float VAT = getvat * Convert.ToSingle(SubTotal.Text);
 
                     TotTaxTb.Text = VAT.ToString();
-      //              VAT = 0;
+                    //              VAT = 0;
                     GrdTotal.Text = "" + (Convert.ToSingle(SubTotal.Text) + Convert.ToSingle(TotTaxTb.Text));
 
                 }
@@ -537,7 +630,7 @@ namespace GPOS
             }
             else if (SubTotal.Text == "")
             {
-               // MBox1.Show("Add Products to Cart ");
+                // MBox1.Show("Add Products to Cart ");
                 MessageBox.Show("Add Products to Cart ");
                 discountTb.Text = "";
             }
@@ -548,7 +641,7 @@ namespace GPOS
 
                     float Disc = (Convert.ToSingle(discountTb.Text) / 100) * Convert.ToSingle(SubTotal.Text);
                     // TotalDiscount.Text = "" + Disc;
-                 //   discountTb.Text += 0;
+                    //   discountTb.Text += 0;
                     TotalDiscount.Text = Disc.ToString();
 
                     GrdTotal.Text = "" + (Convert.ToSingle(SubTotal.Text) + Convert.ToSingle(TotTaxTb.Text) - Convert.ToSingle(TotalDiscount.Text));
@@ -572,27 +665,27 @@ namespace GPOS
             //    e.Graphics.DrawString("AHAVAH ODO", new Font("Centry Gothic", 12, FontStyle.Bold), Brushes.Black, new Point(70, 10));
             //  e.Graphics.DrawString("ENTERPRISE", new Font("Centry Gothic", 8, FontStyle.Bold), Brushes.Black, new Point(60, 12));
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
-            
-            string contact = "Tel:+233 557 569 668 ";
-            string subtitle = "ENTERPRISE";
+
+            string contact = "Tel:+233 550 188 193 ";
+            //string subtitle = "ENTERPRISE";
             //string heading = "ID PRODUCT PRICE QUANTITY TOTAL";
 
             // Get the width of the printable area
             int printableWidth = e.PageBounds.Width;
 
             // Calculate positions to center text
-            int titleX = (printableWidth / 2) - (int)e.Graphics.MeasureString("AHAVAH ODO ", new Font("Century Gothic", 10, FontStyle.Bold)).Width / 2;
-            int subtitleX = (printableWidth / 2) - (int)e.Graphics.MeasureString(subtitle, new Font("Century Gothic", 6, FontStyle.Bold)).Width / 2;
+            int titleX = (printableWidth / 2) - (int)e.Graphics.MeasureString("AMATCHIWA", new Font("Century Gothic", 10, FontStyle.Bold)).Width / 2;
+            //   int subtitleX = (printableWidth / 2) - (int)e.Graphics.MeasureString(subtitle, new Font("Century Gothic", 6, FontStyle.Bold)).Width / 2;
             int contactX = (printableWidth / 2) - (int)e.Graphics.MeasureString(contact, new Font("Century Gothic", 6, FontStyle.Bold)).Width / 2;
             //  int headingX = (printableWidth / 2) - (int)e.Graphics.MeasureString(heading, new Font("Century Gothic", 8, FontStyle.Bold)).Width / 2;
-            string location = "Loc: Jema, Kintampo South";
+            string location = "Location: 6 TANBU LANE SHIASHI, ACCRA ";
             int gap = 40;
             // Draw the text
-            e.Graphics.DrawString("AHAVAH ODO", new Font("Century Gothic", 10, FontStyle.Bold), Brushes.Black, new Point(titleX + 10, 7));
-            e.Graphics.DrawString(subtitle, new Font("Century Gothic", 8, FontStyle.Bold), Brushes.Black, new Point(subtitleX, 22));
+            e.Graphics.DrawString("AMATCHIWA", new Font("Century Gothic", 10, FontStyle.Bold), Brushes.Black, new Point(titleX + 10, 7));
+            //   e.Graphics.DrawString(subtitle, new Font("Century Gothic", 8, FontStyle.Bold), Brushes.Black, new Point(subtitleX, 22));
             e.Graphics.DrawString(contact, new Font("Century Gothic", 6, FontStyle.Bold), Brushes.Black, new Point(contactX, 32));
-           // e.Graphics.DrawString(location, new Font("Century Gothic", 6, FontStyle.Bold), Brushes.Black, new Point(50 + 15, 42));
-            e.Graphics.DrawString("Location: Kintampo South, Jema", new Font("Century Gothic", 6, FontStyle.Bold), Brushes.Black, new Point(40 + gap, 42));
+            // e.Graphics.DrawString(location, new Font("Century Gothic", 6, FontStyle.Bold), Brushes.Black, new Point(50 + 15, 42));
+            e.Graphics.DrawString("Location: 6 TANBU LANE SHIASHI, ACCRA", new Font("Century Gothic", 6, FontStyle.Bold), Brushes.Black, new Point(40 + gap, 42));
 
             e.Graphics.DrawString("___________________________________________________", new Font("Century Gothic", 6, FontStyle.Bold), Brushes.Black, new Point(40, 48));
             e.Graphics.DrawString("___________________________________________________", new Font("Century Gothic", 6, FontStyle.Bold), Brushes.Black, new Point(40, 52));
@@ -747,6 +840,11 @@ namespace GPOS
         }
 
         private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }

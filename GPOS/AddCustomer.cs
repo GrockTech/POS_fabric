@@ -35,7 +35,7 @@ namespace GPOS
         }
         //SqlConnection Con = new SqlConnection("server=localhost; database=posdb; username=root; password=;");
         // SqlConnection Con = DatabaseHelper.GetConnection();
-        MySqlConnection Con = new MySqlConnection("server=localhost; database=posdb; username=root; password=;");
+        MySqlConnection Con = new MySqlConnection("server=localhost; database=fabricdb; username=root; password=;");
         private void button1_Click(object sender, EventArgs e)
         {
             if (CusName.Text == "" || CusAdd.Text == "" || CusPhone.Text == "" || CusRem.Text == "")

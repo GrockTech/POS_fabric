@@ -20,7 +20,7 @@ namespace GPOS
             InitializeComponent();
             showExpiry();
         }
-        MySqlConnection Con = new MySqlConnection("server=localhost; database=posdb; username=root; password=;");
+        MySqlConnection Con = new MySqlConnection("server=localhost; database=fabricdb; username=root; password=;");
 
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -29,7 +29,7 @@ namespace GPOS
         }
         private void showExpiry()
         {
-            using (MySqlConnection Con = new MySqlConnection("server=localhost; database=posdb; username=root; password=;"))
+            using (MySqlConnection Con = new MySqlConnection("server=localhost; database=fabricdb; username=root; password=;"))
             {
                 try
                 {

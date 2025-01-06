@@ -41,7 +41,7 @@ namespace GPOS
 
 
         //    SqlConnection Con = new SqlConnection(@"DESKTOP-NQAIIND\SQLEXPRESS; Initial Catalog=mydb; Integrated Security = True; Connect Timeout = 30; ");
-        MySqlConnection Con = new MySqlConnection("server=localhost; database=posdb; username=root; password=;");
+        MySqlConnection Con = new MySqlConnection("server=localhost; database=fabricdb; username=root; password=;");
         private void DisplaySuppliers()
         {
             Con.Open();

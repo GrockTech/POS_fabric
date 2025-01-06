@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewProducts));
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
             label3 = new Label();
             panel1 = new Panel();
             label2 = new Label();
@@ -53,9 +53,11 @@
             search = new TextBox();
             txtSearch = new Button();
             pictureBox3 = new PictureBox();
-            dateTimePicker1 = new DateTimePicker();
             label4 = new Label();
             label5 = new Label();
+            txtwidth = new TextBox();
+            txtfcolour = new TextBox();
+            label6 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -140,19 +142,19 @@
             // 
             ProductDGV.AllowUserToAddRows = false;
             ProductDGV.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(255, 255, 192);
-            ProductDGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.ForeColor = Color.FromArgb(255, 255, 192);
+            ProductDGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             ProductDGV.BackgroundColor = SystemColors.ButtonFace;
             ProductDGV.BorderStyle = BorderStyle.Fixed3D;
             ProductDGV.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.Yellow;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            ProductDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = Color.Yellow;
+            dataGridViewCellStyle10.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle10.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.True;
+            ProductDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             ProductDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             ProductDGV.GridColor = Color.Black;
             ProductDGV.Location = new Point(63, 183);
@@ -178,7 +180,7 @@
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button2.ForeColor = Color.White;
-            button2.Location = new Point(764, 463);
+            button2.Location = new Point(764, 510);
             button2.Name = "button2";
             button2.Padding = new Padding(5);
             button2.Size = new Size(112, 34);
@@ -193,7 +195,7 @@
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.White;
-            button1.Location = new Point(646, 463);
+            button1.Location = new Point(646, 510);
             button1.Name = "button1";
             button1.Size = new Size(112, 34);
             button1.TabIndex = 47;
@@ -203,7 +205,7 @@
             // 
             // QtyTb
             // 
-            QtyTb.Location = new Point(646, 351);
+            QtyTb.Location = new Point(647, 471);
             QtyTb.Name = "QtyTb";
             QtyTb.Size = new Size(298, 23);
             QtyTb.TabIndex = 43;
@@ -219,7 +221,7 @@
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label11.Location = new Point(646, 330);
+            label11.Location = new Point(647, 450);
             label11.Name = "label11";
             label11.Size = new Size(73, 18);
             label11.TabIndex = 39;
@@ -229,11 +231,11 @@
             // 
             label12.AutoSize = true;
             label12.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label12.Location = new Point(649, 272);
+            label12.Location = new Point(646, 274);
             label12.Name = "label12";
-            label12.Size = new Size(109, 18);
+            label12.Size = new Size(129, 18);
             label12.TabIndex = 40;
-            label12.Text = "Product Price";
+            label12.Text = "Price_Per_Yard";
             // 
             // PnameTb
             // 
@@ -246,11 +248,11 @@
             // 
             label13.AutoSize = true;
             label13.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label13.Location = new Point(648, 203);
+            label13.Location = new Point(644, 207);
             label13.Name = "label13";
-            label13.Size = new Size(147, 18);
+            label13.Size = new Size(95, 18);
             label13.TabIndex = 41;
-            label13.Text = "Product Cateogory";
+            label13.Text = "Fabric Type";
             // 
             // label14
             // 
@@ -267,7 +269,7 @@
             label10.AutoSize = true;
             label10.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label10.ForeColor = Color.FromArgb(255, 128, 0);
-            label10.Location = new Point(902, 479);
+            label10.Location = new Point(900, 526);
             label10.Name = "label10";
             label10.Size = new Size(44, 18);
             label10.TabIndex = 50;
@@ -308,22 +310,16 @@
             pictureBox3.TabStop = false;
             pictureBox3.Click += pictureBox3_Click;
             // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.Location = new Point(646, 420);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(296, 23);
-            dateTimePicker1.TabIndex = 54;
-            // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(645, 399);
+            label4.Location = new Point(649, 393);
             label4.Name = "label4";
-            label4.Size = new Size(95, 18);
+            label4.Size = new Size(52, 18);
             label4.TabIndex = 39;
-            label4.Text = "Expiry Date";
+            label4.Text = "Width";
+            label4.Click += label4_Click_1;
             // 
             // label5
             // 
@@ -335,14 +331,41 @@
             label5.TabIndex = 55;
             label5.Text = "Select Product before update";
             // 
+            // txtwidth
+            // 
+            txtwidth.Location = new Point(649, 414);
+            txtwidth.Name = "txtwidth";
+            txtwidth.PlaceholderText = "Width";
+            txtwidth.Size = new Size(298, 23);
+            txtwidth.TabIndex = 57;
+            // 
+            // txtfcolour
+            // 
+            txtfcolour.Location = new Point(649, 353);
+            txtfcolour.Name = "txtfcolour";
+            txtfcolour.PlaceholderText = "Colour";
+            txtfcolour.Size = new Size(297, 23);
+            txtfcolour.TabIndex = 56;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.Location = new Point(646, 332);
+            label6.Name = "label6";
+            label6.Size = new Size(99, 18);
+            label6.TabIndex = 40;
+            label6.Text = "Fabric Color";
+            // 
             // ViewProducts
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1073, 560);
+            Controls.Add(txtwidth);
+            Controls.Add(txtfcolour);
             Controls.Add(label5);
-            Controls.Add(dateTimePicker1);
             Controls.Add(pictureBox3);
             Controls.Add(txtSearch);
             Controls.Add(search);
@@ -354,6 +377,7 @@
             Controls.Add(PriceTb);
             Controls.Add(label4);
             Controls.Add(label11);
+            Controls.Add(label6);
             Controls.Add(label12);
             Controls.Add(PnameTb);
             Controls.Add(label13);
@@ -403,8 +427,10 @@
         private TextBox search;
         private Button txtSearch;
         private PictureBox pictureBox3;
-        private DateTimePicker dateTimePicker1;
         private Label label4;
         private Label label5;
+        private TextBox txtwidth;
+        private TextBox txtfcolour;
+        private Label label6;
     }
 }

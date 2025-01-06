@@ -80,6 +80,10 @@
             button4 = new Button();
             label4 = new Label();
             label5 = new Label();
+            textBox1 = new TextBox();
+            label6 = new Label();
+            textBox2 = new TextBox();
+            pictureBox3 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)BillDGV).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel3.SuspendLayout();
@@ -91,6 +95,7 @@
             ((System.ComponentModel.ISupportInitialize)ProductsDVG).BeginInit();
             panel5.SuspendLayout();
             panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // label12
@@ -120,9 +125,9 @@
             // 
             BillDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             BillDGV.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5 });
-            BillDGV.Location = new Point(32, 302);
+            BillDGV.Location = new Point(32, 355);
             BillDGV.Name = "BillDGV";
-            BillDGV.Size = new Size(382, 189);
+            BillDGV.Size = new Size(382, 156);
             BillDGV.TabIndex = 89;
             BillDGV.CellContentClick += SupplierDGV_CellContentClick;
             // 
@@ -155,7 +160,7 @@
             // 
             label14.AutoSize = true;
             label14.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label14.Location = new Point(33, 159);
+            label14.Location = new Point(33, 131);
             label14.Name = "label14";
             label14.Size = new Size(130, 18);
             label14.TabIndex = 92;
@@ -251,9 +256,9 @@
             // 
             // CusNameCB
             // 
-            CusNameCB.Location = new Point(32, 180);
+            CusNameCB.Location = new Point(32, 151);
             CusNameCB.Name = "CusNameCB";
-            CusNameCB.Size = new Size(298, 23);
+            CusNameCB.Size = new Size(155, 23);
             CusNameCB.TabIndex = 96;
             CusNameCB.TextChanged += SupName_TextChanged;
             // 
@@ -261,9 +266,9 @@
             // 
             CusIDCB.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             CusIDCB.FormattingEnabled = true;
-            CusIDCB.Location = new Point(32, 128);
+            CusIDCB.Location = new Point(193, 149);
             CusIDCB.Name = "CusIDCB";
-            CusIDCB.Size = new Size(298, 25);
+            CusIDCB.Size = new Size(137, 25);
             CusIDCB.TabIndex = 101;
             CusIDCB.Text = "Customer ID";
             CusIDCB.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
@@ -274,9 +279,9 @@
             // 
             BDateCB.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BDateCB.Format = DateTimePickerFormat.Short;
-            BDateCB.Location = new Point(32, 225);
+            BDateCB.Location = new Point(34, 189);
             BDateCB.Name = "BDateCB";
-            BDateCB.Size = new Size(298, 23);
+            BDateCB.Size = new Size(153, 23);
             BDateCB.TabIndex = 102;
             // 
             // panel4
@@ -524,18 +529,18 @@
             // 
             label19.AutoSize = true;
             label19.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label19.Location = new Point(33, 267);
+            label19.Location = new Point(215, 192);
             label19.Name = "label19";
-            label19.Size = new Size(73, 18);
+            label19.Size = new Size(40, 18);
             label19.TabIndex = 92;
-            label19.Text = "Quantity";
+            label19.Text = "Qty.";
             label19.Click += label14_Click;
             // 
             // Quantity
             // 
-            Quantity.Location = new Point(107, 265);
+            Quantity.Location = new Point(257, 189);
             Quantity.Name = "Quantity";
-            Quantity.Size = new Size(223, 23);
+            Quantity.Size = new Size(75, 23);
             Quantity.TabIndex = 96;
             Quantity.TextChanged += SupName_TextChanged;
             // 
@@ -638,13 +643,63 @@
             label5.Size = new Size(0, 21);
             label5.TabIndex = 114;
             // 
+            // textBox1
+            // 
+            textBox1.BackColor = Color.Teal;
+            textBox1.BorderStyle = BorderStyle.None;
+            textBox1.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textBox1.ForeColor = Color.White;
+            textBox1.Location = new Point(34, 76);
+            textBox1.Multiline = true;
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(100, 43);
+            textBox1.TabIndex = 115;
+            textBox1.TextChanged += textBox1_TextChanged;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.BackColor = Color.FromArgb(192, 0, 0);
+            label6.Font = new Font("Consolas", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.ForeColor = Color.White;
+            label6.Location = new Point(33, 59);
+            label6.Name = "label6";
+            label6.Size = new Size(105, 15);
+            label6.TabIndex = 113;
+            label6.Text = "Monthly Sales:";
+            // 
+            // textBox2
+            // 
+            textBox2.BackColor = Color.Teal;
+            textBox2.BorderStyle = BorderStyle.None;
+            textBox2.Font = new Font("Arial Narrow", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textBox2.ForeColor = Color.White;
+            textBox2.Location = new Point(215, 76);
+            textBox2.Multiline = true;
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(100, 43);
+            textBox2.TabIndex = 116;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.BorderStyle = BorderStyle.Fixed3D;
+            pictureBox3.Location = new Point(32, 226);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(165, 123);
+            pictureBox3.TabIndex = 117;
+            pictureBox3.TabStop = false;
+            // 
             // Billing
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1057, 521);
+            Controls.Add(pictureBox3);
+            Controls.Add(textBox2);
+            Controls.Add(textBox1);
             Controls.Add(label5);
+            Controls.Add(label6);
             Controls.Add(label4);
             Controls.Add(button4);
             Controls.Add(button1);
@@ -687,6 +742,7 @@
             panel5.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -747,6 +803,10 @@
         private Button button4;
         private Label label4;
         private Label label5;
+        private TextBox textBox1;
+        private Label label6;
+        private TextBox textBox2;
+        private PictureBox pictureBox3;
         //  private TextBox QtyTb;
     }
 }

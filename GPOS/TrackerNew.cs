@@ -101,7 +101,7 @@ namespace GPOS
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string connectionString = "server=localhost; database=posdb; username=root; password=;";
+            string connectionString = "server=localhost; database=fabricdb; username=root; password=;";
             string sdate = txtDateFrom.Value.ToString("yyyy-MM-dd");
             string tdate = txtDateTo.Value.ToString("yyyy-MM-dd");
 
@@ -109,7 +109,7 @@ namespace GPOS
             label7.Text = TotalCost.ToString("F2"); // Format for currency display
             TCost = TotalCost.ToString();
         }
-        MySqlConnection con = new MySqlConnection("server=localhost; database=posdb; username=root; password=;");
+        MySqlConnection con = new MySqlConnection("server=localhost; database=fabricdb; username=root; password=;");
 
 
         private void button1_Click(object sender, EventArgs e)

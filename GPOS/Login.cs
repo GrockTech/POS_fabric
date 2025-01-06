@@ -42,7 +42,7 @@ namespace GPOS
                 MBox1.Show("Enter UserName and Password");
 
             }
-            else if (username == "sammyketewa" && pass == "ahavah1")
+            else if (username == "fabric" && pass == "store")
             {
                 Mainmenu Obj = new Mainmenu();
                 Obj.Show();

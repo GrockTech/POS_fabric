@@ -90,13 +90,13 @@ namespace GPOS
         }
 
 
-        MySqlConnection Con = new MySqlConnection("server=localhost; database=posdb; username=root; password=;");
+        MySqlConnection Con = new MySqlConnection("server=localhost; database=fabricdb; username=root; password=;");
 
         private decimal CalculateTotalPrices()
         {
             decimal totalPrice = 0m;
 
-            using (MySqlConnection con = new MySqlConnection("server=localhost; database=posdb; username=root; password=;"))
+            using (MySqlConnection con = new MySqlConnection("server=localhost; database=fabricdb; username=root; password=;"))
             {
                 string query = "SELECT PPrice, PQty FROM ProductTbl";
 
@@ -149,7 +149,7 @@ namespace GPOS
 
 
 
-            using (MySqlConnection con = new MySqlConnection("server=localhost; database=posdb; username=root; password=;"))
+            using (MySqlConnection con = new MySqlConnection("server=localhost; database=fabricdb; username=root; password=;"))
             {
                 string query = "SELECT SUM(Amt) AS TotalSales FROM BillT WHERE DATE(BDate) =  CURDATE()";
 
@@ -185,7 +185,7 @@ namespace GPOS
             {
                 string query = "SELECT * FROM producttbl WHERE PQty < 5";
 
-                using (MySqlConnection connection = new MySqlConnection("server=localhost; database=posdb; username=root; password=;"))
+                using (MySqlConnection connection = new MySqlConnection("server=localhost; database=fabricdb; username=root; password=;"))
                 {
                     MySqlCommand command = new MySqlCommand(query, connection);
                     connection.Open();
@@ -246,7 +246,7 @@ namespace GPOS
             decimal totalSales = 0m;
             int totalQuantity = 0;
 
-            using (MySqlConnection con = new MySqlConnection("server=localhost; database=posdb; username=root; password=;"))
+            using (MySqlConnection con = new MySqlConnection("server=localhost; database=fabricdb; username=root; password=;"))
             {
                 string query = "SELECT SUM(Amt) AS TotalSales,  FROM BillT WHERE MONTH(BDate) = MONTH(GETDATE()) AND YEAR(BDate) = YEAR(GETDATE())";
 

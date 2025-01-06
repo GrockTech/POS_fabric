@@ -29,7 +29,7 @@ namespace GPOS.Properties
         {
             this.Close();
         }
-        MySqlConnection Con = new MySqlConnection("server=localhost; database=posdb; username=root; password=;");
+        MySqlConnection Con = new MySqlConnection("server=localhost; database=fabricdb; username=root; password=;");
 
         private void button1_Click(object sender, EventArgs e)
         {

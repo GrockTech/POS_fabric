@@ -19,7 +19,7 @@ namespace GPOS
             InitializeComponent();
             CheckStock();
         }
-        MySqlConnection Con = new MySqlConnection("server=localhost; database=posdb; username=root; password=;");
+        MySqlConnection Con = new MySqlConnection("server=localhost; database=fabricdb; username=root; password=;");
 
         private void CheckStock()
         {

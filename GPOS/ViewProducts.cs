@@ -20,7 +20,7 @@ namespace GPOS
             DisplayProducts();
             ProductDGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             ProductDGV.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;
-           ProductDGV.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
+            ProductDGV.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
         }
 
         private void ViewProducts_Load(object sender, EventArgs e)
@@ -38,15 +38,13 @@ namespace GPOS
             obj.Show();
             this.Hide();
         }
-        //  SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\GidCode\Desktop\CodeMe\GPOSDB.mdf;Integrated Security=True;Connect Timeout=30");
-        // SqlConnection Con = new SqlConnection(Data Source="DESKTOP-NQAIIND\SQLEXPRESS; Initial Catalog=mydb; Integrated Security = True; Connect Timeout = 30; ");
-        //  SqlConnection Con = new SqlConnection(@"Data Source=DESKTOP-NQAIIND\SQLEXPRESS; Initial Catalog=mydb; Integrated Security = True; Connect Timeout = 30; ");
-        MySqlConnection Con = new MySqlConnection("server=localhost; database=posdb; username=root; password=;");
+        
+        MySqlConnection Con = new MySqlConnection("server=localhost; database=fabricdb; username=root; password=;");
 
         private void DisplayProducts()
         {
             Con.Open();
-            string Query = "select * from ProductTbl";
+            string Query = "select PId, PName, Pcat, color, width, Pprice, PQty from ProductTbl";
 
             //SqlCommandBuilder builder = new SqlCommandBuilder(adapter);
             MySqlCommand cmd = new MySqlCommand(Query, Con);
@@ -106,15 +104,13 @@ namespace GPOS
             // setting data in datagrid to fit text box for edit RESPECTIVELY 
             PnameTb.Text = ProductDGV.SelectedRows[0].Cells[1].Value?.ToString();
             PcatCB.SelectedItem = ProductDGV.SelectedRows[0].Cells[2].Value?.ToString();
-            PriceTb.Text = ProductDGV.SelectedRows[0].Cells[3].Value?.ToString();
-            QtyTb.Text = ProductDGV.SelectedRows[0].Cells[4].Value?.ToString();
-            string expiry = dateTimePicker1.Value.ToString();
-            string selectedDate = ProductDGV.SelectedRows[0].Cells[5].Value?.ToString();
-           // dateTimePicker1.Value = selectedDate;
-           
-                // dateTimePicker1.Value = selectedDateUpdate.Date;
-                expiry = selectedDate;
-            
+            PriceTb.Text = ProductDGV.SelectedRows[0].Cells[5].Value?.ToString();
+            txtwidth.Text = ProductDGV.SelectedRows[0].Cells[4].Value?.ToString();
+            txtfcolour.Text = ProductDGV.SelectedRows[0].Cells[3].Value?.ToString();
+
+            QtyTb.Text = ProductDGV.SelectedRows[0].Cells[6].Value?.ToString();
+     
+
 
             if (PnameTb.Text == "")
             {
@@ -137,8 +133,14 @@ namespace GPOS
         private void button1_Click(object sender, EventArgs e)
         {
             //edit button
+            string colour;
+            //float width;
+            colour = txtfcolour.Text;
 
-            if (PnameTb.Text == "" ||  PriceTb.Text == "" || QtyTb.Text == "")
+            double width;
+            width = double.Parse(txtwidth.Text); 
+           // float width = (float)Convert.ToDouble(txtwidth.Text);
+            if (PnameTb.Text == "" || PriceTb.Text == "" || QtyTb.Text == "")
             {
                 MBox1.Show("Select the product or product category ");
             }
@@ -148,15 +150,16 @@ namespace GPOS
                 {
                     // we open db connection 
                     Con.Open();
-                    MySqlCommand cmd = new MySqlCommand(" Update ProductTbl set PName = @PN,Pcat=@PC,Pprice = @PP,  expiry_date=@DD, pQty = @PQ where PId = @Pkey", Con);
+                    MySqlCommand cmd = new MySqlCommand("UPDATE ProductTbl SET PName = @PN, Pcat = @PC, color = @FC, width = @FW, Pprice = @PP, pQty = @PQ WHERE PId = @Pkey", Con);
                     cmd.Parameters.AddWithValue("@PN", PnameTb.Text);
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
-                    cmd.Parameters.AddWithValue("@PC", PcatCB.SelectedItem.ToString());
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
+                    cmd.Parameters.AddWithValue("@PC", PcatCB.SelectedItem?.ToString()); // Added null conditional operator
+                    cmd.Parameters.AddWithValue("@FC", colour);
+                    cmd.Parameters.AddWithValue("@FW", width);
                     cmd.Parameters.AddWithValue("@PP", PriceTb.Text);
                     cmd.Parameters.AddWithValue("@PQ", QtyTb.Text);
                     cmd.Parameters.AddWithValue("@Pkey", keyMain);
-                    cmd.Parameters.AddWithValue("DD", dateTimePicker1);
+
+
 
                     cmd.ExecuteNonQuery();
                     MBox1.Show("Product Updated");
@@ -165,12 +168,13 @@ namespace GPOS
                     //  Reset();
                     PnameTb.Clear();
                     PriceTb.Clear();
-                    QtyTb.Clear();  
+                    QtyTb.Clear();
                     //PcatCB.Items.Clear();
                 }
                 catch (Exception Ex)
                 {
-                    MBox1.Show(Ex.Message);
+                    //   MBox1.Show(Ex.Message);
+                    MessageBox.Show(Ex.Message.ToString());
                 }
             }
 
@@ -227,6 +231,11 @@ namespace GPOS
         {
             DisplayProducts();
             txtSearch.Text = "";
+        }
+
+        private void label4_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
